@@ -1,0 +1,19 @@
+{
+    "apiKey": "your_langgraph_api_key",
+    "dataFolder": "data",
+    "logLevel": "info",
+    "settings": {
+        "enableCaching": true,
+        "cacheDuration": 3600
+    },
+    "integrations": {
+        "openai": {
+            "apiKey": "your_openai_api_key",
+            "model": "gpt-4"
+        }
+    },
+    "endpoints": {
+        "studio": "https://studio.langgraph.com",
+        "cloud": "https://cloud.langgraph.com"
+    }
+}
