@@ -1,0 +1,29 @@
+[project]
+name = "contract-automation"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Neuronspeeed", email = "neuronspeeed@gmail.com" }
+]
+dependencies = [
+    "langgraph>=0.2.34",
+    "typing>=3.7.4.3",
+    "ipynb>=0.5.1",
+    "ipykernel>=6.29.5",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/contract_automation"]
