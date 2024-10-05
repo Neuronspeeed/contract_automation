@@ -21,6 +21,8 @@ annotated-types==0.7.0
 anyio==4.6.0
     # via httpx
     # via openai
+appnope==0.1.4
+    # via ipykernel
 asttokens==2.4.1
     # via stack-data
 attrs==24.2.0
@@ -31,9 +33,6 @@ certifi==2024.8.30
     # via requests
 charset-normalizer==3.3.2
     # via requests
-colorama==0.4.6
-    # via ipython
-    # via tqdm
 comm==0.2.2
     # via ipykernel
 debugpy==1.8.6
@@ -47,8 +46,6 @@ executing==2.1.0
 frozenlist==1.4.1
     # via aiohttp
     # via aiosignal
-greenlet==3.1.1
-    # via sqlalchemy
 h11==0.14.0
     # via httpcore
 httpcore==1.0.6
@@ -119,17 +116,26 @@ orjson==3.10.7
 packaging==24.1
     # via ipykernel
     # via langchain-core
+    # via pytesseract
 parso==0.8.4
     # via jedi
+pexpect==4.9.0
+    # via ipython
+pillow==10.4.0
+    # via contract-automation
+    # via pytesseract
 platformdirs==4.3.6
     # via jupyter-core
 prompt-toolkit==3.0.48
     # via ipython
 psutil==6.0.0
     # via ipykernel
+ptyprocess==0.7.0
+    # via pexpect
 pure-eval==0.2.3
     # via stack-data
 pydantic==2.9.2
+    # via contract-automation
     # via langchain
     # via langchain-core
     # via langsmith
@@ -138,12 +144,12 @@ pydantic-core==2.23.4
     # via pydantic
 pygments==2.18.0
     # via ipython
+pytesseract==0.3.13
+    # via contract-automation
 python-dateutil==2.9.0.post0
     # via jupyter-client
 python-dotenv==1.0.1
     # via contract-automation
-pywin32==306
-    # via jupyter-core
 pyyaml==6.0.2
     # via langchain
     # via langchain-core
