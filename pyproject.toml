@@ -17,6 +17,9 @@ dependencies = [
     "pydantic>=2.9.2",
     "pytesseract>=0.3.13",
     "pillow>=10.4.0",
+    "config>=0.5.1",
+    "aiofiles>=24.1.0",
+    "langchain-community>=0.3.1",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"

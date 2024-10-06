@@ -1,0 +1,10 @@
+{
+    "name": "contract_automation",
+    "version": "1.0.0",
+    "description": "Contract automation project using LangGraph",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "dependencies": {}
+  }

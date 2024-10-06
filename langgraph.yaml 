@@ -1,0 +1,17 @@
+name: contract_automation
+node_version: "20"
+dependencies:
+  - langgraph
+  - typing
+  - ipynb
+  - ipykernel
+  - python-dotenv
+  - langchain
+  - openai
+  - langchain-openai
+  - pydantic
+  - pytesseract
+  - pillow
+  - config
+  - aiofiles
+  - langchain-community
