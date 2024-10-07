@@ -20,6 +20,10 @@ dependencies = [
     "config>=0.5.1",
     "aiofiles>=24.1.0",
     "langchain-community>=0.3.1",
+    "pdf2image>=1.17.0",
+    "pymupdf>=1.24.11",
+    "pypdf2>=3.0.1",
+    "easyocr>=1.7.2",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
