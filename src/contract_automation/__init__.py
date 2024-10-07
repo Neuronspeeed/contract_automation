@@ -1,2 +1,3 @@
-def hello() -> str:
-    return "Hello from contract-automation!"
+from .main import run_contract_automation
+
+__all__ = ["run_contract_automation"]
