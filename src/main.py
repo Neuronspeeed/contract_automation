@@ -23,8 +23,7 @@ async def run_graph():
             print("\nExtracted Texts:")
             for filename, text in result_state.extracted_texts.items():
                 print(f"File: {filename}")
-                print(f"Text Extract: {text[:100]}...")  # Print the first 100 characters of each text
-
+                print(f"Text Extract: {text[:100]}...")  
     except Exception as e:
         print(f"Error during graph execution: {str(e)}")
 
