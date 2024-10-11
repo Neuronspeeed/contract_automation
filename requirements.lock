@@ -24,8 +24,6 @@ annotated-types==0.7.0
 anyio==4.6.0
     # via httpx
     # via openai
-appnope==0.1.4
-    # via ipykernel
 asttokens==2.4.1
     # via stack-data
 attrs==24.2.0
@@ -36,6 +34,9 @@ certifi==2024.8.30
     # via requests
 charset-normalizer==3.3.2
     # via requests
+colorama==0.4.6
+    # via ipython
+    # via tqdm
 comm==0.2.2
     # via ipykernel
 config==0.5.1
@@ -59,6 +60,8 @@ frozenlist==1.4.1
     # via aiosignal
 fsspec==2024.9.0
     # via torch
+greenlet==3.1.1
+    # via sqlalchemy
 h11==0.14.0
     # via httpcore
 httpcore==1.0.6
@@ -172,8 +175,6 @@ parso==0.8.4
     # via jedi
 pdf2image==1.17.0
     # via contract-automation
-pexpect==4.9.0
-    # via ipython
 pillow==10.4.0
     # via contract-automation
     # via easyocr
@@ -188,8 +189,6 @@ prompt-toolkit==3.0.48
     # via ipython
 psutil==6.0.0
     # via ipykernel
-ptyprocess==0.7.0
-    # via pexpect
 pure-eval==0.2.3
     # via stack-data
 pyclipper==1.3.0.post5
@@ -220,6 +219,8 @@ python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
     # via contract-automation
     # via pydantic-settings
+pywin32==307
+    # via jupyter-core
 pyyaml==6.0.2
     # via easyocr
     # via langchain
