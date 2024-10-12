@@ -33,7 +33,10 @@ certifi==2024.8.30
     # via httpcore
     # via httpx
     # via requests
+cffi==1.17.1
+    # via cryptography
 charset-normalizer==3.3.2
+    # via pdfminer-six
     # via requests
 click==8.1.7
     # via typer
@@ -45,6 +48,8 @@ comm==0.2.2
     # via ipykernel
 config==0.5.1
     # via contract-automation
+cryptography==43.0.1
+    # via pdfminer-six
 dataclasses-json==0.6.7
     # via langchain-community
 debugpy==1.8.6
@@ -189,11 +194,16 @@ parso==0.8.4
     # via jedi
 pdf2image==1.17.0
     # via contract-automation
+pdfminer-six==20231228
+    # via pdfplumber
+pdfplumber==0.11.4
+    # via contract-automation
 pillow==10.4.0
     # via contract-automation
     # via easyocr
     # via imageio
     # via pdf2image
+    # via pdfplumber
     # via pytesseract
     # via scikit-image
     # via torchvision
@@ -207,6 +217,8 @@ pure-eval==0.2.3
     # via stack-data
 pyclipper==1.3.0.post5
     # via easyocr
+pycparser==2.22
+    # via cffi
 pydantic==2.9.2
     # via contract-automation
     # via instructor
@@ -227,6 +239,8 @@ pymupdf==1.24.11
     # via contract-automation
 pypdf2==3.0.1
     # via contract-automation
+pypdfium2==4.30.0
+    # via pdfplumber
 pytesseract==0.3.13
     # via contract-automation
 python-bidi==0.6.0
