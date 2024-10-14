@@ -46,6 +46,10 @@ async def agent_workflow():
             state.contract_details = determine_contract_details(state.parties, contract_type)
         
         elif action.action == "construct_contract":
+            if not state.contract_details:
+                print("Contract details not determined yet. Please determine contract type first.")
+                continue
+            
             template_filename = f"{state.contract_details.contract_type}.txt"
             if template_filename not in templates:
                 print(f"No template found for {state.contract_details.contract_type}. Available templates: {', '.join(templates.keys())}")
@@ -59,6 +63,8 @@ async def agent_workflow():
         
         else:
             print(f"Unknown action: {action.action}")
+        
+        print(f"Completed action: {action.action}")
 
     if state.contract:
         print("\nContract constructed:")

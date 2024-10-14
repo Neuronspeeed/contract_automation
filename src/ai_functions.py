@@ -2,7 +2,7 @@ import os
 from openai import OpenAI
 from typing import List, Dict
 from pydantic import ValidationError
-from models import ContractParties, Contract, PIIData
+from models import ContractParties, Contract, PIIData, AgentState, AgentAction, ContractDetails
 from config import API_KEY, SYSTEM_PROMPT
 import instructor
 import logging
@@ -136,7 +136,7 @@ def agent_action(state: AgentState) -> AgentAction:
         model="gpt-4",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"Current state: {state.dict()}\nWhat action should be taken next?"}
+            {"role": "user", "content": f"Current state: {state.dict()}\nWhat action should be taken next? Choose from: extract_pii, identify_parties, determine_contract_type, construct_contract, finish"}
         ],
         response_model=AgentAction
     )
