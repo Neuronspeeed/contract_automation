@@ -151,19 +151,36 @@ def agent_action(state: AgentState) -> AgentAction:
 def determine_contract_details(parties: ContractParties, contract_type: str) -> ContractDetails:
     try:
         role_prompt = {
-            "airbnb": "Who is the host (property owner) and who is the guest?",
-            "buy-sell": "Who is the seller and who is the buyer?",
-            "it-consulting": "Who is providing the IT consulting services and who is the client?"
+            "airbnb": f"For an Airbnb contract between {parties.buyer} and {parties.seller}, who is the host (property owner) and who is the guest? Respond in JSON format with keys 'host' and 'guest'.",
+            "buy-sell": f"For a buy-sell contract between {parties.buyer} and {parties.seller}, confirm who is the seller and who is the buyer. Respond in JSON format with keys 'seller' and 'buyer'.",
+            "it-consulting": f"For an IT consulting contract between {parties.buyer} and {parties.seller}, who is providing the IT consulting services and who is the client? Respond in JSON format with keys 'consultant' and 'client'."
         }
         
-        return client.chat.completions.create(
+        response = client.chat.completions.create(
             model="gpt-4",
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": f"Determine the contract details for a {contract_type} contract between {parties.buyer} and {parties.seller}. {role_prompt.get(contract_type, '')} Please provide the roles in a JSON format with keys 'host' and 'guest' for Airbnb, 'seller' and 'buyer' for buy-sell, or 'consultant' and 'client' for IT consulting."}
+                {"role": "user", "content": role_prompt.get(contract_type, f"Determine the roles for a {contract_type} contract between {parties.buyer} and {parties.seller}. Respond in JSON format.")}
             ],
             response_model=ContractDetails
         )
+        
+        # Ensure the roles are assigned in the additional_info field
+        if not response.additional_info:
+            response.additional_info = {}
+        
+        # If the AI didn't provide roles, assign default roles
+        if contract_type == "airbnb" and ("host" not in response.additional_info or "guest" not in response.additional_info):
+            response.additional_info["host"] = parties.seller
+            response.additional_info["guest"] = parties.buyer
+        elif contract_type == "buy-sell" and ("seller" not in response.additional_info or "buyer" not in response.additional_info):
+            response.additional_info["seller"] = parties.seller
+            response.additional_info["buyer"] = parties.buyer
+        elif contract_type == "it-consulting" and ("consultant" not in response.additional_info or "client" not in response.additional_info):
+            response.additional_info["consultant"] = parties.seller
+            response.additional_info["client"] = parties.buyer
+        
+        return response
     except Exception as e:
         logging.error(f"Error in determine_contract_details: {str(e)}")
         raise

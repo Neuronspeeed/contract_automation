@@ -61,13 +61,13 @@ async def agent_workflow():
                     if roles:
                         for role, name in roles.items():
                             print(f"{role.capitalize()}: {name}")
+                        confirmation = input("Is this role assignment correct? (yes/no): ").lower()
+                        if confirmation == 'yes':
+                            break
+                        else:
+                            state.contract_details = None
                     else:
-                        print("No roles assigned.")
-                    confirmation = input("Is this role assignment correct? (yes/no): ").lower()
-                    if confirmation == 'yes':
-                        break
-                    else:
-                        state.contract_details = None
+                        print("Error: No roles assigned. Please try again.")
                 else:
                     print(f"No template found for {contract_type}. Available templates: {', '.join(templates.keys())}")
         
