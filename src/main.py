@@ -42,16 +42,25 @@ async def agent_workflow():
             state.parties = identify_parties(state.verified_pii_data)
         
         elif action.action == "determine_contract_type":
-            contract_type = input("Enter contract type (airbnb, buy-sell, it-consulting): ").lower().replace(" ", "-")
-            state.contract_details = determine_contract_details(state.parties, contract_type)
+            if state.contract_details and state.contract_details.contract_type:
+                print(f"Contract type already determined: {state.contract_details.contract_type}")
+                continue
+            while True:
+                contract_type = input("Enter contract type (airbnb, buy-sell, it-consulting): ").lower().replace(" ", "-")
+                template_filename = next((t for t in templates.keys() if contract_type in t.lower()), None)
+                if template_filename:
+                    state.contract_details = determine_contract_details(state.parties, contract_type)
+                    break
+                else:
+                    print(f"No template found for {contract_type}. Available templates: {', '.join(templates.keys())}")
         
         elif action.action == "construct_contract":
             if not state.contract_details:
                 print("Contract details not determined yet. Please determine contract type first.")
                 continue
             
-            template_filename = f"{state.contract_details.contract_type}.txt"
-            if template_filename not in templates:
+            template_filename = next((t for t in templates.keys() if state.contract_details.contract_type in t.lower()), None)
+            if not template_filename:
                 print(f"No template found for {state.contract_details.contract_type}. Available templates: {', '.join(templates.keys())}")
                 continue
             
