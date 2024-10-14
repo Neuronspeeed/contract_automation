@@ -17,14 +17,6 @@ def get_documents() -> List[str]:
         for f in all_files
         if f.lower().endswith(('.pdf', '.jpg', '.jpeg', '.png', '.txt'))
     ]
-    print(f"Total files in {DATA_FOLDER}: {len(all_files)}")
-    if all_files:
-        print(f"Files found: {all_files}")
-        print(f"Documents to process: {len(documents)}")
-        if not documents:
-            print("Warning: No files with supported extensions (.pdf, .jpg, .jpeg, .png, .txt) found.")
-    else:
-        print(f"The {DATA_FOLDER} folder is empty.")
     return documents
 
 async def extract_text(file_path: str) -> str:
@@ -49,7 +41,6 @@ async def extract_text(file_path: str) -> str:
                 return await f.read()
         except Exception as e:
             return f"Error reading file: {str(e)}"
-
 async def process_documents() -> Dict[str, str]:
     documents = get_documents()
     results = {}
@@ -60,3 +51,26 @@ async def process_documents() -> Dict[str, str]:
         except Exception as e:
             results[os.path.basename(doc)] = f"Error processing file: {str(e)}"
     return results
+
+def load_templates(folder_path: str) -> Dict[str, Dict[str, str]]:
+    templates = {}
+    for filename in os.listdir(folder_path):
+        if filename.endswith('.txt'):
+            with open(os.path.join(folder_path, filename), 'r') as file:
+                content = file.read()
+                
+                # Extract metadata from the first few lines (e.g., lines starting with "#")
+                metadata = {}
+                lines = content.splitlines()
+                body_start = 0
+                for i, line in enumerate(lines):
+                    if line.startswith("#"):
+                        key, _, value = line[1:].partition(":")
+                        metadata[key.strip()] = value.strip()
+                    else:
+                        body_start = i
+                        break
+
+                template_body = "\n".join(lines[body_start:])
+                templates[filename] = {"metadata": metadata, "content": template_body}
+    return templates

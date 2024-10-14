@@ -1,4 +1,4 @@
-from src.models import PIIData
+from models import PIIData
 
 def verify_information(pii: PIIData) -> bool:
     print(f"Please verify the following information:")

@@ -1,47 +1,73 @@
 import asyncio
 import nest_asyncio
-from src.document_processing import process_documents
-from src.ai_functions import extract_pii, identify_parties, construct_contract
-from src.utils import verify_information
-from src.models import PIIData
+import logging
+import os
+import traceback
+from document_processing import process_documents, load_templates
+from ai_functions import extract_pii, identify_parties, construct_contract, agent_action, determine_contract_details
+from utils import verify_information
+from models import PIIData, ContractParties, Contract, AgentState
+from config import TEMPLATES_FOLDER
 
-# Apply nest_asyncio
+# Apply nest_asyncio to allow nested asyncio calls
 nest_asyncio.apply()
 
+# Maximum number of retries allowed during PII verification
+MAX_RETRIES = 3
+
+# Set up logging
+logging.basicConfig(filename='agent_workflow.log', level=logging.DEBUG, 
+                    format='%(asctime)s - %(levelname)s - %(message)s')
+
+print(f"Current working directory: {os.getcwd()}")
+print(f"Templates folder path: {os.path.abspath(TEMPLATES_FOLDER)}")
+
 async def agent_workflow():
-    # Process documents
+    templates = load_templates(TEMPLATES_FOLDER)
     documents = await process_documents()
     print("Documents processed.")
 
-    # Extract PII and address, verify with human input
-    verified_pii_data = []
-    for doc, text in documents.items():
-        print(f"Processing document: {doc}")
-        while True:
-            pii = extract_pii(text)
-            if verify_information(pii):
-                verified_pii_data.append(pii)
-                break
-            else:
-                print("Please provide the correct information:")
-                name = input("Name: ")
-                address = input("Address: ")
-                pii = PIIData(name=name, address=address)
+    state = AgentState()
+
+    while True:
+        action = agent_action(state)
+        
+        if action.action == "extract_pii":
+            for doc, text in documents.items():
+                pii = extract_pii(text)
                 if verify_information(pii):
-                    verified_pii_data.append(pii)
-                    break
+                    state.verified_pii_data.append(pii)
+        
+        elif action.action == "identify_parties":
+            state.parties = identify_parties(state.verified_pii_data)
+        
+        elif action.action == "determine_contract_type":
+            contract_type = input("Enter contract type (airbnb, buy-sell, it-consulting): ").lower().replace(" ", "-")
+            state.contract_details = determine_contract_details(state.parties, contract_type)
+        
+        elif action.action == "construct_contract":
+            template_filename = f"{state.contract_details.contract_type}.txt"
+            if template_filename not in templates:
+                print(f"No template found for {state.contract_details.contract_type}. Available templates: {', '.join(templates.keys())}")
+                continue
+            
+            selected_template = templates[template_filename]['content']
+            state.contract = construct_contract(state.parties, state.verified_pii_data[0].address, selected_template, state.contract_details)
+        
+        elif action.action == "finish":
+            break
+        
+        else:
+            print(f"Unknown action: {action.action}")
 
-    # Identify buyer and seller
-    parties = identify_parties(verified_pii_data)
-    print(f"\nParties identified - Buyer: {parties.buyer}, Seller: {parties.seller}")
-
-    # Construct contract
-    contract = construct_contract(parties, verified_pii_data[0].address)
-    print("\nContract constructed:")
-    print(f"Buyer: {contract.buyer}")
-    print(f"Seller: {contract.seller}")
-    print(f"Address: {contract.address}")
-    print(f"Terms: {contract.terms}")
+    if state.contract:
+        print("\nContract constructed:")
+        print(f"Buyer: {state.contract.buyer}")
+        print(f"Seller: {state.contract.seller}")
+        print(f"Address: {state.contract.address}")
+        print(f"Terms: {state.contract.terms}")
+    else:
+        print("No contract was constructed.")
 
 if __name__ == "__main__":
     asyncio.run(agent_workflow())

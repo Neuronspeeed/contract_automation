@@ -1,5 +1,6 @@
 from instructor import OpenAISchema
 from pydantic import Field
+from typing import List, Optional, Dict
 
 class PIIData(OpenAISchema):
     name: str = Field(..., description="Full name of the person")
@@ -14,3 +15,18 @@ class Contract(OpenAISchema):
     seller: str = Field(..., description="Name of the seller")
     address: str = Field(..., description="Address where the contract is applicable")
     terms: str = Field(..., description="Terms of the contract")
+
+class ContractDetails(OpenAISchema):
+    contract_type: str = Field(..., description="Type of contract (e.g., airbnb, buy-sell, it-consulting)")
+    additional_info: Dict[str, str] = Field(default_factory=dict, description="Additional information specific to the contract type")
+
+class AgentAction(OpenAISchema):
+    action: str = Field(..., description="Action to be performed by the agent")
+    parameters: Dict[str, str] = Field(default_factory=dict, description="Parameters for the action")
+
+class AgentState(OpenAISchema):
+    verified_pii_data: List[PIIData] = Field(default_factory=list)
+    parties: Optional[ContractParties] = None
+    contract_details: Optional[ContractDetails] = None
+    contract: Optional[Contract] = None
+    current_action: Optional[AgentAction] = None

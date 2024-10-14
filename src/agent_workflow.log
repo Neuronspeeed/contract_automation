@@ -1,0 +1,1034 @@
+2024-10-14 13:40:47,819 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:41:10,056 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:41:36,318 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:42:09,589 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:42:18,562 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:42:50,299 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:42:58,339 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:42:59,599 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 13:42:59,599 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 13:42:59,922 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 13:43:19,660 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:43:20,939 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 13:43:20,940 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 13:43:21,274 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 13:43:21,278 - DEBUG - Using proactor: IocpProactor
+2024-10-14 13:44:39,462 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:44:40,741 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 13:44:40,742 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 13:44:41,067 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 13:44:41,067 - DEBUG - Using proactor: IocpProactor
+2024-10-14 13:44:48,782 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:44:50,044 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 13:44:50,044 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 13:44:50,368 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 13:44:50,368 - DEBUG - Using proactor: IocpProactor
+2024-10-14 13:44:50,372 - INFO - Template selected based on metadata: airbnb.txt
+2024-10-14 13:44:50,423 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:44:50,423 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:44:50,423 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:44:50,423 - DEBUG - Compression method 0
+2024-10-14 13:44:50,423 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:44:50,423 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:44:50,423 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:44:50,423 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:44:50,423 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:44:50,423 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:44:50,423 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:44:50,423 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:44:50,423 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:44:50,424 - DEBUG - Compression method 0
+2024-10-14 13:44:50,424 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:44:50,424 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:44:50,424 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:44:50,424 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:44:50,424 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:44:50,424 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:44:50,435 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:44:50,435 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:44:50,435 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:44:50,435 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:44:50,436 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:44:52,427 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:44:52,427 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:44:52,427 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:44:52,427 - DEBUG - Compression method 0
+2024-10-14 13:44:52,427 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:44:52,427 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:44:52,427 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:44:52,427 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:44:52,427 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:44:52,427 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:44:52,427 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:44:52,427 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:44:52,427 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:44:52,427 - DEBUG - Compression method 0
+2024-10-14 13:44:52,427 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:44:52,427 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:44:52,427 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:44:52,427 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:44:52,427 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:44:52,427 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:44:52,445 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:44:52,445 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:44:52,445 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:44:52,445 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:44:52,446 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:46:10,517 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:46:11,788 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 13:46:11,789 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 13:46:12,113 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 13:46:12,114 - DEBUG - Using proactor: IocpProactor
+2024-10-14 13:46:12,119 - INFO - Template selected based on metadata: airbnb.txt
+2024-10-14 13:46:12,134 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:46:12,135 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:46:12,135 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:46:12,135 - DEBUG - Compression method 0
+2024-10-14 13:46:12,135 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:46:12,135 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:46:12,135 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:46:12,135 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:46:12,135 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:46:12,135 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:46:12,135 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:46:12,135 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:46:12,135 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:46:12,135 - DEBUG - Compression method 0
+2024-10-14 13:46:12,135 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:46:12,135 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:46:12,135 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:46:12,135 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:46:12,135 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:46:12,135 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:46:12,145 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:46:12,145 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:46:12,145 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:46:12,145 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:46:12,146 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:46:14,129 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:46:14,129 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:46:14,129 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:46:14,129 - DEBUG - Compression method 0
+2024-10-14 13:46:14,129 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:46:14,129 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:46:14,129 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:46:14,129 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:46:14,129 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:46:14,129 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:46:14,129 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:46:14,129 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:46:14,129 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:46:14,129 - DEBUG - Compression method 0
+2024-10-14 13:46:14,129 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:46:14,129 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:46:14,129 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:46:14,129 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:46:14,129 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:46:14,129 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:46:14,146 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:46:14,146 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:46:14,146 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:46:14,146 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:46:14,147 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:46:26,165 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:46:27,417 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 13:46:27,417 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 13:46:27,732 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 13:46:27,733 - DEBUG - Using proactor: IocpProactor
+2024-10-14 13:46:27,737 - INFO - Template selected based on metadata: airbnb.txt
+2024-10-14 13:46:27,753 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:46:27,753 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:46:27,753 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:46:27,753 - DEBUG - Compression method 0
+2024-10-14 13:46:27,753 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:46:27,753 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:46:27,753 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:46:27,753 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:46:27,753 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:46:27,753 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:46:27,753 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:46:27,753 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:46:27,753 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:46:27,753 - DEBUG - Compression method 0
+2024-10-14 13:46:27,754 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:46:27,754 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:46:27,754 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:46:27,754 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:46:27,754 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:46:27,754 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:46:27,763 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:46:27,763 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:46:27,763 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:46:27,763 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:46:27,764 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:46:29,758 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:46:29,758 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:46:29,758 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:46:29,758 - DEBUG - Compression method 0
+2024-10-14 13:46:29,758 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:46:29,758 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:46:29,758 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:46:29,758 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:46:29,758 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:46:29,758 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:46:29,759 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:46:29,759 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:46:29,759 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:46:29,759 - DEBUG - Compression method 0
+2024-10-14 13:46:29,759 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:46:29,759 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:46:29,759 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:46:29,759 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:46:29,759 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:46:29,759 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:46:29,776 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:46:29,776 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:46:29,776 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:46:29,776 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:46:29,777 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:47:02,877 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:47:04,164 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 13:47:04,165 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 13:47:04,489 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 13:47:04,489 - DEBUG - Using proactor: IocpProactor
+2024-10-14 13:47:04,494 - INFO - Template selected based on metadata: airbnb.txt
+2024-10-14 13:47:04,508 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:47:04,509 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:47:04,509 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:47:04,509 - DEBUG - Compression method 0
+2024-10-14 13:47:04,509 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:47:04,509 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:47:04,509 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:47:04,509 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:47:04,509 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:47:04,509 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:47:04,509 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:47:04,509 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:47:04,509 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:47:04,509 - DEBUG - Compression method 0
+2024-10-14 13:47:04,510 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:47:04,510 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:47:04,510 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:47:04,510 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:47:04,510 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:47:04,510 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:47:04,520 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:47:04,520 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:47:04,520 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:47:04,520 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:47:04,520 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:47:06,501 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:47:06,501 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:47:06,501 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:47:06,501 - DEBUG - Compression method 0
+2024-10-14 13:47:06,501 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:47:06,501 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:47:06,501 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:47:06,501 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:47:06,501 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:47:06,501 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:47:06,501 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:47:06,501 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:47:06,501 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:47:06,501 - DEBUG - Compression method 0
+2024-10-14 13:47:06,501 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:47:06,501 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:47:06,501 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:47:06,501 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:47:06,501 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:47:06,501 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:47:06,519 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:47:06,519 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:47:06,519 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:47:06,519 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:47:06,520 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:47:20,942 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:47:22,209 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 13:47:22,209 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 13:47:22,533 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 13:47:22,534 - DEBUG - Using proactor: IocpProactor
+2024-10-14 13:47:22,540 - INFO - Template selected based on metadata: airbnb.txt
+2024-10-14 13:47:22,556 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:47:22,557 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:47:22,557 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:47:22,557 - DEBUG - Compression method 0
+2024-10-14 13:47:22,557 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:47:22,557 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:47:22,557 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:47:22,557 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:47:22,557 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:47:22,557 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:47:22,557 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:47:22,557 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:47:22,557 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:47:22,557 - DEBUG - Compression method 0
+2024-10-14 13:47:22,557 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:47:22,557 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:47:22,557 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:47:22,557 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:47:22,557 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:47:22,557 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:47:22,567 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:47:22,567 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:47:22,567 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:47:22,567 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:47:22,567 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:47:24,615 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:47:24,615 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:47:24,615 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:47:24,615 - DEBUG - Compression method 0
+2024-10-14 13:47:24,615 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:47:24,615 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:47:24,615 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:47:24,615 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:47:24,615 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:47:24,615 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:47:24,615 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:47:24,615 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:47:24,615 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:47:24,615 - DEBUG - Compression method 0
+2024-10-14 13:47:24,615 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:47:24,616 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:47:24,616 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:47:24,616 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:47:24,616 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:47:24,616 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:47:24,633 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:47:24,633 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:47:24,633 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:47:24,633 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:47:24,634 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:48:57,860 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:48:59,124 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 13:48:59,125 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 13:48:59,452 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 13:48:59,453 - DEBUG - Using proactor: IocpProactor
+2024-10-14 13:48:59,458 - INFO - Template selected based on metadata: airbnb.txt
+2024-10-14 13:48:59,472 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:48:59,472 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:48:59,472 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:48:59,472 - DEBUG - Compression method 0
+2024-10-14 13:48:59,472 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:48:59,472 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:48:59,472 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:48:59,472 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:48:59,472 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:48:59,472 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:48:59,473 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:48:59,473 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:48:59,473 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:48:59,473 - DEBUG - Compression method 0
+2024-10-14 13:48:59,473 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:48:59,473 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:48:59,473 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:48:59,473 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:48:59,473 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:48:59,473 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:48:59,482 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:48:59,482 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:48:59,482 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:48:59,483 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:48:59,483 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:49:01,481 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:49:01,481 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:49:01,481 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:49:01,481 - DEBUG - Compression method 0
+2024-10-14 13:49:01,481 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:49:01,481 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:49:01,481 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:49:01,481 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:49:01,481 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:49:01,481 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:49:01,481 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:49:01,481 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:49:01,481 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:49:01,481 - DEBUG - Compression method 0
+2024-10-14 13:49:01,482 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:49:01,482 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:49:01,482 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:49:01,482 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:49:01,482 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:49:01,482 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:49:01,499 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:49:01,499 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:49:01,499 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:49:01,499 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:49:01,500 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:49:04,037 - DEBUG - Document content: ROUMANIE ROMAWI ROMANIA Carte CARTE De |Dentitate IDEnTITY D'iDENTITE seria TR Na 409131 CarD cNP 18...
+2024-10-14 13:49:04,037 - ERROR - PII extraction error: name 'ChatCompletion' is not defined
+2024-10-14 13:49:04,037 - DEBUG - Document content: ROUMANIE ROVIAINIA ROMANIA Carte Carte DE iDentitate IdEnTITY Didentite seala SS Nr 099994 Card CNP ...
+2024-10-14 13:49:04,037 - ERROR - PII extraction error: name 'ChatCompletion' is not defined
+2024-10-14 13:50:37,123 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:50:38,379 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 13:50:38,380 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 13:50:38,702 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 13:50:38,703 - DEBUG - Using proactor: IocpProactor
+2024-10-14 13:50:38,709 - INFO - Template selected based on metadata: airbnb.txt
+2024-10-14 13:50:38,725 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:50:38,725 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:50:38,725 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:50:38,725 - DEBUG - Compression method 0
+2024-10-14 13:50:38,725 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:50:38,725 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:50:38,725 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:50:38,725 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:50:38,725 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:50:38,725 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:50:38,726 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:50:38,726 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:50:38,726 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:50:38,726 - DEBUG - Compression method 0
+2024-10-14 13:50:38,726 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:50:38,726 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:50:38,726 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:50:38,726 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:50:38,726 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:50:38,726 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:50:38,735 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:50:38,735 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:50:38,735 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:50:38,735 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:50:38,736 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:50:40,725 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:50:40,726 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:50:40,726 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:50:40,726 - DEBUG - Compression method 0
+2024-10-14 13:50:40,726 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:50:40,726 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:50:40,726 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:50:40,726 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:50:40,726 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:50:40,726 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:50:40,726 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:50:40,726 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:50:40,726 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:50:40,726 - DEBUG - Compression method 0
+2024-10-14 13:50:40,726 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:50:40,726 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:50:40,726 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:50:40,726 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:50:40,726 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:50:40,726 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:50:40,743 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:50:40,743 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:50:40,743 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:50:40,743 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:50:40,744 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:50:43,238 - DEBUG - Document content: ROUMANIE ROMAWI ROMANIA Carte CARTE De |Dentitate IDEnTITY D'iDENTITE seria TR Na 409131 CarD cNP 18...
+2024-10-14 13:50:43,239 - ERROR - PII extraction error: name 'ChatCompletion' is not defined
+2024-10-14 13:50:43,239 - DEBUG - Document content: ROUMANIE ROVIAINIA ROMANIA Carte Carte DE iDentitate IdEnTITY Didentite seala SS Nr 099994 Card CNP ...
+2024-10-14 13:50:43,240 - ERROR - PII extraction error: name 'ChatCompletion' is not defined
+2024-10-14 13:52:20,852 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:52:22,118 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 13:52:22,118 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 13:52:22,439 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 13:52:22,439 - DEBUG - Using proactor: IocpProactor
+2024-10-14 13:52:22,444 - INFO - Template selected based on metadata: airbnb.txt
+2024-10-14 13:52:22,460 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:52:22,460 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:52:22,460 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:52:22,460 - DEBUG - Compression method 0
+2024-10-14 13:52:22,461 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:52:22,461 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:52:22,461 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:52:22,461 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:52:22,461 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:52:22,461 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:52:22,461 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:52:22,461 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:52:22,461 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:52:22,461 - DEBUG - Compression method 0
+2024-10-14 13:52:22,462 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:52:22,462 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:52:22,462 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:52:22,462 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:52:22,462 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:52:22,462 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:52:22,476 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:52:22,476 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:52:22,476 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:52:22,476 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:52:22,477 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:52:24,462 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:52:24,462 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:52:24,462 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:52:24,462 - DEBUG - Compression method 0
+2024-10-14 13:52:24,462 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:52:24,463 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:52:24,463 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:52:24,463 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:52:24,463 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:52:24,463 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:52:24,463 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:52:24,463 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:52:24,463 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:52:24,463 - DEBUG - Compression method 0
+2024-10-14 13:52:24,463 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:52:24,463 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:52:24,463 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:52:24,463 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:52:24,463 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:52:24,463 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:52:24,480 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:52:24,481 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:52:24,481 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:52:24,481 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:52:24,481 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:52:26,940 - DEBUG - Document content: ROUMANIE ROMAWI ROMANIA Carte CARTE De |Dentitate IDEnTITY D'iDENTITE seria TR Na 409131 CarD cNP 18...
+2024-10-14 13:52:26,940 - ERROR - PII extraction error: name 'ChatCompletion' is not defined
+2024-10-14 13:52:26,940 - DEBUG - Document content: ROUMANIE ROVIAINIA ROMANIA Carte Carte DE iDentitate IdEnTITY Didentite seala SS Nr 099994 Card CNP ...
+2024-10-14 13:52:26,940 - ERROR - PII extraction error: name 'ChatCompletion' is not defined
+2024-10-14 13:53:53,059 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:53:54,339 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 13:53:54,339 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 13:53:54,666 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 13:53:54,667 - DEBUG - Using proactor: IocpProactor
+2024-10-14 13:53:54,671 - INFO - Template selected based on metadata: airbnb.txt
+2024-10-14 13:53:54,686 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:53:54,686 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:53:54,686 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:53:54,686 - DEBUG - Compression method 0
+2024-10-14 13:53:54,687 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:53:54,687 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:53:54,687 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:53:54,687 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:53:54,687 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:53:54,687 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:53:54,687 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:53:54,687 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:53:54,687 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:53:54,687 - DEBUG - Compression method 0
+2024-10-14 13:53:54,687 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:53:54,687 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:53:54,687 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:53:54,687 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:53:54,687 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:53:54,687 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:53:54,697 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:53:54,697 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:53:54,697 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:53:54,697 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:53:54,698 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:53:56,715 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:53:56,715 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:53:56,715 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:53:56,715 - DEBUG - Compression method 0
+2024-10-14 13:53:56,715 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:53:56,715 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:53:56,715 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:53:56,715 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:53:56,715 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:53:56,716 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:53:56,716 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:53:56,716 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:53:56,716 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:53:56,716 - DEBUG - Compression method 0
+2024-10-14 13:53:56,716 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:53:56,716 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:53:56,716 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:53:56,716 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:53:56,716 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:53:56,716 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:53:56,733 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:53:56,733 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:53:56,733 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:53:56,733 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:53:56,734 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:53:59,300 - DEBUG - Document content: ROUMANIE ROMAWI ROMANIA Carte CARTE De |Dentitate IDEnTITY D'iDENTITE seria TR Na 409131 CarD cNP 18...
+2024-10-14 13:53:59,300 - ERROR - PII extraction error: name 'ChatCompletion' is not defined
+2024-10-14 13:53:59,300 - DEBUG - Document content: ROUMANIE ROVIAINIA ROMANIA Carte Carte DE iDentitate IdEnTITY Didentite seala SS Nr 099994 Card CNP ...
+2024-10-14 13:53:59,300 - ERROR - PII extraction error: name 'ChatCompletion' is not defined
+2024-10-14 13:54:42,629 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:54:43,884 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 13:54:43,885 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 13:54:44,206 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 13:54:44,207 - DEBUG - Using proactor: IocpProactor
+2024-10-14 13:54:44,211 - INFO - Template selected based on metadata: airbnb.txt
+2024-10-14 13:54:44,227 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:54:44,227 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:54:44,227 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:54:44,227 - DEBUG - Compression method 0
+2024-10-14 13:54:44,227 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:54:44,227 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:54:44,227 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:54:44,227 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:54:44,227 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:54:44,227 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:54:44,227 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:54:44,227 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:54:44,227 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:54:44,227 - DEBUG - Compression method 0
+2024-10-14 13:54:44,227 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:54:44,228 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:54:44,228 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:54:44,228 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:54:44,228 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:54:44,228 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:54:44,239 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:54:44,239 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:54:44,239 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:54:44,239 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:54:44,240 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:54:46,263 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:54:46,264 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:54:46,264 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:54:46,264 - DEBUG - Compression method 0
+2024-10-14 13:54:46,264 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:54:46,264 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:54:46,264 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:54:46,264 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:54:46,264 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:54:46,264 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:54:46,264 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:54:46,264 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:54:46,264 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:54:46,264 - DEBUG - Compression method 0
+2024-10-14 13:54:46,264 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:54:46,264 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:54:46,264 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:54:46,264 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:54:46,264 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:54:46,264 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:54:46,281 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:54:46,281 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:54:46,281 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:54:46,282 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:54:46,282 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:54:48,819 - DEBUG - Document content: ROUMANIE ROMAWI ROMANIA Carte CARTE De |Dentitate IDEnTITY D'iDENTITE seria TR Na 409131 CarD cNP 18...
+2024-10-14 13:54:48,819 - ERROR - PII extraction error: name 'ChatCompletion' is not defined
+2024-10-14 13:54:48,819 - DEBUG - Document content: ROUMANIE ROVIAINIA ROMANIA Carte Carte DE iDentitate IdEnTITY Didentite seala SS Nr 099994 Card CNP ...
+2024-10-14 13:54:48,819 - ERROR - PII extraction error: name 'ChatCompletion' is not defined
+2024-10-14 13:56:16,555 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:56:17,811 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 13:56:17,811 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 13:56:18,141 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 13:56:18,142 - DEBUG - Using proactor: IocpProactor
+2024-10-14 13:56:18,162 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:56:18,163 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:56:18,163 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:56:18,163 - DEBUG - Compression method 0
+2024-10-14 13:56:18,163 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:56:18,163 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:56:18,163 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:56:18,163 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:56:18,163 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:56:18,163 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:56:18,163 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:56:18,163 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:56:18,163 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:56:18,163 - DEBUG - Compression method 0
+2024-10-14 13:56:18,163 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:56:18,163 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:56:18,163 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 13:56:18,163 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 13:56:18,163 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 13:56:18,163 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 13:56:18,174 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:56:18,174 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:56:18,174 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:56:18,174 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:56:18,174 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:56:20,211 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:56:20,211 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:56:20,211 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:56:20,211 - DEBUG - Compression method 0
+2024-10-14 13:56:20,211 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:56:20,211 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:56:20,211 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:56:20,211 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:56:20,211 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:56:20,211 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:56:20,211 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 13:56:20,211 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 13:56:20,211 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 13:56:20,211 - DEBUG - Compression method 0
+2024-10-14 13:56:20,211 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 13:56:20,212 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 13:56:20,212 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 13:56:20,212 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 13:56:20,212 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 13:56:20,212 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 13:56:20,229 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:56:20,229 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 13:56:20,229 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 13:56:20,229 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 13:56:20,230 - DEBUG - Error closing: Operation on closed image
+2024-10-14 13:56:22,762 - DEBUG - Document content: ROUMANIE ROMAWI ROMANIA Carte CARTE De |Dentitate IDEnTITY D'iDENTITE seria TR Na 409131 CarD cNP 18...
+2024-10-14 13:56:22,769 - DEBUG - Instructor Request: mode.value='tool_call', response_model=<class 'models.PIIData'>, new_kwargs={'model': 'gpt-4', 'messages': [{'role': 'system', 'content': '\nYou are an AI agent specializing in contract creation and personal information extraction. \n\nYour role is:\n 1. Guide the process of extracting information from documents..\n 2. Verifying the extracted information with human input.\n 3. Identifying parties. \n 4. Constructing a contract. \n\n\nFollow the workflow precisely and ask for human input when needed.\n\n'}, {'role': 'user', 'content': "Extract the name and address from the given text:\n\nROUMANIE ROMAWI ROMANIA Carte CARTE De |Dentitate IDEnTITY D'iDENTITE seria TR Na 409131 CarD cNP 1891113341181 Nume/Nom/Last name T525M ISPILANTE Prenume/Prenom/First namo SENTIMENT BRUSLI Cetatenle/Nallonallte/Nallonallly Sox SexeiSox Român\u0103 ROU M Loc nastere/Liou do naissancelPlace ol birth Or\u0219. Videle Jud.Teleorman Dom IlulAdresse/Addrass Videle Jud: Teleorman Sos. Giurgiului nr.1 695 TR Emisa dolDelivree parlIssuad by ValabilltatelValldlte Valldlty SPCLEP Videle 04.11.11-13.11.2018 IDROUISPILANTE<<SENTIMENT <BRUSLI<<<< TR409131<0R0u8911137M181113513411813 Or\u0219:"}], 'tools': [{'type': 'function', 'function': {'name': 'PIIData', 'description': 'Correctly extracted `PIIData` with all the required parameters with correct types', 'parameters': {'properties': {'name': {'description': 'Full name of the person', 'title': 'Name', 'type': 'string'}, 'address': {'description': 'Residential address of the person', 'title': 'Address', 'type': 'string'}}, 'required': ['address', 'name'], 'type': 'object'}}}], 'tool_choice': {'type': 'function', 'function': {'name': 'PIIData'}}}
+2024-10-14 13:56:22,770 - DEBUG - max_retries: 1
+2024-10-14 13:56:22,773 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '\nYou are an AI agent specializing in contract creation and personal information extraction. \n\nYour role is:\n 1. Guide the process of extracting information from documents..\n 2. Verifying the extracted information with human input.\n 3. Identifying parties. \n 4. Constructing a contract. \n\n\nFollow the workflow precisely and ask for human input when needed.\n\n'}, {'role': 'user', 'content': "Extract the name and address from the given text:\n\nROUMANIE ROMAWI ROMANIA Carte CARTE De |Dentitate IDEnTITY D'iDENTITE seria TR Na 409131 CarD cNP 1891113341181 Nume/Nom/Last name T525M ISPILANTE Prenume/Prenom/First namo SENTIMENT BRUSLI Cetatenle/Nallonallte/Nallonallly Sox SexeiSox Român\u0103 ROU M Loc nastere/Liou do naissancelPlace ol birth Or\u0219. Videle Jud.Teleorman Dom IlulAdresse/Addrass Videle Jud: Teleorman Sos. Giurgiului nr.1 695 TR Emisa dolDelivree parlIssuad by ValabilltatelValldlte Valldlty SPCLEP Videle 04.11.11-13.11.2018 IDROUISPILANTE<<SENTIMENT <BRUSLI<<<< TR409131<0R0u8911137M181113513411813 Or\u0219:"}], 'model': 'gpt-4', 'tool_choice': {'type': 'function', 'function': {'name': 'PIIData'}}, 'tools': [{'type': 'function', 'function': {'name': 'PIIData', 'description': 'Correctly extracted `PIIData` with all the required parameters with correct types', 'parameters': {'properties': {'name': {'description': 'Full name of the person', 'title': 'Name', 'type': 'string'}, 'address': {'description': 'Residential address of the person', 'title': 'Address', 'type': 'string'}}, 'required': ['address', 'name'], 'type': 'object'}}}]}}
+2024-10-14 13:56:22,812 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-10-14 13:56:22,812 - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-10-14 13:56:22,828 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000002059C29E510>
+2024-10-14 13:56:22,828 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000002059C0F1BD0> server_hostname='api.openai.com' timeout=5.0
+2024-10-14 13:56:22,840 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000002059C29E240>
+2024-10-14 13:56:22,840 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-14 13:56:22,840 - DEBUG - send_request_headers.complete
+2024-10-14 13:56:22,840 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-14 13:56:22,840 - DEBUG - send_request_body.complete
+2024-10-14 13:56:22,840 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-14 13:56:25,264 - DEBUG - receive_response_headers.failed exception=KeyboardInterrupt()
+2024-10-14 13:56:25,265 - DEBUG - response_closed.started
+2024-10-14 13:56:25,265 - DEBUG - response_closed.complete
+2024-10-14 13:56:25,478 - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<agent_workflow() done, defined at D:\deve\contract_automation\src\main.py:25> exception=KeyboardInterrupt()>
+Traceback (most recent call last):
+  File "D:\deve\contract_automation\src\main.py", line 107, in <module>
+    asyncio.run(agent_workflow())
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\nest_asyncio.py", line 30, in run
+    return loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\nest_asyncio.py", line 92, in run_until_complete
+    self._run_once()
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\nest_asyncio.py", line 133, in _run_once
+    handle._run()
+  File "C:\Users\neuro\.rye\py\cpython@3.12.0\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\neuro\.rye\py\cpython@3.12.0\Lib\asyncio\tasks.py", line 386, in __wakeup
+    self.__step()
+  File "C:\Users\neuro\.rye\py\cpython@3.12.0\Lib\asyncio\tasks.py", line 293, in __step
+    self.__step_run_and_handle_result(exc)
+  File "C:\Users\neuro\.rye\py\cpython@3.12.0\Lib\asyncio\tasks.py", line 304, in __step_run_and_handle_result
+    result = coro.send(None)
+             ^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\src\main.py", line 42, in agent_workflow
+    pii = extract_pii(text)
+          ^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\src\ai_functions.py", line 109, in extract_pii
+    return client.chat.completions.create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\instructor\patch.py", line 291, in new_create_sync
+    response = retry_sync(
+               ^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\instructor\retry.py", line 189, in retry_sync
+    for attempt in max_retries:
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\tenacity\__init__.py", line 443, in __iter__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\tenacity\__init__.py", line 398, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\neuro\.rye\py\cpython@3.12.0\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\neuro\.rye\py\cpython@3.12.0\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\instructor\retry.py", line 192, in retry_sync
+    response = func(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\openai\_utils\_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\openai\resources\chat\completions.py", line 742, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\openai\_base_client.py", line 1270, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\openai\_base_client.py", line 947, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\openai\_base_client.py", line 983, in _request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\httpx\_client.py", line 926, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\httpx\_client.py", line 954, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\httpx\_client.py", line 991, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\httpx\_client.py", line 1027, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\httpx\_transports\default.py", line 236, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\httpcore\_sync\http11.py", line 143, in handle_request
+    raise exc
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\httpcore\_sync\http11.py", line 113, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\httpcore\_sync\http11.py", line 186, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\httpcore\_sync\http11.py", line 224, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\deve\contract_automation\.venv\Lib\site-packages\httpcore\_backends\sync.py", line 126, in read
+    return self._sock.recv(max_bytes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\neuro\.rye\py\cpython@3.12.0\Lib\ssl.py", line 1234, in recv
+    return self.read(buflen)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\neuro\.rye\py\cpython@3.12.0\Lib\ssl.py", line 1107, in read
+    return self._sslobj.read(len)
+           ^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+2024-10-14 13:57:55,787 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 13:57:57,051 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 13:57:57,051 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 13:57:57,370 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 13:59:58,776 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 14:00:00,038 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 14:00:00,039 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 14:00:00,362 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 14:01:57,404 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 14:01:58,665 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 14:01:58,666 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 14:01:58,984 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 14:03:20,198 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 14:03:21,461 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 14:03:21,461 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 14:03:21,777 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 14:03:21,777 - DEBUG - Using proactor: IocpProactor
+2024-10-14 14:03:21,796 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 14:03:21,797 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 14:03:21,797 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 14:03:21,797 - DEBUG - Compression method 0
+2024-10-14 14:03:21,797 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 14:03:21,797 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 14:03:21,797 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 14:03:21,797 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 14:03:21,797 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 14:03:21,797 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 14:03:21,797 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 14:03:21,797 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 14:03:21,797 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 14:03:21,797 - DEBUG - Compression method 0
+2024-10-14 14:03:21,797 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 14:03:21,797 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 14:03:21,797 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 14:03:21,797 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 14:03:21,797 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 14:03:21,797 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 14:03:21,807 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 14:03:21,807 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 14:03:21,807 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 14:03:21,807 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 14:03:21,808 - DEBUG - Error closing: Operation on closed image
+2024-10-14 14:03:23,870 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 14:03:23,870 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 14:03:23,870 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 14:03:23,870 - DEBUG - Compression method 0
+2024-10-14 14:03:23,870 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 14:03:23,870 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 14:03:23,870 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 14:03:23,870 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 14:03:23,870 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 14:03:23,870 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 14:03:23,870 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 14:03:23,870 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 14:03:23,870 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 14:03:23,870 - DEBUG - Compression method 0
+2024-10-14 14:03:23,870 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 14:03:23,870 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 14:03:23,870 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 14:03:23,870 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 14:03:23,871 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 14:03:23,871 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 14:03:23,888 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 14:03:23,888 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 14:03:23,888 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 14:03:23,888 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 14:03:23,889 - DEBUG - Error closing: Operation on closed image
+2024-10-14 14:03:26,368 - DEBUG - Document content: ROUMANIE ROMAWI ROMANIA Carte CARTE De |Dentitate IDEnTITY D'iDENTITE seria TR Na 409131 CarD cNP 18...
+2024-10-14 14:03:26,371 - DEBUG - Instructor Request: mode.value='tool_call', response_model=<class 'models.PIIData'>, new_kwargs={'model': 'gpt-4', 'messages': [{'role': 'system', 'content': '\nYou are an AI agent specializing in contract creation and personal information extraction. \n\nYour role is:\n 1. Guide the process of extracting information from documents..\n 2. Verifying the extracted information with human input.\n 3. Identifying parties. \n 4. Constructing a contract. \n\n\nFollow the workflow precisely and ask for human input when needed.\n\n'}, {'role': 'user', 'content': "Extract the name and address from the given text:\n\nROUMANIE ROMAWI ROMANIA Carte CARTE De |Dentitate IDEnTITY D'iDENTITE seria TR Na 409131 CarD cNP 1891113341181 Nume/Nom/Last name T525M ISPILANTE Prenume/Prenom/First namo SENTIMENT BRUSLI Cetatenle/Nallonallte/Nallonallly Sox SexeiSox Român\u0103 ROU M Loc nastere/Liou do naissancelPlace ol birth Or\u0219. Videle Jud.Teleorman Dom IlulAdresse/Addrass Videle Jud: Teleorman Sos. Giurgiului nr.1 695 TR Emisa dolDelivree parlIssuad by ValabilltatelValldlte Valldlty SPCLEP Videle 04.11.11-13.11.2018 IDROUISPILANTE<<SENTIMENT <BRUSLI<<<< TR409131<0R0u8911137M181113513411813 Or\u0219:"}], 'tools': [{'type': 'function', 'function': {'name': 'PIIData', 'description': 'Correctly extracted `PIIData` with all the required parameters with correct types', 'parameters': {'properties': {'name': {'description': 'Full name of the person', 'title': 'Name', 'type': 'string'}, 'address': {'description': 'Residential address of the person', 'title': 'Address', 'type': 'string'}}, 'required': ['address', 'name'], 'type': 'object'}}}], 'tool_choice': {'type': 'function', 'function': {'name': 'PIIData'}}}
+2024-10-14 14:03:26,372 - DEBUG - max_retries: 1
+2024-10-14 14:03:26,374 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '\nYou are an AI agent specializing in contract creation and personal information extraction. \n\nYour role is:\n 1. Guide the process of extracting information from documents..\n 2. Verifying the extracted information with human input.\n 3. Identifying parties. \n 4. Constructing a contract. \n\n\nFollow the workflow precisely and ask for human input when needed.\n\n'}, {'role': 'user', 'content': "Extract the name and address from the given text:\n\nROUMANIE ROMAWI ROMANIA Carte CARTE De |Dentitate IDEnTITY D'iDENTITE seria TR Na 409131 CarD cNP 1891113341181 Nume/Nom/Last name T525M ISPILANTE Prenume/Prenom/First namo SENTIMENT BRUSLI Cetatenle/Nallonallte/Nallonallly Sox SexeiSox Român\u0103 ROU M Loc nastere/Liou do naissancelPlace ol birth Or\u0219. Videle Jud.Teleorman Dom IlulAdresse/Addrass Videle Jud: Teleorman Sos. Giurgiului nr.1 695 TR Emisa dolDelivree parlIssuad by ValabilltatelValldlte Valldlty SPCLEP Videle 04.11.11-13.11.2018 IDROUISPILANTE<<SENTIMENT <BRUSLI<<<< TR409131<0R0u8911137M181113513411813 Or\u0219:"}], 'model': 'gpt-4', 'tool_choice': {'type': 'function', 'function': {'name': 'PIIData'}}, 'tools': [{'type': 'function', 'function': {'name': 'PIIData', 'description': 'Correctly extracted `PIIData` with all the required parameters with correct types', 'parameters': {'properties': {'name': {'description': 'Full name of the person', 'title': 'Name', 'type': 'string'}, 'address': {'description': 'Residential address of the person', 'title': 'Address', 'type': 'string'}}, 'required': ['address', 'name'], 'type': 'object'}}}]}}
+2024-10-14 14:03:26,410 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-10-14 14:03:26,410 - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-10-14 14:03:26,427 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000002390F36E360>
+2024-10-14 14:03:26,427 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000002390F1C1D50> server_hostname='api.openai.com' timeout=5.0
+2024-10-14 14:03:26,434 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000002390F36E0C0>
+2024-10-14 14:03:26,435 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-14 14:03:26,435 - DEBUG - send_request_headers.complete
+2024-10-14 14:03:26,435 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-14 14:03:26,435 - DEBUG - send_request_body.complete
+2024-10-14 14:03:26,435 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-14 14:03:28,775 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 14 Oct 2024 11:03:28 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-kzzh9hik9ryjiou4ftvhondh'), (b'openai-processing-ms', b'2184'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'10000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'9736'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'1.584s'), (b'x-request-id', b'req_1d948bd2d9d9ea78e60a50f8ca011790'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=d3BsNPYy7uG8CDittWj6WyiengmePrvoT6qBEcFlsW0-1728903808-1.0.1.1-Not.R_TP5ScsE5mKKL6lf25c4LE3WhXiryTs._EUrvKcu5Z52OsEV8T8nAWek_Tn3g_7PffVf82S.qFoxBjkXg; path=/; expires=Mon, 14-Oct-24 11:33:28 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=rg_QDH9IX3BBj8N2y4XhUMs.YKRErilaj_hoo9N23iE-1728903808942-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d2715374a1f0531-OTP'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-14 14:03:28,777 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-14 14:03:28,777 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-14 14:03:28,778 - DEBUG - receive_response_body.complete
+2024-10-14 14:03:28,778 - DEBUG - response_closed.started
+2024-10-14 14:03:28,778 - DEBUG - response_closed.complete
+2024-10-14 14:03:28,778 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Mon, 14 Oct 2024 11:03:28 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-kzzh9hik9ryjiou4ftvhondh'), ('openai-processing-ms', '2184'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '10000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '9736'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '1.584s'), ('x-request-id', 'req_1d948bd2d9d9ea78e60a50f8ca011790'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=d3BsNPYy7uG8CDittWj6WyiengmePrvoT6qBEcFlsW0-1728903808-1.0.1.1-Not.R_TP5ScsE5mKKL6lf25c4LE3WhXiryTs._EUrvKcu5Z52OsEV8T8nAWek_Tn3g_7PffVf82S.qFoxBjkXg; path=/; expires=Mon, 14-Oct-24 11:33:28 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=rg_QDH9IX3BBj8N2y4XhUMs.YKRErilaj_hoo9N23iE-1728903808942-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8d2715374a1f0531-OTP'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2024-10-14 14:03:28,778 - DEBUG - request_id: req_1d948bd2d9d9ea78e60a50f8ca011790
+2024-10-14 14:03:28,781 - DEBUG - Instructor Raw Response: ChatCompletion(id='chatcmpl-AID9CqL7QV94VziNFlkFTXeYz3Vlz', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content=None, refusal=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_DlITVvtxncOLcJ7QmNFUdBfT', function=Function(arguments='{\n"name": "ISPILANTE SENTIMENT BRUSLI",\n"address": "Videle Jud: Teleorman Sos. Giurgiului nr.1 695 TR"\n}', name='PIIData'), type='function')]))], created=1728903806, model='gpt-4-0613', object='chat.completion', service_tier=None, system_fingerprint=None, usage=CompletionUsage(completion_tokens=39, prompt_tokens=377, total_tokens=416, completion_tokens_details=None, prompt_tokens_details=None))
+2024-10-14 14:03:28,782 - DEBUG - Extracted PII: name='ISPILANTE SENTIMENT BRUSLI' address='Videle Jud: Teleorman Sos. Giurgiului nr.1 695 TR'
+2024-10-14 14:03:31,751 - DEBUG - Document content: ROUMANIE ROVIAINIA ROMANIA Carte Carte DE iDentitate IdEnTITY Didentite seala SS Nr 099994 Card CNP ...
+2024-10-14 14:03:31,753 - DEBUG - Instructor Request: mode.value='tool_call', response_model=<class 'models.PIIData'>, new_kwargs={'model': 'gpt-4', 'messages': [{'role': 'system', 'content': '\nYou are an AI agent specializing in contract creation and personal information extraction. \n\nYour role is:\n 1. Guide the process of extracting information from documents..\n 2. Verifying the extracted information with human input.\n 3. Identifying parties. \n 4. Constructing a contract. \n\n\nFollow the workflow precisely and ask for human input when needed.\n\n'}, {'role': 'user', 'content': "Extract the name and address from the given text:\n\nROUMANIE ROVIAINIA ROMANIA Carte Carte DE iDentitate IdEnTITY Didentite seala SS Nr 099994 Card CNP 2410415400542 93coQ Nume/NomiLast name VASILESCU Pronume/Prenom/Flrst name ELENA < CetatenielNatlonallte/Natlonalily M Sex SexelSer Român\u0103 ROU Loc nastore/Licu de naissancolF 'ar0 ol birth Mun: Dej Jud. Cluj Domiciliu/Adresse A ess Mun. Bucuresti Sec. 5 Str Nicolae Iorga nr.3 900 B Emisa delDelivree parllssued by Valabilitate/Vahidile Valiouy D.EPAB.D- 06.01.17-15.04.2077 IDROUVASILESCU<<ELENA<<<<<<<<<<<<<<< SS099994<0R0u4104151F770415824003421"}], 'tools': [{'type': 'function', 'function': {'name': 'PIIData', 'description': 'Correctly extracted `PIIData` with all the required parameters with correct types', 'parameters': {'properties': {'name': {'description': 'Full name of the person', 'title': 'Name', 'type': 'string'}, 'address': {'description': 'Residential address of the person', 'title': 'Address', 'type': 'string'}}, 'required': ['address', 'name'], 'type': 'object'}}}], 'tool_choice': {'type': 'function', 'function': {'name': 'PIIData'}}}
+2024-10-14 14:03:31,753 - DEBUG - max_retries: 1
+2024-10-14 14:03:31,755 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '\nYou are an AI agent specializing in contract creation and personal information extraction. \n\nYour role is:\n 1. Guide the process of extracting information from documents..\n 2. Verifying the extracted information with human input.\n 3. Identifying parties. \n 4. Constructing a contract. \n\n\nFollow the workflow precisely and ask for human input when needed.\n\n'}, {'role': 'user', 'content': "Extract the name and address from the given text:\n\nROUMANIE ROVIAINIA ROMANIA Carte Carte DE iDentitate IdEnTITY Didentite seala SS Nr 099994 Card CNP 2410415400542 93coQ Nume/NomiLast name VASILESCU Pronume/Prenom/Flrst name ELENA < CetatenielNatlonallte/Natlonalily M Sex SexelSer Român\u0103 ROU Loc nastore/Licu de naissancolF 'ar0 ol birth Mun: Dej Jud. Cluj Domiciliu/Adresse A ess Mun. Bucuresti Sec. 5 Str Nicolae Iorga nr.3 900 B Emisa delDelivree parllssued by Valabilitate/Vahidile Valiouy D.EPAB.D- 06.01.17-15.04.2077 IDROUVASILESCU<<ELENA<<<<<<<<<<<<<<< SS099994<0R0u4104151F770415824003421"}], 'model': 'gpt-4', 'tool_choice': {'type': 'function', 'function': {'name': 'PIIData'}}, 'tools': [{'type': 'function', 'function': {'name': 'PIIData', 'description': 'Correctly extracted `PIIData` with all the required parameters with correct types', 'parameters': {'properties': {'name': {'description': 'Full name of the person', 'title': 'Name', 'type': 'string'}, 'address': {'description': 'Residential address of the person', 'title': 'Address', 'type': 'string'}}, 'required': ['address', 'name'], 'type': 'object'}}}]}}
+2024-10-14 14:03:31,756 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-10-14 14:03:31,756 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-14 14:03:31,756 - DEBUG - send_request_headers.complete
+2024-10-14 14:03:31,756 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-14 14:03:31,757 - DEBUG - send_request_body.complete
+2024-10-14 14:03:31,757 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-14 14:03:34,190 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 14 Oct 2024 11:03:34 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-kzzh9hik9ryjiou4ftvhondh'), (b'openai-processing-ms', b'2272'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'10000'), (b'x-ratelimit-remaining-requests', b'9998'), (b'x-ratelimit-remaining-tokens', b'9742'), (b'x-ratelimit-reset-requests', b'11.956s'), (b'x-ratelimit-reset-tokens', b'1.548s'), (b'x-request-id', b'req_c215570a43084e59fbf49ad8cf6b0480'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d2715588d6f0531-OTP'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-14 14:03:34,190 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-14 14:03:34,190 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-14 14:03:34,190 - DEBUG - receive_response_body.complete
+2024-10-14 14:03:34,190 - DEBUG - response_closed.started
+2024-10-14 14:03:34,190 - DEBUG - response_closed.complete
+2024-10-14 14:03:34,190 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Mon, 14 Oct 2024 11:03:34 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'user-kzzh9hik9ryjiou4ftvhondh', 'openai-processing-ms': '2272', 'openai-version': '2020-10-01', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '10000', 'x-ratelimit-remaining-requests': '9998', 'x-ratelimit-remaining-tokens': '9742', 'x-ratelimit-reset-requests': '11.956s', 'x-ratelimit-reset-tokens': '1.548s', 'x-request-id': 'req_c215570a43084e59fbf49ad8cf6b0480', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d2715588d6f0531-OTP', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-14 14:03:34,190 - DEBUG - request_id: req_c215570a43084e59fbf49ad8cf6b0480
+2024-10-14 14:03:34,191 - DEBUG - Instructor Raw Response: ChatCompletion(id='chatcmpl-AID9IwE6ciw7d8WswDpWnsGhhb2A1', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content=None, refusal=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_bP8UTHJTjWqjF1s4YQUu7bmS', function=Function(arguments='{\n"name": "ELENA VASILESCU",\n"address": "Mun. Bucuresti Sec. 5 Str Nicolae Iorga nr.3 900 B"\n}', name='PIIData'), type='function')]))], created=1728903812, model='gpt-4-0613', object='chat.completion', service_tier=None, system_fingerprint=None, usage=CompletionUsage(completion_tokens=42, prompt_tokens=380, total_tokens=422, completion_tokens_details=None, prompt_tokens_details=None))
+2024-10-14 14:03:34,191 - DEBUG - Extracted PII: name='ELENA VASILESCU' address='Mun. Bucuresti Sec. 5 Str Nicolae Iorga nr.3 900 B'
+2024-10-14 14:03:35,678 - DEBUG - Instructor Request: mode.value='tool_call', response_model=<class 'models.ContractParties'>, new_kwargs={'model': 'gpt-4', 'messages': [{'role': 'system', 'content': '\nYou are an AI agent specializing in contract creation and personal information extraction. \n\nYour role is:\n 1. Guide the process of extracting information from documents..\n 2. Verifying the extracted information with human input.\n 3. Identifying parties. \n 4. Constructing a contract. \n\n\nFollow the workflow precisely and ask for human input when needed.\n\n'}, {'role': 'user', 'content': 'Identify the buyer and seller from the given information:\n\nName: ISPILANTE SENTIMENT BRUSLI, Address: Videle Jud: Teleorman Sos. Giurgiului nr.1 695 TR\nName: ELENA VASILESCU, Address: Mun. Bucuresti Sec. 5 Str Nicolae Iorga nr.3 900 B'}], 'tools': [{'type': 'function', 'function': {'name': 'ContractParties', 'description': 'Correctly extracted `ContractParties` with all the required parameters with correct types', 'parameters': {'properties': {'buyer': {'description': 'Name of the buyer', 'title': 'Buyer', 'type': 'string'}, 'seller': {'description': 'Name of the seller', 'title': 'Seller', 'type': 'string'}}, 'required': ['buyer', 'seller'], 'type': 'object'}}}], 'tool_choice': {'type': 'function', 'function': {'name': 'ContractParties'}}}
+2024-10-14 14:03:35,679 - DEBUG - max_retries: 1
+2024-10-14 14:03:35,681 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '\nYou are an AI agent specializing in contract creation and personal information extraction. \n\nYour role is:\n 1. Guide the process of extracting information from documents..\n 2. Verifying the extracted information with human input.\n 3. Identifying parties. \n 4. Constructing a contract. \n\n\nFollow the workflow precisely and ask for human input when needed.\n\n'}, {'role': 'user', 'content': 'Identify the buyer and seller from the given information:\n\nName: ISPILANTE SENTIMENT BRUSLI, Address: Videle Jud: Teleorman Sos. Giurgiului nr.1 695 TR\nName: ELENA VASILESCU, Address: Mun. Bucuresti Sec. 5 Str Nicolae Iorga nr.3 900 B'}], 'model': 'gpt-4', 'tool_choice': {'type': 'function', 'function': {'name': 'ContractParties'}}, 'tools': [{'type': 'function', 'function': {'name': 'ContractParties', 'description': 'Correctly extracted `ContractParties` with all the required parameters with correct types', 'parameters': {'properties': {'buyer': {'description': 'Name of the buyer', 'title': 'Buyer', 'type': 'string'}, 'seller': {'description': 'Name of the seller', 'title': 'Seller', 'type': 'string'}}, 'required': ['buyer', 'seller'], 'type': 'object'}}}]}}
+2024-10-14 14:03:35,681 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-10-14 14:03:35,681 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-14 14:03:35,682 - DEBUG - send_request_headers.complete
+2024-10-14 14:03:35,682 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-14 14:03:35,682 - DEBUG - send_request_body.complete
+2024-10-14 14:03:35,682 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-14 14:03:37,334 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 14 Oct 2024 11:03:37 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-kzzh9hik9ryjiou4ftvhondh'), (b'openai-processing-ms', b'1493'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'10000'), (b'x-ratelimit-remaining-requests', b'9998'), (b'x-ratelimit-remaining-tokens', b'9834'), (b'x-ratelimit-reset-requests', b'16.674s'), (b'x-ratelimit-reset-tokens', b'996ms'), (b'x-request-id', b'req_209478d7aa30fb2b35ddc2dc1704e2a5'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d2715711e260531-OTP'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-14 14:03:37,334 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-14 14:03:37,334 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-14 14:03:37,334 - DEBUG - receive_response_body.complete
+2024-10-14 14:03:37,334 - DEBUG - response_closed.started
+2024-10-14 14:03:37,334 - DEBUG - response_closed.complete
+2024-10-14 14:03:37,334 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Mon, 14 Oct 2024 11:03:37 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'user-kzzh9hik9ryjiou4ftvhondh', 'openai-processing-ms': '1493', 'openai-version': '2020-10-01', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '10000', 'x-ratelimit-remaining-requests': '9998', 'x-ratelimit-remaining-tokens': '9834', 'x-ratelimit-reset-requests': '16.674s', 'x-ratelimit-reset-tokens': '996ms', 'x-request-id': 'req_209478d7aa30fb2b35ddc2dc1704e2a5', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d2715711e260531-OTP', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-14 14:03:37,335 - DEBUG - request_id: req_209478d7aa30fb2b35ddc2dc1704e2a5
+2024-10-14 14:03:37,335 - DEBUG - Instructor Raw Response: ChatCompletion(id='chatcmpl-AID9MgipJ3j9g9P4lKMCTdSj3rE2N', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content=None, refusal=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_Qhdb6IEiyd11pjbSJ6UthZC5', function=Function(arguments='{\n"buyer": "ISPILANTE SENTIMENT BRUSLI",\n"seller": "ELENA VASILESCU"\n}', name='ContractParties'), type='function')]))], created=1728903816, model='gpt-4-0613', object='chat.completion', service_tier=None, system_fingerprint=None, usage=CompletionUsage(completion_tokens=28, prompt_tokens=232, total_tokens=260, completion_tokens_details=None, prompt_tokens_details=None))
+2024-10-14 14:03:50,046 - DEBUG - close.started
+2024-10-14 14:03:50,047 - DEBUG - close.complete
+2024-10-14 14:28:21,896 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 14:28:23,171 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 14:28:23,171 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 14:28:23,490 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
+2024-10-14 14:28:23,491 - DEBUG - Using proactor: IocpProactor
+2024-10-14 14:28:23,510 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 14:28:23,510 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 14:28:23,511 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 14:28:23,511 - DEBUG - Compression method 0
+2024-10-14 14:28:23,511 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 14:28:23,511 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 14:28:23,511 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 14:28:23,511 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 14:28:23,511 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 14:28:23,511 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 14:28:23,511 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 14:28:23,511 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 14:28:23,511 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 14:28:23,511 - DEBUG - Compression method 0
+2024-10-14 14:28:23,511 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 14:28:23,511 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 14:28:23,511 - DEBUG - STREAM b'iTXt' 3376 470
+2024-10-14 14:28:23,511 - DEBUG - STREAM b'iDOT' 3858 28
+2024-10-14 14:28:23,511 - DEBUG - b'iDOT' 3858 28 (unknown)
+2024-10-14 14:28:23,511 - DEBUG - STREAM b'IDAT' 3898 16384
+2024-10-14 14:28:23,521 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 14:28:23,522 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 14:28:23,522 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 14:28:23,522 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 14:28:23,522 - DEBUG - Error closing: Operation on closed image
+2024-10-14 14:28:25,542 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 14:28:25,542 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 14:28:25,542 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 14:28:25,542 - DEBUG - Compression method 0
+2024-10-14 14:28:25,542 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 14:28:25,542 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 14:28:25,542 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 14:28:25,542 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 14:28:25,542 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 14:28:25,542 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 14:28:25,542 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-14 14:28:25,542 - DEBUG - STREAM b'iCCP' 41 3152
+2024-10-14 14:28:25,542 - DEBUG - iCCP profile name b'ICC Profile'
+2024-10-14 14:28:25,542 - DEBUG - Compression method 0
+2024-10-14 14:28:25,542 - DEBUG - STREAM b'eXIf' 3205 138
+2024-10-14 14:28:25,542 - DEBUG - STREAM b'pHYs' 3355 9
+2024-10-14 14:28:25,542 - DEBUG - STREAM b'iTXt' 3376 471
+2024-10-14 14:28:25,542 - DEBUG - STREAM b'iDOT' 3859 28
+2024-10-14 14:28:25,542 - DEBUG - b'iDOT' 3859 28 (unknown)
+2024-10-14 14:28:25,542 - DEBUG - STREAM b'IDAT' 3899 16384
+2024-10-14 14:28:25,559 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 22 - Data Location: 62 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 14:28:25,560 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 34 - Data Location: 70 - value: b'\x00\x00\x00\x90\x00\x00\x00\x01'
+2024-10-14 14:28:25,560 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x00\x02'
+2024-10-14 14:28:25,560 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00N'
+2024-10-14 14:28:25,560 - DEBUG - Error closing: Operation on closed image
+2024-10-14 14:28:28,028 - DEBUG - Document content: ROUMANIE ROMAWI ROMANIA Carte CARTE De |Dentitate IDEnTITY D'iDENTITE seria TR Na 409131 CarD cNP 18...
+2024-10-14 14:28:28,030 - DEBUG - Instructor Request: mode.value='tool_call', response_model=<class 'models.PIIData'>, new_kwargs={'model': 'gpt-4', 'messages': [{'role': 'system', 'content': '\nYou are an AI agent specializing in contract creation and personal information extraction. \n\nYour role is:\n 1. Guide the process of extracting information from documents..\n 2. Verifying the extracted information with human input.\n 3. Identifying parties. \n 4. Constructing a contract. \n\n\nFollow the workflow precisely and ask for human input when needed.\n\n'}, {'role': 'user', 'content': "Extract the name and address from the given text:\n\nROUMANIE ROMAWI ROMANIA Carte CARTE De |Dentitate IDEnTITY D'iDENTITE seria TR Na 409131 CarD cNP 1891113341181 Nume/Nom/Last name T525M ISPILANTE Prenume/Prenom/First namo SENTIMENT BRUSLI Cetatenle/Nallonallte/Nallonallly Sox SexeiSox Român\u0103 ROU M Loc nastere/Liou do naissancelPlace ol birth Or\u0219. Videle Jud.Teleorman Dom IlulAdresse/Addrass Videle Jud: Teleorman Sos. Giurgiului nr.1 695 TR Emisa dolDelivree parlIssuad by ValabilltatelValldlte Valldlty SPCLEP Videle 04.11.11-13.11.2018 IDROUISPILANTE<<SENTIMENT <BRUSLI<<<< TR409131<0R0u8911137M181113513411813 Or\u0219:"}], 'tools': [{'type': 'function', 'function': {'name': 'PIIData', 'description': 'Correctly extracted `PIIData` with all the required parameters with correct types', 'parameters': {'properties': {'name': {'description': 'Full name of the person', 'title': 'Name', 'type': 'string'}, 'address': {'description': 'Residential address of the person', 'title': 'Address', 'type': 'string'}}, 'required': ['address', 'name'], 'type': 'object'}}}], 'tool_choice': {'type': 'function', 'function': {'name': 'PIIData'}}}
+2024-10-14 14:28:28,031 - DEBUG - max_retries: 1
+2024-10-14 14:28:28,033 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '\nYou are an AI agent specializing in contract creation and personal information extraction. \n\nYour role is:\n 1. Guide the process of extracting information from documents..\n 2. Verifying the extracted information with human input.\n 3. Identifying parties. \n 4. Constructing a contract. \n\n\nFollow the workflow precisely and ask for human input when needed.\n\n'}, {'role': 'user', 'content': "Extract the name and address from the given text:\n\nROUMANIE ROMAWI ROMANIA Carte CARTE De |Dentitate IDEnTITY D'iDENTITE seria TR Na 409131 CarD cNP 1891113341181 Nume/Nom/Last name T525M ISPILANTE Prenume/Prenom/First namo SENTIMENT BRUSLI Cetatenle/Nallonallte/Nallonallly Sox SexeiSox Român\u0103 ROU M Loc nastere/Liou do naissancelPlace ol birth Or\u0219. Videle Jud.Teleorman Dom IlulAdresse/Addrass Videle Jud: Teleorman Sos. Giurgiului nr.1 695 TR Emisa dolDelivree parlIssuad by ValabilltatelValldlte Valldlty SPCLEP Videle 04.11.11-13.11.2018 IDROUISPILANTE<<SENTIMENT <BRUSLI<<<< TR409131<0R0u8911137M181113513411813 Or\u0219:"}], 'model': 'gpt-4', 'tool_choice': {'type': 'function', 'function': {'name': 'PIIData'}}, 'tools': [{'type': 'function', 'function': {'name': 'PIIData', 'description': 'Correctly extracted `PIIData` with all the required parameters with correct types', 'parameters': {'properties': {'name': {'description': 'Full name of the person', 'title': 'Name', 'type': 'string'}, 'address': {'description': 'Residential address of the person', 'title': 'Address', 'type': 'string'}}, 'required': ['address', 'name'], 'type': 'object'}}}]}}
+2024-10-14 14:28:28,070 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-10-14 14:28:28,070 - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-10-14 14:28:28,082 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000015967F7E450>
+2024-10-14 14:28:28,082 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000015967DD1CD0> server_hostname='api.openai.com' timeout=5.0
+2024-10-14 14:28:28,089 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000015967F7E390>
+2024-10-14 14:28:28,090 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-14 14:28:28,090 - DEBUG - send_request_headers.complete
+2024-10-14 14:28:28,090 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-14 14:28:28,090 - DEBUG - send_request_body.complete
+2024-10-14 14:28:28,090 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-14 14:28:30,218 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 14 Oct 2024 11:28:30 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-kzzh9hik9ryjiou4ftvhondh'), (b'openai-processing-ms', b'1972'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'10000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'9736'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'1.584s'), (b'x-request-id', b'req_a2a0d2446ae4b72e8cd8d2d3c0449f00'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=HFLwQwNLiSRFlNbMTV2n9otohFsfmLtoh5BZCLX9fFs-1728905310-1.0.1.1-h5iBirqEjnpMe8U_do678ZFyKIVDz9OfG_FRmFrdRQWhUjzMawnADR2HPjYF.9T4Dap.AFXg019gnwbCgm5CYw; path=/; expires=Mon, 14-Oct-24 11:58:30 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=Kcjo4yNqyrmsPbjeNvAUAuYSeXI51aYyJ63XZuYrVbM-1728905310447-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d2739e10a9fca1c-OTP'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-14 14:28:30,220 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-14 14:28:30,220 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-14 14:28:30,220 - DEBUG - receive_response_body.complete
+2024-10-14 14:28:30,221 - DEBUG - response_closed.started
+2024-10-14 14:28:30,221 - DEBUG - response_closed.complete
+2024-10-14 14:28:30,221 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Mon, 14 Oct 2024 11:28:30 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-kzzh9hik9ryjiou4ftvhondh'), ('openai-processing-ms', '1972'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '10000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '9736'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '1.584s'), ('x-request-id', 'req_a2a0d2446ae4b72e8cd8d2d3c0449f00'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=HFLwQwNLiSRFlNbMTV2n9otohFsfmLtoh5BZCLX9fFs-1728905310-1.0.1.1-h5iBirqEjnpMe8U_do678ZFyKIVDz9OfG_FRmFrdRQWhUjzMawnADR2HPjYF.9T4Dap.AFXg019gnwbCgm5CYw; path=/; expires=Mon, 14-Oct-24 11:58:30 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=Kcjo4yNqyrmsPbjeNvAUAuYSeXI51aYyJ63XZuYrVbM-1728905310447-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8d2739e10a9fca1c-OTP'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2024-10-14 14:28:30,221 - DEBUG - request_id: req_a2a0d2446ae4b72e8cd8d2d3c0449f00
+2024-10-14 14:28:30,224 - DEBUG - Instructor Raw Response: ChatCompletion(id='chatcmpl-AIDXQxKhyg0oCHeQrqBcSxIxEYl04', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content=None, refusal=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_UNU6lwYOCGcL2CVbK7VbuSyi', function=Function(arguments='{\n"name": "ISPILANTE SENTIMENT BRUSLI",\n"address": "Videle Jud: Teleorman Sos. Giurgiului nr.1 695 TR"\n}', name='PIIData'), type='function')]))], created=1728905308, model='gpt-4-0613', object='chat.completion', service_tier=None, system_fingerprint=None, usage=CompletionUsage(completion_tokens=39, prompt_tokens=377, total_tokens=416, completion_tokens_details=None, prompt_tokens_details=None))
+2024-10-14 14:28:30,225 - DEBUG - Extracted PII: name='ISPILANTE SENTIMENT BRUSLI' address='Videle Jud: Teleorman Sos. Giurgiului nr.1 695 TR'
+2024-10-14 14:28:33,603 - DEBUG - Document content: ROUMANIE ROVIAINIA ROMANIA Carte Carte DE iDentitate IdEnTITY Didentite seala SS Nr 099994 Card CNP ...
+2024-10-14 14:28:33,605 - DEBUG - Instructor Request: mode.value='tool_call', response_model=<class 'models.PIIData'>, new_kwargs={'model': 'gpt-4', 'messages': [{'role': 'system', 'content': '\nYou are an AI agent specializing in contract creation and personal information extraction. \n\nYour role is:\n 1. Guide the process of extracting information from documents..\n 2. Verifying the extracted information with human input.\n 3. Identifying parties. \n 4. Constructing a contract. \n\n\nFollow the workflow precisely and ask for human input when needed.\n\n'}, {'role': 'user', 'content': "Extract the name and address from the given text:\n\nROUMANIE ROVIAINIA ROMANIA Carte Carte DE iDentitate IdEnTITY Didentite seala SS Nr 099994 Card CNP 2410415400542 93coQ Nume/NomiLast name VASILESCU Pronume/Prenom/Flrst name ELENA < CetatenielNatlonallte/Natlonalily M Sex SexelSer Român\u0103 ROU Loc nastore/Licu de naissancolF 'ar0 ol birth Mun: Dej Jud. Cluj Domiciliu/Adresse A ess Mun. Bucuresti Sec. 5 Str Nicolae Iorga nr.3 900 B Emisa delDelivree parllssued by Valabilitate/Vahidile Valiouy D.EPAB.D- 06.01.17-15.04.2077 IDROUVASILESCU<<ELENA<<<<<<<<<<<<<<< SS099994<0R0u4104151F770415824003421"}], 'tools': [{'type': 'function', 'function': {'name': 'PIIData', 'description': 'Correctly extracted `PIIData` with all the required parameters with correct types', 'parameters': {'properties': {'name': {'description': 'Full name of the person', 'title': 'Name', 'type': 'string'}, 'address': {'description': 'Residential address of the person', 'title': 'Address', 'type': 'string'}}, 'required': ['address', 'name'], 'type': 'object'}}}], 'tool_choice': {'type': 'function', 'function': {'name': 'PIIData'}}}
+2024-10-14 14:28:33,605 - DEBUG - max_retries: 1
+2024-10-14 14:28:33,607 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '\nYou are an AI agent specializing in contract creation and personal information extraction. \n\nYour role is:\n 1. Guide the process of extracting information from documents..\n 2. Verifying the extracted information with human input.\n 3. Identifying parties. \n 4. Constructing a contract. \n\n\nFollow the workflow precisely and ask for human input when needed.\n\n'}, {'role': 'user', 'content': "Extract the name and address from the given text:\n\nROUMANIE ROVIAINIA ROMANIA Carte Carte DE iDentitate IdEnTITY Didentite seala SS Nr 099994 Card CNP 2410415400542 93coQ Nume/NomiLast name VASILESCU Pronume/Prenom/Flrst name ELENA < CetatenielNatlonallte/Natlonalily M Sex SexelSer Român\u0103 ROU Loc nastore/Licu de naissancolF 'ar0 ol birth Mun: Dej Jud. Cluj Domiciliu/Adresse A ess Mun. Bucuresti Sec. 5 Str Nicolae Iorga nr.3 900 B Emisa delDelivree parllssued by Valabilitate/Vahidile Valiouy D.EPAB.D- 06.01.17-15.04.2077 IDROUVASILESCU<<ELENA<<<<<<<<<<<<<<< SS099994<0R0u4104151F770415824003421"}], 'model': 'gpt-4', 'tool_choice': {'type': 'function', 'function': {'name': 'PIIData'}}, 'tools': [{'type': 'function', 'function': {'name': 'PIIData', 'description': 'Correctly extracted `PIIData` with all the required parameters with correct types', 'parameters': {'properties': {'name': {'description': 'Full name of the person', 'title': 'Name', 'type': 'string'}, 'address': {'description': 'Residential address of the person', 'title': 'Address', 'type': 'string'}}, 'required': ['address', 'name'], 'type': 'object'}}}]}}
+2024-10-14 14:28:33,608 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-10-14 14:28:33,608 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-14 14:28:33,608 - DEBUG - send_request_headers.complete
+2024-10-14 14:28:33,608 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-14 14:28:33,608 - DEBUG - send_request_body.complete
+2024-10-14 14:28:33,608 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-14 14:28:36,106 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 14 Oct 2024 11:28:36 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-kzzh9hik9ryjiou4ftvhondh'), (b'openai-processing-ms', b'2329'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'10000'), (b'x-ratelimit-remaining-requests', b'9998'), (b'x-ratelimit-remaining-tokens', b'9742'), (b'x-ratelimit-reset-requests', b'11.753s'), (b'x-ratelimit-reset-tokens', b'1.548s'), (b'x-request-id', b'req_81092538ef30a5d6eed26a8cf88ab104'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d273a038df5ca1c-OTP'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-14 14:28:36,107 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-14 14:28:36,107 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-14 14:28:36,107 - DEBUG - receive_response_body.complete
+2024-10-14 14:28:36,108 - DEBUG - response_closed.started
+2024-10-14 14:28:36,108 - DEBUG - response_closed.complete
+2024-10-14 14:28:36,108 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Mon, 14 Oct 2024 11:28:36 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'user-kzzh9hik9ryjiou4ftvhondh', 'openai-processing-ms': '2329', 'openai-version': '2020-10-01', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '10000', 'x-ratelimit-remaining-requests': '9998', 'x-ratelimit-remaining-tokens': '9742', 'x-ratelimit-reset-requests': '11.753s', 'x-ratelimit-reset-tokens': '1.548s', 'x-request-id': 'req_81092538ef30a5d6eed26a8cf88ab104', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d273a038df5ca1c-OTP', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-14 14:28:36,108 - DEBUG - request_id: req_81092538ef30a5d6eed26a8cf88ab104
+2024-10-14 14:28:36,109 - DEBUG - Instructor Raw Response: ChatCompletion(id='chatcmpl-AIDXWkcQOz3Q62D8kCJyrUr1mXIRn', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content=None, refusal=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_eMu5UoUcluX6KVnCI7dKfafI', function=Function(arguments='{\n"name": "ELENA VASILESCU",\n"address": "Mun. Bucuresti Sec. 5 Str Nicolae Iorga nr.3 900 B"\n}', name='PIIData'), type='function')]))], created=1728905314, model='gpt-4-0613', object='chat.completion', service_tier=None, system_fingerprint=None, usage=CompletionUsage(completion_tokens=42, prompt_tokens=380, total_tokens=422, completion_tokens_details=None, prompt_tokens_details=None))
+2024-10-14 14:28:36,110 - DEBUG - Extracted PII: name='ELENA VASILESCU' address='Mun. Bucuresti Sec. 5 Str Nicolae Iorga nr.3 900 B'
+2024-10-14 14:28:37,301 - DEBUG - Instructor Request: mode.value='tool_call', response_model=<class 'models.ContractParties'>, new_kwargs={'model': 'gpt-4', 'messages': [{'role': 'system', 'content': '\nYou are an AI agent specializing in contract creation and personal information extraction. \n\nYour role is:\n 1. Guide the process of extracting information from documents..\n 2. Verifying the extracted information with human input.\n 3. Identifying parties. \n 4. Constructing a contract. \n\n\nFollow the workflow precisely and ask for human input when needed.\n\n'}, {'role': 'user', 'content': 'Identify the buyer and seller from the given information:\n\nName: ISPILANTE SENTIMENT BRUSLI, Address: Videle Jud: Teleorman Sos. Giurgiului nr.1 695 TR\nName: ELENA VASILESCU, Address: Mun. Bucuresti Sec. 5 Str Nicolae Iorga nr.3 900 B'}], 'tools': [{'type': 'function', 'function': {'name': 'ContractParties', 'description': 'Correctly extracted `ContractParties` with all the required parameters with correct types', 'parameters': {'properties': {'buyer': {'description': 'Name of the buyer', 'title': 'Buyer', 'type': 'string'}, 'seller': {'description': 'Name of the seller', 'title': 'Seller', 'type': 'string'}}, 'required': ['buyer', 'seller'], 'type': 'object'}}}], 'tool_choice': {'type': 'function', 'function': {'name': 'ContractParties'}}}
+2024-10-14 14:28:37,301 - DEBUG - max_retries: 1
+2024-10-14 14:28:37,303 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '\nYou are an AI agent specializing in contract creation and personal information extraction. \n\nYour role is:\n 1. Guide the process of extracting information from documents..\n 2. Verifying the extracted information with human input.\n 3. Identifying parties. \n 4. Constructing a contract. \n\n\nFollow the workflow precisely and ask for human input when needed.\n\n'}, {'role': 'user', 'content': 'Identify the buyer and seller from the given information:\n\nName: ISPILANTE SENTIMENT BRUSLI, Address: Videle Jud: Teleorman Sos. Giurgiului nr.1 695 TR\nName: ELENA VASILESCU, Address: Mun. Bucuresti Sec. 5 Str Nicolae Iorga nr.3 900 B'}], 'model': 'gpt-4', 'tool_choice': {'type': 'function', 'function': {'name': 'ContractParties'}}, 'tools': [{'type': 'function', 'function': {'name': 'ContractParties', 'description': 'Correctly extracted `ContractParties` with all the required parameters with correct types', 'parameters': {'properties': {'buyer': {'description': 'Name of the buyer', 'title': 'Buyer', 'type': 'string'}, 'seller': {'description': 'Name of the seller', 'title': 'Seller', 'type': 'string'}}, 'required': ['buyer', 'seller'], 'type': 'object'}}}]}}
+2024-10-14 14:28:37,303 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-10-14 14:28:37,304 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-14 14:28:37,304 - DEBUG - send_request_headers.complete
+2024-10-14 14:28:37,304 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-14 14:28:37,304 - DEBUG - send_request_body.complete
+2024-10-14 14:28:37,304 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-14 14:28:39,423 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 14 Oct 2024 11:28:39 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-kzzh9hik9ryjiou4ftvhondh'), (b'openai-processing-ms', b'1927'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'10000'), (b'x-ratelimit-remaining-requests', b'9998'), (b'x-ratelimit-remaining-tokens', b'9834'), (b'x-ratelimit-reset-requests', b'16.709s'), (b'x-ratelimit-reset-tokens', b'996ms'), (b'x-request-id', b'req_59aa0a0b19f37bd29118360ada6ddf16'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d273a1a9c49ca1c-OTP'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-14 14:28:39,423 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-14 14:28:39,424 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-14 14:28:39,424 - DEBUG - receive_response_body.complete
+2024-10-14 14:28:39,424 - DEBUG - response_closed.started
+2024-10-14 14:28:39,424 - DEBUG - response_closed.complete
+2024-10-14 14:28:39,424 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Mon, 14 Oct 2024 11:28:39 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'user-kzzh9hik9ryjiou4ftvhondh', 'openai-processing-ms': '1927', 'openai-version': '2020-10-01', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '10000', 'x-ratelimit-remaining-requests': '9998', 'x-ratelimit-remaining-tokens': '9834', 'x-ratelimit-reset-requests': '16.709s', 'x-ratelimit-reset-tokens': '996ms', 'x-request-id': 'req_59aa0a0b19f37bd29118360ada6ddf16', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d273a1a9c49ca1c-OTP', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-14 14:28:39,424 - DEBUG - request_id: req_59aa0a0b19f37bd29118360ada6ddf16
+2024-10-14 14:28:39,425 - DEBUG - Instructor Raw Response: ChatCompletion(id='chatcmpl-AIDXZ0nF5Nc5oQE0hDVzNCRXsnl91', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content=None, refusal=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_VKrl6Wq93glcGxuBmYf3gC06', function=Function(arguments='{\n"buyer": "ISPILANTE SENTIMENT BRUSLI",\n"seller": "ELENA VASILESCU"\n}', name='ContractParties'), type='function')]))], created=1728905317, model='gpt-4-0613', object='chat.completion', service_tier=None, system_fingerprint=None, usage=CompletionUsage(completion_tokens=28, prompt_tokens=232, total_tokens=260, completion_tokens_details=None, prompt_tokens_details=None))
+2024-10-14 14:28:44,237 - DEBUG - close.started
+2024-10-14 14:28:44,237 - DEBUG - close.complete
+2024-10-14 14:40:09,752 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-10-14 14:40:11,035 - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-14 14:40:11,036 - DEBUG - load_verify_locations cafile='D:\\deve\\contract_automation\\.venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2024-10-14 14:40:11,357 - DEBUG - Patching `client.chat.completions.create` with mode=<Mode.TOOLS: 'tool_call'>
