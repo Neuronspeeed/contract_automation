@@ -44,13 +44,30 @@ async def agent_workflow():
         elif action.action == "determine_contract_type":
             if state.contract_details and state.contract_details.contract_type:
                 print(f"Contract type already determined: {state.contract_details.contract_type}")
-                continue
+                print(f"Roles: {state.contract_details.additional_info}")
+                confirmation = input("Is this contract type and role assignment correct? (yes/no): ").lower()
+                if confirmation == 'yes':
+                    continue
+                else:
+                    state.contract_details = None
+
             while True:
                 contract_type = input("Enter contract type (airbnb, buy-sell, it-consulting): ").lower().replace(" ", "-")
                 template_filename = next((t for t in templates.keys() if contract_type in t.lower()), None)
                 if template_filename:
                     state.contract_details = determine_contract_details(state.parties, contract_type)
-                    break
+                    print(f"Contract type: {state.contract_details.contract_type}")
+                    roles = state.contract_details.additional_info
+                    if roles:
+                        for role, name in roles.items():
+                            print(f"{role.capitalize()}: {name}")
+                    else:
+                        print("No roles assigned.")
+                    confirmation = input("Is this role assignment correct? (yes/no): ").lower()
+                    if confirmation == 'yes':
+                        break
+                    else:
+                        state.contract_details = None
                 else:
                     print(f"No template found for {contract_type}. Available templates: {', '.join(templates.keys())}")
         
