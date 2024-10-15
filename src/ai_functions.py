@@ -1,3 +1,4 @@
+import json
 import os
 from openai import OpenAI
 from typing import List, Dict
@@ -6,6 +7,7 @@ from models import ContractParties, Contract, PIIData, AgentState, AgentAction, 
 from config import API_KEY, SYSTEM_PROMPT
 import instructor
 import logging
+import traceback
 
 
 
@@ -29,14 +31,23 @@ functions = [
     },
     {
         "name": "identify_parties",
-        "description": "Identify the buyer and seller based on extracted PII data",
+        "description": "Identify the parties and their roles based on extracted PII data",
         "parameters": {
             "type": "object",
             "properties": {
-                "buyer": {"type": "string", "description": "Name of the buyer"},
-                "seller": {"type": "string", "description": "Name of the seller"}
+                "parties": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string", "description": "Name of the party"},
+                            "role": {"type": "string", "description": "Role of the party in the contract"}
+                        },
+                        "required": ["name", "role"]
+                    }
+                }
             },
-            "required": ["buyer", "seller"]
+            "required": ["parties"]
         }
     },
     {
@@ -57,12 +68,21 @@ functions = [
     },
     {
         "name": "construct_contract",
-        "description": "Construct a contract between the buyer and seller using a template",
+        "description": "Construct a contract between the parties using a template",
         "parameters": {
             "type": "object",
             "properties": {
-                "buyer": {"type": "string", "description": "Name of the buyer"},
-                "seller": {"type": "string", "description": "Name of the seller"},
+                "parties": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string", "description": "Name of the party"},
+                            "role": {"type": "string", "description": "Role of the party in the contract"}
+                        },
+                        "required": ["name", "role"]
+                    }
+                },
                 "address": {"type": "string", "description": "Address of the property"},
                 "terms": {"type": "string", "description": "Terms of the contract"},
                 "contract_type": {"type": "string", "description": "Type of contract"},
@@ -72,7 +92,7 @@ functions = [
                     "additionalProperties": {"type": "string"}
                 }
             },
-            "required": ["buyer", "seller", "address", "terms", "contract_type", "additional_info"]
+            "required": ["parties", "address", "terms", "contract_type", "additional_info"]
         }
     },
     {
@@ -94,93 +114,70 @@ functions = [
 ]
 
 # Refactored functions to use OpenAI function calling with error handling
-def extract_pii(text: str) -> PIIData:
-    try:
-        response = client.chat.completions.create(
-            model="gpt-4",
-            messages=[
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": f"Extract the name and address from the given text:\n\n{text}"}
-            ],
-            response_model=PIIData
-        )
-        return response
-    except Exception as e:
-        logging.error(f"Error in extract_pii: {str(e)}")
-        raise
-
-# Similarly refactor `identify_parties` and `construct_contract` functions
-def identify_parties(pii_data: List[PIIData]) -> ContractParties:
-    pii_text = "\n".join([f"Name: {pii.name}, Address: {pii.address}" for pii in pii_data])
-    return client.chat.completions.create(
+def extract_pii(text: str) -> List[PIIData]:
+    response = client.chat.completions.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"Identify the buyer and seller from the given information:\n\n{pii_text}"}
+            {"role": "user", "content": f"Extract personal identifiable information from the following text:\n\n{text}"}
+        ],
+        response_model=List[PIIData]
+    )
+    return response
+
+def identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractParties:
+    pii_text = "\n".join([f"Name: {pii.name}, Address: {pii.address}" for pii in pii_data])
+    response = client.chat.completions.create(
+        model="gpt-4",
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": f"Identify the parties and their roles for a {contract_type} contract based on the following information:\n\n{pii_text}"}
         ],
         response_model=ContractParties
     )
+    return response
 
-def construct_contract(parties: ContractParties, address: str, template: str, details: ContractDetails) -> Contract:
-    return client.chat.completions.create(
+def determine_contract_details(parties: ContractParties, contract_type: str) -> ContractDetails:
+    parties_info = ", ".join([f"{party.name} ({party.role})" for party in parties.parties])
+    response = client.chat.completions.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"Create a {details.contract_type} contract using the following template:\n\n{template}\n\nBuyer: {parties.buyer}, Seller: {parties.seller}, Address: {address}, Additional Details: {details.additional_info}"}
+            {"role": "user", "content": f"Determine the contract details for a {contract_type} contract with the following parties:\n\n{parties_info}"}
+        ],
+        response_model=ContractDetails
+    )
+    return response
+
+def construct_contract(parties: ContractParties, address: str, template: str, details: ContractDetails) -> Contract:
+    parties_info = ", ".join([f"{party.role}: {party.name}" for party in parties.parties])
+    response = client.chat.completions.create(
+        model="gpt-4",
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": f"Construct a {details.contract_type} contract using the following template and information:\n\nTemplate:\n{template}\n\nParties: {parties_info}\nAddress: {address}\nAdditional Details: {details.additional_info}"}
         ],
         response_model=Contract
     )
+    return response
 
-def agent_action(state: AgentState) -> AgentAction:
+def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) -> AgentAction:
     state_summary = f"""
     Current state:
     - Verified PII data: {len(state.verified_pii_data)} entries
-    - Parties identified: {'Yes' if state.parties else 'No'}
-    - Contract type determined: {'Yes' if state.contract_details else 'No'}
+    - Contract type determined: {'Yes' if state.contract_details and state.contract_details.contract_type else 'No'}
+    - Parties identified: {'Yes' if state.parties and state.parties.parties else 'No'}
     - Contract constructed: {'Yes' if state.contract else 'No'}
+    Available templates: {', '.join(templates.keys())}
     """
-    return client.chat.completions.create(
+    response = client.chat.completions.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"{state_summary}\nWhat action should be taken next? Choose from: extract_pii, identify_parties, determine_contract_type, construct_contract, finish"}
+            {"role": "user", "content": f"{state_summary}\nBased on the current state and available templates, determine the next action to take in the contract creation process. If the contract type is not determined, suggest asking the human for the contract type. Provide a detailed explanation for your choice."}
         ],
         response_model=AgentAction
     )
-
-def determine_contract_details(parties: ContractParties, contract_type: str) -> ContractDetails:
-    try:
-        role_prompt = {
-            "airbnb": f"For an Airbnb contract between {parties.buyer} and {parties.seller}, who is the host (property owner) and who is the guest? Respond in JSON format with keys 'host' and 'guest'.",
-            "buy-sell": f"For a buy-sell contract between {parties.buyer} and {parties.seller}, confirm who is the seller and who is the buyer. Respond in JSON format with keys 'seller' and 'buyer'.",
-            "it-consulting": f"For an IT consulting contract between {parties.buyer} and {parties.seller}, who is providing the IT consulting services and who is the client? Respond in JSON format with keys 'consultant' and 'client'."
-        }
-        
-        response = client.chat.completions.create(
-            model="gpt-4",
-            messages=[
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": role_prompt.get(contract_type, f"Determine the roles for a {contract_type} contract between {parties.buyer} and {parties.seller}. Respond in JSON format.")}
-            ],
-            response_model=ContractDetails
-        )
-        
-        # Ensure the roles are assigned in the additional_info field
-        if not response.additional_info:
-            response.additional_info = {}
-        
-        # If the AI didn't provide roles, assign default roles
-        if contract_type == "airbnb" and ("host" not in response.additional_info or "guest" not in response.additional_info):
-            response.additional_info["host"] = parties.seller
-            response.additional_info["guest"] = parties.buyer
-        elif contract_type == "buy-sell" and ("seller" not in response.additional_info or "buyer" not in response.additional_info):
-            response.additional_info["seller"] = parties.seller
-            response.additional_info["buyer"] = parties.buyer
-        elif contract_type == "it-consulting" and ("consultant" not in response.additional_info or "client" not in response.additional_info):
-            response.additional_info["consultant"] = parties.seller
-            response.additional_info["client"] = parties.buyer
-        
-        return response
-    except Exception as e:
-        logging.error(f"Error in determine_contract_details: {str(e)}")
-        raise
+    print(f"Agent decided to: {response.action}")
+    print(f"Reason: {response.parameters.get('reason', 'No reason provided')}")
+    return response

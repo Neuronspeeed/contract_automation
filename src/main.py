@@ -6,8 +6,9 @@ import traceback
 from document_processing import process_documents, load_templates
 from ai_functions import extract_pii, identify_parties, construct_contract, agent_action, determine_contract_details
 from utils import verify_information
-from models import PIIData, ContractParties, Contract, AgentState
+from models import PIIData, ContractParties, Contract, AgentState, ContractDetails
 from config import TEMPLATES_FOLDER
+from typing import List
 
 # Apply nest_asyncio to allow nested asyncio calls
 nest_asyncio.apply()
@@ -29,51 +30,44 @@ async def agent_workflow():
 
     state = AgentState()
 
-    while True:
-        action = agent_action(state)
-        
-        if action.action == "extract_pii":
-            for doc, text in documents.items():
-                pii = extract_pii(text)
-                if verify_information(pii):
-                    state.verified_pii_data.append(pii)
-        
-        elif action.action == "identify_parties":
-            state.parties = identify_parties(state.verified_pii_data)
-        
-        elif action.action == "determine_contract_type":
-            if state.contract_details and state.contract_details.contract_type:
-                print(f"Contract type already determined: {state.contract_details.contract_type}")
-                print(f"Roles: {state.contract_details.additional_info}")
-                confirmation = input("Is this contract type and role assignment correct? (yes/no): ").lower()
-                if confirmation == 'yes':
-                    continue
-                else:
-                    state.contract_details = None
+    # Extract and verify PII first
+    for doc, text in documents.items():
+        pii_list = extract_pii(text)
+        verified_pii_list = verify_information(pii_list)
+        state.verified_pii_data.extend(verified_pii_list)
 
+    print(f"Verified PII data: {len(state.verified_pii_data)} entries")
+
+    while True:
+        action = agent_action(state, templates)
+        
+        if action.action == "determine_contract_type":
+            print("Available contract types:")
+            for template in templates.keys():
+                print(f"- {template.split('.')[0]}")
             while True:
-                contract_type = input("Enter contract type (airbnb, buy-sell, it-consulting): ").lower().replace(" ", "-")
+                contract_type = input("Enter the desired contract type: ").lower().replace(" ", "-")
                 template_filename = next((t for t in templates.keys() if contract_type in t.lower()), None)
                 if template_filename:
-                    state.contract_details = determine_contract_details(state.parties, contract_type)
-                    print(f"Contract type: {state.contract_details.contract_type}")
-                    roles = state.contract_details.additional_info
-                    if roles:
-                        for role, name in roles.items():
-                            print(f"{role.capitalize()}: {name}")
-                        confirmation = input("Is this role assignment correct? (yes/no): ").lower()
-                        if confirmation == 'yes':
-                            break
-                        else:
-                            state.contract_details = None
-                    else:
-                        print("Error: No roles assigned. Please try again.")
+                    contract_type = template_filename.split('.')[0]
+                    state.contract_details = ContractDetails(contract_type=contract_type, additional_info={})
+                    print(f"Contract type set to: {state.contract_details.contract_type}")
+                    break
                 else:
-                    print(f"No template found for {contract_type}. Available templates: {', '.join(templates.keys())}")
-        
+                    print(f"No template found for {contract_type}. Please choose from the available types.")
+
+        elif action.action == "identify_parties":
+            if not state.contract_details or not state.contract_details.contract_type:
+                print("Contract type not determined yet. Please determine contract type first.")
+                continue
+            state.parties = identify_parties(state.verified_pii_data, state.contract_details.contract_type)
+            print("Parties identified:")
+            for party in state.parties.parties:
+                print(f"{party.role}: {party.name}")
+
         elif action.action == "construct_contract":
-            if not state.contract_details:
-                print("Contract details not determined yet. Please determine contract type first.")
+            if not state.contract_details or not state.parties:
+                print("Contract details or parties not determined yet. Please complete these steps first.")
                 continue
             
             template_filename = next((t for t in templates.keys() if state.contract_details.contract_type in t.lower()), None)
@@ -83,8 +77,10 @@ async def agent_workflow():
             
             selected_template = templates[template_filename]['content']
             state.contract = construct_contract(state.parties, state.verified_pii_data[0].address, selected_template, state.contract_details)
-        
+            print("Contract constructed.")
+
         elif action.action == "finish":
+            print("Contract creation process completed.")
             break
         
         else:
@@ -93,13 +89,12 @@ async def agent_workflow():
         print(f"Completed action: {action.action}")
 
     if state.contract:
-        print("\nContract constructed:")
-        print(f"Buyer: {state.contract.buyer}")
-        print(f"Seller: {state.contract.seller}")
+        print("\nFinal Contract:")
+        print(f"Parties: {', '.join([f'{party.role}: {party.name}' for party in state.contract.parties])}")
         print(f"Address: {state.contract.address}")
         print(f"Terms: {state.contract.terms}")
     else:
-        print("No contract was constructed.")
+        print("No contract was created.")
 
 if __name__ == "__main__":
     asyncio.run(agent_workflow())

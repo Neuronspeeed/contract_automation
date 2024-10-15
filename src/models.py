@@ -1,18 +1,20 @@
 from instructor import OpenAISchema
 from pydantic import Field
-from typing import List, Optional, Dict
+from typing import List, Optional, Dict, Union
 
 class PIIData(OpenAISchema):
     name: str = Field(..., description="Full name of the person")
     address: str = Field(..., description="Residential address of the person")
 
+class ContractParty(OpenAISchema):
+    name: str = Field(..., description="Name of the party")
+    role: str = Field(..., description="Role of the party in the contract")
+
 class ContractParties(OpenAISchema):
-    buyer: str = Field(..., description="Name of the buyer")
-    seller: str = Field(..., description="Name of the seller")
+    parties: List[ContractParty] = Field(..., description="List of parties involved in the contract")
 
 class Contract(OpenAISchema):
-    buyer: str = Field(..., description="Name of the buyer")
-    seller: str = Field(..., description="Name of the seller")
+    parties: List[ContractParty] = Field(..., description="List of parties involved in the contract")
     address: str = Field(..., description="Address where the contract is applicable")
     terms: str = Field(..., description="Terms of the contract")
 
