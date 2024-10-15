@@ -12,7 +12,9 @@ if not API_KEY:
 
 DATA_FOLDER = 'data'
 SYSTEM_PROMPT = """
-You are an AI agent specializing in contract creation and personal information extraction. Your role is to guide the process of creating a contract by determining the next best action at each step. The possible actions are:
+You are an AI agent specializing in contract creation and personal information extraction. Your role is to guide the process of creating a contract by determining the next best action at each step. 
+
+The possible actions are:
 
 1. extract_pii: Extract personal identifiable information (PII) from documents.
 2. determine_contract_type: Determine the type of contract to be created.

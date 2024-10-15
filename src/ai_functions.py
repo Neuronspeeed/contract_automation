@@ -3,7 +3,7 @@ import os
 from openai import OpenAI
 from typing import List, Dict
 from pydantic import ValidationError
-from models import ContractParties, Contract, PIIData, AgentState, AgentAction, ContractDetails
+from models import ContractParties, Contract, PIIData, AgentState, AgentAction, ContractDetails, ContractParty
 from config import API_KEY, SYSTEM_PROMPT
 import instructor
 import logging
@@ -127,15 +127,36 @@ def extract_pii(text: str) -> List[PIIData]:
 
 def identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractParties:
     pii_text = "\n".join([f"Name: {pii.name}, Address: {pii.address}" for pii in pii_data])
+    
+    user_prompt = f"""
+    For a {contract_type} contract, suggest roles for the following parties based on their personal information:
+
+    {pii_text}
+
+    Your task is to suggest appropriate roles for each person in the context of a {contract_type} contract. 
+    The human will then confirm or modify these suggestions.
+    """
+    
     response = client.chat.completions.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"Identify the parties and their roles for a {contract_type} contract based on the following information:\n\n{pii_text}"}
+            {"role": "user", "content": user_prompt}
         ],
         response_model=ContractParties
     )
-    return response
+    
+    confirmed_parties = []
+    for party in response.parties:
+        print(f"\nSuggested role for {party.name}: {party.role}")
+        confirmation = input(f"Is this role correct for {party.name}? (yes/no): ").lower()
+        if confirmation != 'yes':
+            new_role = input(f"Please enter the correct role for {party.name}: ")
+            confirmed_parties.append(ContractParty(name=party.name, role=new_role))
+        else:
+            confirmed_parties.append(party)
+    
+    return ContractParties(parties=confirmed_parties)
 
 def determine_contract_details(parties: ContractParties, contract_type: str) -> ContractDetails:
     parties_info = ", ".join([f"{party.name} ({party.role})" for party in parties.parties])
@@ -178,6 +199,14 @@ def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) -> Age
         ],
         response_model=AgentAction
     )
+    
+    # Ensure the action is lowercase to match the expected format in agent_workflow
+    response.action = response.action.lower()
+    
     print(f"Agent decided to: {response.action}")
     print(f"Reason: {response.parameters.get('reason', 'No reason provided')}")
     return response
+
+
+
+
