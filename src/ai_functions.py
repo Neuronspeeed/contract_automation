@@ -129,12 +129,13 @@ def identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractPar
     pii_text = "\n".join([f"Name: {pii.name}, Address: {pii.address}" for pii in pii_data])
     
     user_prompt = f"""
-    For a {contract_type} contract, suggest roles for the following parties based on their personal information:
+    For an {contract_type} contract, suggest distinct roles for the following parties based on their personal information:
 
     {pii_text}
 
-    Your task is to suggest appropriate roles for each person in the context of a {contract_type} contract. 
-    The human will then confirm or modify these suggestions.
+    Your task is to provide a list of possible roles for each person in the context of an {contract_type} contract. 
+    Ensure that one party is suggested as the service provider (e.g., IT Consultant, Software Developer) and the other as the client or buyer.
+    For each person, provide 2 to 3 possible roles that are distinct from the other party's roles.
     """
     
     response = client.chat.completions.create(
@@ -148,13 +149,23 @@ def identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractPar
     
     confirmed_parties = []
     for party in response.parties:
-        print(f"\nSuggested role for {party.name}: {party.role}")
-        confirmation = input(f"Is this role correct for {party.name}? (yes/no): ").lower()
-        if confirmation != 'yes':
-            new_role = input(f"Please enter the correct role for {party.name}: ")
-            confirmed_parties.append(ContractParty(name=party.name, role=new_role))
-        else:
-            confirmed_parties.append(party)
+        possible_roles = party.role.split(', ')
+        print(f"\nPossible roles for {party.name}:")
+        for i, role in enumerate(possible_roles, 1):
+            print(f"{i}. {role}")
+        
+        while True:
+            choice = input(f"Select a role for {party.name} (enter the number): ")
+            try:
+                choice = int(choice)
+                if 1 <= choice <= len(possible_roles):
+                    selected_role = possible_roles[choice - 1]
+                    confirmed_parties.append(ContractParty(name=party.name, role=selected_role))
+                    break
+                else:
+                    print("Invalid choice. Please enter a valid number.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
     
     return ContractParties(parties=confirmed_parties)
 
