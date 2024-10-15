@@ -197,27 +197,24 @@ def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) -> Age
     state_summary = f"""
     Current state:
     - Verified PII data: {len(state.verified_pii_data)} entries
-    - Contract type determined: {'Yes' if state.contract_details and state.contract_details.contract_type else 'No'}
-    - Parties identified: {'Yes' if state.parties and state.parties.parties else 'No'}
+    - Contract type: {state.contract_details.contract_type if state.contract_details else 'Not determined'}
+    - Parties identified: {', '.join([f"{party.role}: {party.name}" for party in state.parties.parties]) if state.parties else 'No'}
     - Contract constructed: {'Yes' if state.contract else 'No'}
     Available templates: {', '.join(templates.keys())}
     """
+    
     response = client.chat.completions.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"{state_summary}\nBased on the current state and available templates, determine the next action to take in the contract creation process. If the contract type is not determined, suggest asking the human for the contract type. Provide a detailed explanation for your choice."}
+            {"role": "user", "content": f"{state_summary}\nBased on the current state and available templates, determine the next action to take in the contract creation process. Provide a structured response with the action and a detailed reason for your choice."}
         ],
         response_model=AgentAction
     )
     
-    # Ensure the action is lowercase to match the expected format in agent_workflow
     response.action = response.action.lower()
-    
     print(f"Agent decided to: {response.action}")
-    print(f"Reason: {response.parameters.get('reason', 'No reason provided')}")
+    print(f"Reason: {response.reason}")
     return response
-
-
 
 

@@ -24,6 +24,7 @@ class ContractDetails(OpenAISchema):
 
 class AgentAction(OpenAISchema):
     action: str = Field(..., description="Action to be performed by the agent")
+    reason: str = Field(..., description="Detailed reason for choosing this action")
     parameters: Dict[str, str] = Field(default_factory=dict, description="Parameters for the action")
 
 class AgentState(OpenAISchema):

@@ -41,6 +41,9 @@ async def agent_workflow():
     while True:
         action = agent_action(state, templates)
         
+        print(f"Agent decided to: {action.action}")
+        print(f"Reason: {action.reason}")
+        
         if action.action == "determine_contract_type":
             print("Available contract types:")
             for template in templates.keys():
