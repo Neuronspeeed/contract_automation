@@ -20,96 +20,27 @@ functions = [
     {
         "name": "extract_pii",
         "description": "Extract personal identifiable information from text",
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "name": {"type": "string", "description": "Full name of the person"},
-                "address": {"type": "string", "description": "Residential address of the person"}
-            },
-            "required": ["name", "address"]
-        }
+        "parameters": PIIData.model_json_schema()
     },
     {
         "name": "identify_parties",
         "description": "Identify the parties and their roles based on extracted PII data",
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "parties": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "name": {"type": "string", "description": "Name of the party"},
-                            "role": {"type": "string", "description": "Role of the party in the contract"}
-                        },
-                        "required": ["name", "role"]
-                    }
-                }
-            },
-            "required": ["parties"]
-        }
+        "parameters": ContractParties.model_json_schema()
     },
     {
         "name": "determine_contract_details",
         "description": "Determine the contract details based on the contract type",
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "contract_type": {"type": "string", "description": "Type of contract (e.g., airbnb, buy-sell, it-consulting)"},
-                "additional_info": {
-                    "type": "object",
-                    "description": "Additional information specific to the contract type",
-                    "additionalProperties": {"type": "string"}
-                }
-            },
-            "required": ["contract_type", "additional_info"]
-        }
+        "parameters": ContractDetails.model_json_schema()
     },
     {
         "name": "construct_contract",
         "description": "Construct a contract between the parties using a template",
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "parties": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "name": {"type": "string", "description": "Name of the party"},
-                            "role": {"type": "string", "description": "Role of the party in the contract"}
-                        },
-                        "required": ["name", "role"]
-                    }
-                },
-                "address": {"type": "string", "description": "Address of the property"},
-                "terms": {"type": "string", "description": "Terms of the contract"},
-                "contract_type": {"type": "string", "description": "Type of contract"},
-                "additional_info": {
-                    "type": "object",
-                    "description": "Additional information specific to the contract type",
-                    "additionalProperties": {"type": "string"}
-                }
-            },
-            "required": ["parties", "address", "terms", "contract_type", "additional_info"]
-        }
+        "parameters": Contract.model_json_schema()
     },
     {
         "name": "agent_action",
         "description": "Determine the next action for the agent to take",
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "action": {"type": "string", "description": "Action to be performed by the agent"},
-                "parameters": {
-                    "type": "object",
-                    "description": "Parameters for the action",
-                    "additionalProperties": {"type": "string"}
-                }
-            },
-            "required": ["action", "parameters"]
-        }
+        "parameters": AgentAction.model_json_schema()
     }
 ]
 
@@ -129,13 +60,13 @@ def identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractPar
     pii_text = "\n".join([f"Name: {pii.name}, Address: {pii.address}" for pii in pii_data])
     
     user_prompt = f"""
-    For an {contract_type} contract, suggest distinct roles for the following parties based on their personal information:
+    For a {contract_type} contract, suggest possible roles for the following parties based on their personal information:
 
     {pii_text}
 
-    Your task is to provide a list of possible roles for each person in the context of an {contract_type} contract. 
-    Ensure that one party is suggested as the service provider (e.g., IT Consultant, Software Developer) and the other as the client or buyer.
-    For each person, provide 2 to 3 possible roles that are distinct from the other party's roles.
+    Your task is to provide a list of 3 to 4 possible roles for each person in the context of a {contract_type} contract. 
+    Include general roles like "Buyer" or "Seller" as well as more specific roles that might be relevant to this type of contract.
+    Ensure that the suggested roles are diverse and appropriate for the contract type.
     """
     
     response = client.chat.completions.create(
@@ -216,5 +147,6 @@ def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) -> Age
     print(f"Agent decided to: {response.action}")
     print(f"Reason: {response.reason}")
     return response
+
 
 

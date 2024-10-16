@@ -48,7 +48,7 @@ Examples:
 
 Remember:
 - Always provide clear and specific reasons for your chosen action.
-- Consider the logical flow of the contract creation process as implemented in the main.py file.
+- Consider the logical flow of the contract creation process as implemented.
 - If the contract type needs to be determined, suggest prompting the user to choose from the available template types.
 - For the identify_parties action, suggest appropriate roles based on the contract type (e.g., IT Consultant and Client for an IT contract).
 - Ensure that all necessary steps are completed before constructing the contract.
