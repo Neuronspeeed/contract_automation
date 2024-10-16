@@ -1,6 +1,6 @@
 import json
 import os
-from openai import OpenAI
+from openai import AsyncOpenAI
 from typing import List, Dict
 from pydantic import ValidationError
 from models import ContractParties, Contract, PIIData, AgentState, AgentAction, ContractDetails, ContractParty
@@ -12,8 +12,7 @@ import traceback
 
 
 # Initialize OpenAI client with Instructor
-client = instructor.patch(OpenAI(api_key=API_KEY))
-
+client = instructor.patch(AsyncOpenAI(api_key=API_KEY))
 
 # Function calling
 functions = [
@@ -45,8 +44,8 @@ functions = [
 ]
 
 # Refactored functions to use OpenAI function calling with error handling
-def extract_pii(text: str) -> List[PIIData]:
-    response = client.chat.completions.create(
+async def extract_pii(text: str) -> List[PIIData]:
+    response = await client.chat.completions.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -56,7 +55,7 @@ def extract_pii(text: str) -> List[PIIData]:
     )
     return response
 
-def identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractParties:
+async def identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractParties:
     pii_text = "\n".join([f"Name: {pii.name}, Address: {pii.address}" for pii in pii_data])
     
     user_prompt = f"""
@@ -69,7 +68,7 @@ def identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractPar
     Ensure that the suggested roles are diverse and appropriate for the contract type.
     """
     
-    response = client.chat.completions.create(
+    response = await client.chat.completions.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -100,9 +99,9 @@ def identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractPar
     
     return ContractParties(parties=confirmed_parties)
 
-def determine_contract_details(parties: ContractParties, contract_type: str) -> ContractDetails:
+async def determine_contract_details(parties: ContractParties, contract_type: str) -> ContractDetails:
     parties_info = ", ".join([f"{party.name} ({party.role})" for party in parties.parties])
-    response = client.chat.completions.create(
+    response = await client.chat.completions.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -112,9 +111,9 @@ def determine_contract_details(parties: ContractParties, contract_type: str) -> 
     )
     return response
 
-def construct_contract(parties: ContractParties, address: str, template: str, details: ContractDetails) -> Contract:
+async def construct_contract(parties: ContractParties, address: str, template: str, details: ContractDetails) -> Contract:
     parties_info = ", ".join([f"{party.role}: {party.name}" for party in parties.parties])
-    response = client.chat.completions.create(
+    response = await client.chat.completions.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -124,7 +123,7 @@ def construct_contract(parties: ContractParties, address: str, template: str, de
     )
     return response
 
-def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) -> AgentAction:
+async def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) -> AgentAction:
     state_summary = f"""
     Current state:
     - Verified PII data: {len(state.verified_pii_data)} entries
@@ -134,7 +133,7 @@ def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) -> Age
     Available templates: {', '.join(templates.keys())}
     """
     
-    response = client.chat.completions.create(
+    response = await client.chat.completions.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},

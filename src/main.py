@@ -32,14 +32,14 @@ async def agent_workflow():
 
     # Extract and verify PII first
     for doc, text in documents.items():
-        pii_list = extract_pii(text)
+        pii_list = await extract_pii(text)
         verified_pii_list = verify_information(pii_list)
         state.verified_pii_data.extend(verified_pii_list)
 
     print(f"Verified PII data: {len(state.verified_pii_data)} entries")
 
     while True:
-        action = agent_action(state, templates)
+        action = await agent_action(state, templates)
         
         print(f"Agent decided to: {action.action}")
         print(f"Reason: {action.reason}")
@@ -63,7 +63,7 @@ async def agent_workflow():
             if not state.contract_details or not state.contract_details.contract_type:
                 print("Contract type not determined yet. Please determine contract type first.")
                 continue
-            state.parties = identify_parties(state.verified_pii_data, state.contract_details.contract_type)
+            state.parties = await identify_parties(state.verified_pii_data, state.contract_details.contract_type)
             print("Parties identified:")
             for party in state.parties.parties:
                 print(f"{party.role}: {party.name}")
@@ -79,7 +79,7 @@ async def agent_workflow():
                 continue
             
             selected_template = templates[template_filename]['content']
-            state.contract = construct_contract(state.parties, state.verified_pii_data[0].address, selected_template, state.contract_details)
+            state.contract = await construct_contract(state.parties, state.verified_pii_data[0].address, selected_template, state.contract_details)
             print("Contract constructed.")
 
         elif action.action == "finish":
@@ -99,5 +99,6 @@ async def agent_workflow():
     else:
         print("No contract was created.")
 
+# Run the async workflow
 if __name__ == "__main__":
     asyncio.run(agent_workflow())
