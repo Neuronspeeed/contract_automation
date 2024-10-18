@@ -66,7 +66,7 @@ async def agent_workflow():
             state.parties = await identify_parties(state.verified_pii_data, state.contract_details.contract_type)
             print("Parties identified:")
             for party in state.parties.parties:
-                print(f"{party.role}: {party.name}")
+                print(f"{', '.join(party.roles)}: {party.name}")
 
         elif action.action == "construct_contract":
             if not state.contract_details or not state.parties:
@@ -93,7 +93,7 @@ async def agent_workflow():
 
     if state.contract:
         print("\nFinal Contract:")
-        print(f"Parties: {', '.join([f'{party.role}: {party.name}' for party in state.contract.parties])}")
+        print(f"Parties: {', '.join([f'{", ".join(party.roles)}: {party.name}' for party in state.contract.parties])}")
         print(f"Address: {state.contract.address}")
         print(f"Terms: {state.contract.terms}")
     else:

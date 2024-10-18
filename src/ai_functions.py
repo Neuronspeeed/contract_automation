@@ -63,11 +63,22 @@ async def identify_parties(pii_data: List[PIIData], contract_type: str) -> Contr
 
     {pii_text}
 
-    Your task is to assign roles to each person in the context of a {contract_type} contract.
-    Use only the following roles:
-    - For a buy-sell contract: buyer or seller
-    - For an airbnb contract: landlord or tenant
-    - For an IT contract: IT consultant or client
+    Your task is to ask for the roles of the each person in the context of a {contract_type} contract.
+    Consider the following guidelines:
+
+    1. For a buy-sell contract:
+       - Ask who the buyer and who is the seller.
+
+    2. For an airbnb contract:
+       - Ask who is the landlord (property owner) and who is the tenant (guest).
+
+    3. For an IT contract:
+       - Ask who is the IT consultant and who is the client.
+
+    For each person, provide:
+    1. Their name
+    2. Their possible roles and let the human choose only from the roles mentioned above.
+
     """
     
     response = await client.chat.completions.create(
@@ -100,6 +111,7 @@ async def identify_parties(pii_data: List[PIIData], contract_type: str) -> Contr
     
     return ContractParties(parties=confirmed_parties)
 
+
 async def determine_contract_details(parties: ContractParties, contract_type: str) -> ContractDetails:
     parties_info = ", ".join([f"{party.name} ({party.role})" for party in parties.parties])
     response = await client.chat.completions.create(
@@ -129,7 +141,7 @@ async def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) 
     Current state:
     - Verified PII data: {len(state.verified_pii_data)} entries
     - Contract type: {state.contract_details.contract_type if state.contract_details else 'Not determined'}
-    - Parties identified: {', '.join([f"{party.role}: {party.name}" for party in state.parties.parties]) if state.parties else 'No'}
+    - Parties identified: {', '.join([f"{', '.join(party.roles)}: {party.name}" for party in state.parties.parties]) if state.parties else 'No'}
     - Contract constructed: {'Yes' if state.contract else 'No'}
     Available templates: {', '.join(templates.keys())}
     """
