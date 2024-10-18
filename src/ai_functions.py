@@ -20,7 +20,7 @@ client = instructor.patch(AsyncOpenAI(api_key=API_KEY))
 async def extract_pii(text: str) -> List[PIIData]:
     """Extract personal identifiable information from text."""
     return await client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-4o-mini",
         response_model=List[PIIData],
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -56,7 +56,7 @@ async def identify_parties(pii_data: List[PIIData], contract_type: str) -> Contr
     """
     
     return await client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": user_prompt}
@@ -71,7 +71,7 @@ async def determine_contract_details(parties: ContractParties, contract_type: st
     """Determine the contract details based on the contract type."""
     parties_info = ", ".join([f"{party.name} ({', '.join(party.roles)})" for party in parties.parties])
     return await client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": f"Determine the contract details for a {contract_type} contract with the following parties:\n\n{parties_info}"}
@@ -100,7 +100,7 @@ Instructions:
 """
 
     return await client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": user_prompt}
@@ -121,7 +121,7 @@ async def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) 
     """
     
     return await client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": f"Determine the next action based on the current state:\n\n{state_summary}"}
