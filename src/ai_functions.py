@@ -28,9 +28,9 @@ async def extract_pii(text: str) -> List[PIIData]:
         ]
     )
 
-# Identify the parties and their roles based on extracted PII data.
+# Identify the parties and their roles based on extracted PII data and contract type.
 async def identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractParties:
-    """Identify the parties and their roles based on extracted PII data."""
+    """Identify the parties and their roles based on extracted PII data and contract type."""
     pii_text = "\n".join([f"Name: {pii.name}, Address: {pii.address}" for pii in pii_data])
     
     user_prompt = f"""
@@ -50,9 +50,7 @@ async def identify_parties(pii_data: List[PIIData], contract_type: str) -> Contr
     3. For an IT contract:
        - Identify the IT consultant and the client.
 
-    For each person, provide:
-    1. Their name
-    2. Their role based on the contract type
+    For each person, provide their name and assigned role.
     """
     
     return await client.chat.completions.create(
@@ -61,8 +59,6 @@ async def identify_parties(pii_data: List[PIIData], contract_type: str) -> Contr
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": user_prompt}
         ],
-        tools=[{"type": "function", "function": {"name": "identify_parties", "parameters": ContractParties.model_json_schema()}}],
-        tool_choice={"type": "function", "function": {"name": "identify_parties"}},
         response_model=ContractParties
     )
 
@@ -129,6 +125,20 @@ async def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) 
         tools=[{"type": "function", "function": {"name": "agent_action", "parameters": AgentAction.model_json_schema()}}],
         tool_choice={"type": "function", "function": {"name": "agent_action"}},
         response_model=AgentAction
+    )
+
+async def determine_contract_type(pii_data: List[PIIData], available_templates: List[str]) -> str:
+    """Determine the contract type based on PII data and available templates."""
+    pii_text = "\n".join([f"Name: {pii.name}, Address: {pii.address}" for pii in pii_data])
+    templates_text = ", ".join(available_templates)
+    
+    return await client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": f"Determine the most appropriate contract type based on the following PII data and available templates:\n\nPII Data:\n{pii_text}\n\nAvailable Templates: {templates_text}"}
+        ],
+        response_model=str
     )
 
 
