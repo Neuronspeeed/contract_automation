@@ -4,9 +4,9 @@ import logging
 import os
 import traceback
 from document_processing import process_documents, load_templates
-from ai_functions import extract_pii, identify_parties, construct_contract, agent_action, determine_contract_details
+from ai_functions import extract_pii, identify_parties, construct_contract, determine_contract_details
 from utils import verify_information
-from models import PIIData, ContractParties, Contract, AgentState, ContractDetails
+from models import PIIData, ContractParties, Contract, AgentState, ContractDetails, ContractParty
 from config import TEMPLATES_FOLDER
 from typing import List, Dict
 
@@ -31,11 +31,13 @@ async def process_pii_extraction(state: AgentState, documents: Dict[str, str]) -
         state (AgentState): The current state of the agent.
         documents (Dict[str, str]): The processed documents.
     """
+    verified_pii_data = []
     for doc, text in documents.items():
         pii_list: List[PIIData] = await extract_pii(text)
         verified_pii_list: List[PIIData] = verify_information(pii_list)
-        state.verified_pii_data.extend(verified_pii_list)
+        verified_pii_data.extend(verified_pii_list)
     
+    state.verified_pii_data = verified_pii_data
     print(f"Verified PII data: {len(state.verified_pii_data)} entries")
 
 async def determine_contract_type(state: AgentState, templates: Dict[str, Dict]) -> None:
@@ -63,7 +65,7 @@ async def determine_contract_type(state: AgentState, templates: Dict[str, Dict])
 
 async def identify_contract_parties(state: AgentState) -> None:
     """
-    Identify the parties involved in the contract.
+    Identify the parties involved in the contract with human input.
     
     Args:
         state (AgentState): The current state of the agent.
@@ -72,8 +74,39 @@ async def identify_contract_parties(state: AgentState) -> None:
         print("Contract type not determined yet. Please determine contract type first.")
         return
     
-    state.parties = await identify_parties(state.verified_pii_data, state.contract_details.contract_type)
-    print("Parties identified:")
+    contract_type = state.contract_details.contract_type
+    role_options = {
+        "buy-sell": ["buyer", "seller"],
+        "airbnb": ["landlord", "tenant"],
+        "it": ["IT consultant", "client"]
+    }
+    
+    if contract_type not in role_options:
+        print(f"Unsupported contract type: {contract_type}")
+        return
+    
+    final_parties = []
+    for pii in state.verified_pii_data:
+        print(f"\nFor {pii.name}:")
+        print("Available roles:")
+        for i, role in enumerate(role_options[contract_type], 1):
+            print(f"{i}. {role}")
+        
+        while True:
+            choice = input(f"Enter the number or name for {pii.name}'s role: ").strip().lower()
+            if choice.isdigit() and 1 <= int(choice) <= len(role_options[contract_type]):
+                user_role = role_options[contract_type][int(choice) - 1]
+                break
+            elif choice in [role.lower() for role in role_options[contract_type]]:
+                user_role = next(role for role in role_options[contract_type] if role.lower() == choice)
+                break
+            else:
+                print(f"Invalid choice. Please enter a number between 1 and {len(role_options[contract_type])} or one of the role names.")
+        
+        final_parties.append(ContractParty(name=pii.name, roles=[user_role]))
+    
+    state.parties = ContractParties(parties=final_parties)
+    print("\nFinal Parties identified:")
     for party in state.parties.parties:
         print(f"{', '.join(party.roles)}: {party.name}")
 
@@ -95,7 +128,8 @@ async def construct_final_contract(state: AgentState, templates: Dict[str, Dict]
         return
     
     selected_template = templates[template_filename]['content']
-    state.contract = await construct_contract(state.parties, state.verified_pii_data[0].address, selected_template, state.contract_details)
+    address = state.verified_pii_data[0].address if state.verified_pii_data else "Address not provided"
+    state.contract = await construct_contract(state.parties, address, selected_template, state.contract_details)
     print("Contract constructed.")
 
 async def agent_workflow() -> None:
