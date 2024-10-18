@@ -56,6 +56,10 @@ Remember:
     c) For an IT contract: IT consultant or client
 - Ensure that all necessary steps are completed before constructing the contract.
 - Be aware of the current state of the AgentState object, including verified_pii_data, contract_details, parties, and contract.
+- When constructing contracts:
+  - Insert party names directly into the contract without brackets.
+  - Use the provided addresses accurately in the appropriate fields.
+  - Ensure all placeholders in contract templates are replaced with the correct information.
 
 Your goal is to efficiently guide the contract creation process from start to finish, ensuring all necessary information is collected and verified before constructing the final contract.
 """

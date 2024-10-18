@@ -130,7 +130,22 @@ async def construct_contract(parties: ContractParties, address: str, template: s
         model="gpt-4",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"Construct a {details.contract_type} contract using the following template and information:\n\nTemplate:\n{template}\n\nParties: {parties_info}\nAddress: {address}\nAdditional Details: {details.additional_info}"}
+            {"role": "user", "content": f"""Construct a {details.contract_type} contract using the following template and information:
+
+Template:
+{template}
+
+Parties: {parties_info}
+Address: {address}
+Additional Details: {details.additional_info}
+
+Instructions:
+1. Use the provided template as a base for the contract.
+2. Insert the parties' names directly into the contract without brackets.
+3. Use the provided address for the 'Address' field in the contract.
+4. Ensure all placeholders in the template are replaced with appropriate information.
+5. If any information is missing, leave the corresponding field blank or use a placeholder like [To be determined].
+"""}
         ],
         response_model=Contract
     )
