@@ -6,6 +6,7 @@ from pydantic import ValidationError
 from models import ContractParties, Contract, PIIData, AgentState, AgentAction, ContractDetails, ContractParty
 from config import API_KEY, SYSTEM_PROMPT
 import instructor
+from instructor import OpenAISchema
 import logging
 import traceback
 
@@ -14,45 +15,19 @@ import traceback
 # Initialize OpenAI client with Instructor
 client = instructor.patch(AsyncOpenAI(api_key=API_KEY))
 
-# Function calling
-functions = [
-    {
-        "name": "extract_pii",
-        "description": "Extract personal identifiable information from text",
-        "parameters": PIIData.model_json_schema()
-    },
-    {
-        "name": "identify_parties",
-        "description": "Identify the parties and their roles based on extracted PII data",
-        "parameters": ContractParties.model_json_schema()
-    },
-    {
-        "name": "determine_contract_details",
-        "description": "Determine the contract details based on the contract type",
-        "parameters": ContractDetails.model_json_schema()
-    },
-    {
-        "name": "construct_contract",
-        "description": "Construct a contract between the parties using a template",
-        "parameters": Contract.model_json_schema()
-    },
-    {
-        "name": "agent_action",
-        "description": "Determine the next action for the agent to take",
-        "parameters": AgentAction.model_json_schema()
-    }
-]
+
+
 
 # Refactored functions to use OpenAI function calling with error handling
 async def extract_pii(text: str) -> List[PIIData]:
     """Extract personal identifiable information from text."""
     return await client.chat.completions.create(
         model="gpt-4",
+        response_model=List[PIIData],
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": f"Extract personal identifiable information from the following text:\n\n{text}"}
-        ],
-        response_model=List[PIIData]
+        ]
     )
 
 async def identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractParties:
@@ -87,6 +62,8 @@ async def identify_parties(pii_data: List[PIIData], contract_type: str) -> Contr
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": user_prompt}
         ],
+        tools=[{"type": "function", "function": {"name": "identify_parties", "parameters": ContractParties.model_json_schema()}}],
+        tool_choice={"type": "function", "function": {"name": "identify_parties"}},
         response_model=ContractParties
     )
 
@@ -146,8 +123,10 @@ async def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) 
         model="gpt-4",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"{state_summary}\nBased on the current state and available templates, determine the next action to take in the contract creation process. Provide a structured response with the action and a detailed reason for your choice."}
+            {"role": "user", "content": f"Determine the next action based on the current state:\n\n{state_summary}"}
         ],
+        tools=[{"type": "function", "function": {"name": "agent_action", "parameters": AgentAction.model_json_schema()}}],
+        tool_choice={"type": "function", "function": {"name": "agent_action"}},
         response_model=AgentAction
     )
 
