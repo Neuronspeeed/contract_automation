@@ -2,31 +2,38 @@ from instructor import OpenAISchema
 from pydantic import Field, BaseModel
 from typing import List, Optional, Dict, Union, Any
 
+# PII data schema
 class PIIData(OpenAISchema):
     name: str = Field(..., description="Full name of the person")
     address: str = Field(..., description="Residential address of the person")
 
+# Contract party schema
 class ContractParty(OpenAISchema):
     name: str = Field(..., description="Name of the party")
     roles: List[str] = Field(..., description="Roles of the party in the contract")
 
+# Contract parties schema
 class ContractParties(OpenAISchema):
     parties: List[ContractParty] = Field(..., description="List of parties involved in the contract")
 
+# Contract schema
 class Contract(OpenAISchema):
     parties: List[ContractParty] = Field(..., description="List of parties involved in the contract")
     address: str = Field(..., description="Address where the contract is applicable")
     terms: str = Field(..., description="Terms of the contract")
 
+# Contract details schema
 class ContractDetails(OpenAISchema):
     contract_type: str = Field(..., description="Type of contract (e.g., airbnb, buy-sell, it-consulting)")
     additional_info: Dict[str, str] = Field(default_factory=dict, description="Additional information specific to the contract type")
 
+# Agent action schema
 class AgentAction(OpenAISchema):
     action: str = Field(..., description="Action to be performed by the agent")
     reason: str = Field(..., description="Detailed reason for choosing this action")
     parameters: Dict[str, str] = Field(default_factory=dict, description="Parameters for the action")
 
+# Agent state schema
 class AgentState(BaseModel):
     data: Dict[str, Any] = Field(default_factory=dict, description="Dynamic state data")
     history: List[AgentAction] = Field(default_factory=list, description="History of agent actions")

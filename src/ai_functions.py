@@ -16,9 +16,7 @@ import traceback
 client = instructor.patch(AsyncOpenAI(api_key=API_KEY))
 
 
-
-
-# Refactored functions to use OpenAI function calling with error handling
+# Extract personal identifiable information from text.
 async def extract_pii(text: str) -> List[PIIData]:
     """Extract personal identifiable information from text."""
     return await client.chat.completions.create(
@@ -30,6 +28,7 @@ async def extract_pii(text: str) -> List[PIIData]:
         ]
     )
 
+# Identify the parties and their roles based on extracted PII data.
 async def identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractParties:
     """Identify the parties and their roles based on extracted PII data."""
     pii_text = "\n".join([f"Name: {pii.name}, Address: {pii.address}" for pii in pii_data])
@@ -67,6 +66,7 @@ async def identify_parties(pii_data: List[PIIData], contract_type: str) -> Contr
         response_model=ContractParties
     )
 
+# Determine the contract details based on the contract type.
 async def determine_contract_details(parties: ContractParties, contract_type: str) -> ContractDetails:
     """Determine the contract details based on the contract type."""
     parties_info = ", ".join([f"{party.name} ({', '.join(party.roles)})" for party in parties.parties])
@@ -108,6 +108,7 @@ Instructions:
         response_model=Contract
     )
 
+# Determine the next action for the agent to take.
 async def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) -> AgentAction:
     """Determine the next action for the agent to take."""
     state_summary = f"""

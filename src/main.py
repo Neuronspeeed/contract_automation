@@ -40,6 +40,8 @@ async def process_pii_extraction(state: AgentState, documents: Dict[str, str]) -
     state.verified_pii_data = verified_pii_data
     print(f"Verified PII data: {len(state.verified_pii_data)} entries")
 
+
+# Determine the contract type based on user input.
 async def determine_contract_type(state: AgentState, templates: Dict[str, Dict]) -> None:
     """
     Determine the contract type based on user input.
@@ -63,6 +65,7 @@ async def determine_contract_type(state: AgentState, templates: Dict[str, Dict])
         else:
             print(f"No template found for {contract_type}. Please choose from the available types.")
 
+# Identify the parties involved in the contract with human input.
 async def identify_contract_parties(state: AgentState) -> None:
     """
     Identify the parties involved in the contract with human input.
@@ -110,6 +113,7 @@ async def identify_contract_parties(state: AgentState) -> None:
     for party in state.parties.parties:
         print(f"{', '.join(party.roles)}: {party.name}")
 
+# Construct the final contract based on the determined details and parties.
 async def construct_final_contract(state: AgentState, templates: Dict[str, Dict]) -> None:
     """
     Construct the final contract based on the determined details and parties.
@@ -132,6 +136,7 @@ async def construct_final_contract(state: AgentState, templates: Dict[str, Dict]
     state.contract = await construct_contract(state.parties, address, selected_template, state.contract_details)
     print("Contract constructed.")
 
+# Main agent workflow for processing documents and constructing a contract.
 async def agent_workflow() -> None:
     """
     Main agent workflow for processing documents and constructing a contract.

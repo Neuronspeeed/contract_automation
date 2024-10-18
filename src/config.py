@@ -11,6 +11,8 @@ if not API_KEY:
     raise ValueError("No OpenAI API key found in environment variables")
 
 DATA_FOLDER = 'data'
+
+# System prompt for the agent
 SYSTEM_PROMPT = """
 You are an AI agent specializing in contract creation and personal information extraction. Your role is to guide the process of creating a contract by determining the next best action at each step. 
 

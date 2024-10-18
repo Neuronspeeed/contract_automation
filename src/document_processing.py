@@ -9,6 +9,7 @@ from config import DATA_FOLDER
 # Initialize EasyOCR reader
 reader = easyocr.Reader(['en', 'ro'])
 
+# Get documents from the data folder
 def get_documents() -> List[str]:
     os.makedirs(DATA_FOLDER, exist_ok=True)
     all_files = os.listdir(DATA_FOLDER)
@@ -19,6 +20,7 @@ def get_documents() -> List[str]:
     ]
     return documents
 
+# Extract text from a file
 async def extract_text(file_path: str) -> str:
     if file_path.lower().endswith('.pdf'):
         try:
@@ -52,6 +54,7 @@ async def process_documents() -> Dict[str, str]:
             results[os.path.basename(doc)] = f"Error processing file: {str(e)}"
     return results
 
+# Load templates from the specified folder
 def load_templates(folder_path: str) -> Dict[str, Dict[str, str]]:
     templates = {}
     for filename in os.listdir(folder_path):
