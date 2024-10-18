@@ -50,7 +50,10 @@ Remember:
 - Always provide clear and specific reasons for your chosen action.
 - Consider the logical flow of the contract creation process as implemented.
 - If the contract type needs to be determined, suggest prompting the user to choose from the available template types.
-- For the identify_parties action, suggest appropriate roles based on the contract type (e.g., IT Consultant and Client for an IT contract).
+- For the identify_parties action, ask for the roles to be assigned to the following parties:
+    a) For a buy-sell contract: buyer or seller
+    b) For an airbnb contract: landlord or tenant
+    c) For an IT contract: IT consultant or client
 - Ensure that all necessary steps are completed before constructing the contract.
 - Be aware of the current state of the AgentState object, including verified_pii_data, contract_details, parties, and contract.
 

@@ -8,7 +8,7 @@ class PIIData(OpenAISchema):
 
 class ContractParty(OpenAISchema):
     name: str = Field(..., description="Name of the party")
-    role: str = Field(..., description="Role of the party in the contract")
+    roles: List[str] = Field(..., description="Roles of the party in the contract")
 
 class ContractParties(OpenAISchema):
     parties: List[ContractParty] = Field(..., description="List of parties involved in the contract")

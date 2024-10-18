@@ -59,13 +59,15 @@ async def identify_parties(pii_data: List[PIIData], contract_type: str) -> Contr
     pii_text = "\n".join([f"Name: {pii.name}, Address: {pii.address}" for pii in pii_data])
     
     user_prompt = f"""
-    For a {contract_type} contract, suggest possible roles for the following parties based on their personal information:
+    For a {contract_type} contract, assign roles to the following parties:
 
     {pii_text}
 
-    Your task is to provide a list of 3 to 4 possible roles for each person in the context of a {contract_type} contract. 
-    Include general roles like "Buyer" or "Seller" as well as more specific roles that might be relevant to this type of contract.
-    Ensure that the suggested roles are diverse and appropriate for the contract type.
+    Your task is to assign roles to each person in the context of a {contract_type} contract.
+    Use only the following roles:
+    - For a buy-sell contract: buyer or seller
+    - For an airbnb contract: landlord or tenant
+    - For an IT contract: IT consultant or client
     """
     
     response = await client.chat.completions.create(
@@ -79,18 +81,17 @@ async def identify_parties(pii_data: List[PIIData], contract_type: str) -> Contr
     
     confirmed_parties = []
     for party in response.parties:
-        possible_roles = party.role.split(', ')
         print(f"\nPossible roles for {party.name}:")
-        for i, role in enumerate(possible_roles, 1):
+        for i, role in enumerate(party.roles, 1):
             print(f"{i}. {role}")
         
         while True:
             choice = input(f"Select a role for {party.name} (enter the number): ")
             try:
                 choice = int(choice)
-                if 1 <= choice <= len(possible_roles):
-                    selected_role = possible_roles[choice - 1]
-                    confirmed_parties.append(ContractParty(name=party.name, role=selected_role))
+                if 1 <= choice <= len(party.roles):
+                    selected_role = party.roles[choice - 1]
+                    confirmed_parties.append(ContractParty(name=party.name, roles=[selected_role]))
                     break
                 else:
                     print("Invalid choice. Please enter a valid number.")
@@ -112,7 +113,7 @@ async def determine_contract_details(parties: ContractParties, contract_type: st
     return response
 
 async def construct_contract(parties: ContractParties, address: str, template: str, details: ContractDetails) -> Contract:
-    parties_info = ", ".join([f"{party.role}: {party.name}" for party in parties.parties])
+    parties_info = ", ".join([f"{', '.join(party.roles)}: {party.name}" for party in parties.parties])
     response = await client.chat.completions.create(
         model="gpt-4",
         messages=[
