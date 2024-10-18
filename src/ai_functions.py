@@ -45,7 +45,8 @@ functions = [
 
 # Refactored functions to use OpenAI function calling with error handling
 async def extract_pii(text: str) -> List[PIIData]:
-    response = await client.chat.completions.create(
+    """Extract personal identifiable information from text."""
+    return await client.chat.completions.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -53,9 +54,9 @@ async def extract_pii(text: str) -> List[PIIData]:
         ],
         response_model=List[PIIData]
     )
-    return response
 
 async def identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractParties:
+    """Identify the parties and their roles based on extracted PII data."""
     pii_text = "\n".join([f"Name: {pii.name}, Address: {pii.address}" for pii in pii_data])
     
     user_prompt = f"""
@@ -63,25 +64,24 @@ async def identify_parties(pii_data: List[PIIData], contract_type: str) -> Contr
 
     {pii_text}
 
-    Your task is to ask for the roles of the each person in the context of a {contract_type} contract.
+    Your task is to determine the roles of each person in the context of a {contract_type} contract.
     Consider the following guidelines:
 
     1. For a buy-sell contract:
-       - Ask who the buyer and who is the seller.
+       - Identify the buyer and the seller.
 
     2. For an airbnb contract:
-       - Ask who is the landlord (property owner) and who is the tenant (guest).
+       - Identify the landlord (property owner) and the tenant (guest).
 
     3. For an IT contract:
-       - Ask who is the IT consultant and who is the client.
+       - Identify the IT consultant and the client.
 
     For each person, provide:
     1. Their name
-    2. Their possible roles and let the human choose only from the roles mentioned above.
-
+    2. Their role based on the contract type
     """
     
-    response = await client.chat.completions.create(
+    return await client.chat.completions.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -89,32 +89,11 @@ async def identify_parties(pii_data: List[PIIData], contract_type: str) -> Contr
         ],
         response_model=ContractParties
     )
-    
-    confirmed_parties = []
-    for party in response.parties:
-        print(f"\nPossible roles for {party.name}:")
-        for i, role in enumerate(party.roles, 1):
-            print(f"{i}. {role}")
-        
-        while True:
-            choice = input(f"Select a role for {party.name} (enter the number): ")
-            try:
-                choice = int(choice)
-                if 1 <= choice <= len(party.roles):
-                    selected_role = party.roles[choice - 1]
-                    confirmed_parties.append(ContractParty(name=party.name, roles=[selected_role]))
-                    break
-                else:
-                    print("Invalid choice. Please enter a valid number.")
-            except ValueError:
-                print("Invalid input. Please enter a number.")
-    
-    return ContractParties(parties=confirmed_parties)
-
 
 async def determine_contract_details(parties: ContractParties, contract_type: str) -> ContractDetails:
-    parties_info = ", ".join([f"{party.name} ({party.role})" for party in parties.parties])
-    response = await client.chat.completions.create(
+    """Determine the contract details based on the contract type."""
+    parties_info = ", ".join([f"{party.name} ({', '.join(party.roles)})" for party in parties.parties])
+    return await client.chat.completions.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -122,15 +101,11 @@ async def determine_contract_details(parties: ContractParties, contract_type: st
         ],
         response_model=ContractDetails
     )
-    return response
 
 async def construct_contract(parties: ContractParties, address: str, template: str, details: ContractDetails) -> Contract:
+    """Construct a contract between the parties using a template."""
     parties_info = ", ".join([f"{', '.join(party.roles)}: {party.name}" for party in parties.parties])
-    response = await client.chat.completions.create(
-        model="gpt-4",
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"""Construct a {details.contract_type} contract using the following template and information:
+    user_prompt = f"""Construct a {details.contract_type} contract using the following template and information:
 
 Template:
 {template}
@@ -145,13 +120,19 @@ Instructions:
 3. Use the provided address for the 'Address' field in the contract.
 4. Ensure all placeholders in the template are replaced with appropriate information.
 5. If any information is missing, leave the corresponding field blank or use a placeholder like [To be determined].
-"""}
+"""
+
+    return await client.chat.completions.create(
+        model="gpt-4",
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": user_prompt}
         ],
         response_model=Contract
     )
-    return response
 
 async def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) -> AgentAction:
+    """Determine the next action for the agent to take."""
     state_summary = f"""
     Current state:
     - Verified PII data: {len(state.verified_pii_data)} entries
@@ -161,7 +142,7 @@ async def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) 
     Available templates: {', '.join(templates.keys())}
     """
     
-    response = await client.chat.completions.create(
+    return await client.chat.completions.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -169,11 +150,8 @@ async def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) 
         ],
         response_model=AgentAction
     )
-    
-    response.action = response.action.lower()
-    print(f"Agent decided to: {response.action}")
-    print(f"Reason: {response.reason}")
-    return response
+
+
 
 
 
