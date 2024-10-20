@@ -111,12 +111,12 @@ jupyter-client==8.6.3
 jupyter-core==5.7.2
     # via ipykernel
     # via jupyter-client
-langchain==0.3.1
+langchain==0.3.4
     # via contract-automation
     # via langchain-community
-langchain-community==0.3.1
+langchain-community==0.3.3
     # via contract-automation
-langchain-core==0.3.8
+langchain-core==0.3.12
     # via langchain
     # via langchain-community
     # via langchain-openai

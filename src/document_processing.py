@@ -2,7 +2,8 @@ import os
 import asyncio
 import aiofiles
 from typing import List, Dict
-from langchain.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader
+
 import easyocr
 from config import DATA_FOLDER
 

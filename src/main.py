@@ -112,34 +112,45 @@ async def agent_workflow() -> None:
     """
     Main agent workflow for processing documents and constructing a contract.
     """
-    templates = load_templates(TEMPLATES_FOLDER)
-    template_manager = TemplateManager(templates)
-    documents = await process_documents()
-    print("Documents processed.")
-
-    state = AgentState()
-
-    # Stage 1: Document Processing and PII Extraction
-    await process_pii_extraction(state, documents)
-
-    # Stage 2: Determine contract type
-    await determine_contract_type(state, templates)
-
-    # Stage 3: Identify parties
-    await identify_contract_parties(state)
-
-    # Stage 4: Construct the contract
-    await construct_final_contract(state, template_manager)
-
-    # Finalize contract output
-    if state.contract:
-        print("\nFinal Contract:")
-        print(f"Parties: {', '.join([f'{", ".join(party.roles)}: {party.name}' for party in state.contract.parties])}")
-        print(f"Address: {state.contract.address}")
-        print(f"Terms: {state.contract.terms}")
-    else:
-        print("No contract was created.")
+    try:
+        templates = load_templates(TEMPLATES_FOLDER)
+        template_manager = TemplateManager(templates)
+        documents = await process_documents()
+        print("Documents processed.")
+        state = AgentState()
+        
+        # Stage 1: Document Processing and PII Extraction
+        await process_pii_extraction(state, documents)
+        
+        # Stage 2: Determine contract type
+        await determine_contract_type(state, templates)
+        
+        # Stage 3: Identify parties
+        await identify_contract_parties(state)
+        
+        # Stage 4: Construct the contract
+        await construct_final_contract(state, template_manager)
+        
+        # Finalize contract output
+        if state.contract:
+            print("\nFinal Contract:")
+            print(f"Parties: {', '.join([f'{', '.join(party.roles)}: {party.name}' for party in state.contract.parties])}")
+            print(f"Address: {state.contract.address}")
+            print(f"Terms: {state.contract.terms}")
+        else:
+            print("No contract was created.")
+        
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+        logging.error(f"Error in agent_workflow: {str(e)}", exc_info=True)
+    finally:
+        print("\nContract automation process completed.")
 
 # Run the async workflow
 if __name__ == "__main__":
-    asyncio.run(agent_workflow())
+    try:
+        asyncio.run(agent_workflow())
+    except KeyboardInterrupt:
+        print("\nScript interrupted by user. Exiting...")
+    finally:
+        print("Script execution finished.")
