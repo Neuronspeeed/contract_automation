@@ -53,7 +53,8 @@ async def identify_parties(pii_data: List[PIIData], contract_type: str) -> Contr
     For each person, provide their name and assigned role.
     """
     
-    return await client.chat.completions.create(
+    # Get roles from the AI
+    roles_response = await client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -61,6 +62,22 @@ async def identify_parties(pii_data: List[PIIData], contract_type: str) -> Contr
         ],
         response_model=ContractParties
     )
+
+    # Assuming roles_response is a structured response from the AI
+    roles = []
+    for party in roles_response.parties:
+        print(f"Identified party: {party.name}, Suggested role: {', '.join(party.roles)}")
+        # Allow user confirmation or modification of roles
+        user_confirmation = input(f"Do you want to keep this role for {party.name}? (yes/no): ")
+        if user_confirmation.lower() != 'yes':
+            new_role = input(f"Please assign a new role for {party.name}: ")
+            roles.append((party.name, new_role))
+        else:
+            roles.append((party.name, party.roles[0]))  # Keep the suggested role
+
+    # Create ContractParties object
+    parties = [ContractParty(name=name, roles=[role]) for name, role in roles]
+    return ContractParties(parties=parties)
 
 # Determine the contract details based on the contract type.
 async def determine_contract_details(parties: ContractParties, contract_type: str) -> ContractDetails:
@@ -127,6 +144,9 @@ async def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) 
         response_model=AgentAction
     )
 
+
+
+
 async def determine_contract_type(pii_data: List[PIIData], available_templates: List[str]) -> str:
     """Determine the contract type based on PII data and available templates."""
     pii_text = "\n".join([f"Name: {pii.name}, Address: {pii.address}" for pii in pii_data])
@@ -136,12 +156,10 @@ async def determine_contract_type(pii_data: List[PIIData], available_templates: 
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"Determine the most appropriate contract type based on the following PII data and available templates:\n\nPII Data:\n{pii_text}\n\nAvailable Templates: {templates_text}"}
+            {"role": "user", "content": f"Ask the user to choose the the contract  type from the following available templates:\n\nAvailable Templates: {templates_text}"}
         ],
         response_model=str
     )
-
-
 
 
 

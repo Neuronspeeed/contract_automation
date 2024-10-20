@@ -10,6 +10,8 @@ from models import PIIData, ContractParties, Contract, AgentState, ContractDetai
 from config import TEMPLATES_FOLDER
 from typing import List, Dict
 from template_manager import TemplateManager
+import ai_functions
+
 
 # Apply nest_asyncio to allow nested asyncio calls
 nest_asyncio.apply()
@@ -45,17 +47,26 @@ async def process_pii_extraction(state: AgentState, documents: Dict[str, str]) -
 # Determine the contract type based on PII data and available templates.
 async def determine_contract_type(state: AgentState, templates: Dict[str, Dict]) -> None:
     """
-    Determine the contract type based on PII data and available templates.
+    Allow the user to choose the contract type based on available templates.
     
     Args:
         state (AgentState): The current state of the agent.
         templates (Dict[str, Dict]): The loaded contract templates.
     """
-    available_templates = [template.split('.')[0] for template in templates.keys()]
-    contract_type = await ai_functions.determine_contract_type(state.verified_pii_data, available_templates)
+    available_templates = list(templates.keys())
+    print("\nAvailable contract types:")
+    for i, template in enumerate(available_templates, 1):
+        print(f"{i}. {template.split('.')[0]}")
     
-    state.contract_details = ContractDetails(contract_type=contract_type, additional_info={})
-    print(f"Contract type determined: {state.contract_details.contract_type}")
+    while True:
+        choice = input("\nPlease choose a contract type (1, 2, or 3): ")
+        if choice in ['1', '2', '3']:
+            contract_type = available_templates[int(choice) - 1].split('.')[0]
+            state.contract_details = ContractDetails(contract_type=contract_type, additional_info={})
+            print(f"\nContract type selected: {state.contract_details.contract_type}")
+            break
+        else:
+            print("Invalid choice. Please enter 1, 2, or 3.")
 
 # Identify the parties involved in the contract using AI.
 async def identify_contract_parties(state: AgentState) -> None:
@@ -87,7 +98,7 @@ async def construct_final_contract(state: AgentState, template_manager: Template
         print("Contract details or parties not determined yet. Please complete these steps first.")
         return
     
-    selected_template = template_manager.get_template(state.contract_details.contract_type)
+    selected_template = template_manager.get_template(state.contract_details.contract_type.lower())  # Ensure case consistency
     if not selected_template:
         print(f"No template found for {state.contract_details.contract_type}. Available templates: {', '.join(template_manager.list_available_templates())}")
         return
