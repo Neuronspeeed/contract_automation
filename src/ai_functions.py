@@ -4,19 +4,15 @@ from openai import AsyncOpenAI
 from typing import List, Dict
 from pydantic import ValidationError
 from models import ContractParties, Contract, PIIData, AgentState, AgentAction, ContractDetails, ContractParty
-from config import API_KEY, SYSTEM_PROMPT
+from config import API_KEY, SYSTEM_PROMPT, PII_EXTRACTION_PROMPT, PARTY_IDENTIFICATION_PROMPT, CONTRACT_CONSTRUCTION_PROMPT
 import instructor
 from instructor import OpenAISchema
 import logging
 import traceback
 
-
-
 # Initialize OpenAI client with Instructor
 client = instructor.patch(AsyncOpenAI(api_key=API_KEY))
 
-
-# Extract personal identifiable information from text.
 async def extract_pii(text: str) -> List[PIIData]:
     """Extract personal identifiable information from text."""
     return await client.chat.completions.create(
@@ -24,62 +20,53 @@ async def extract_pii(text: str) -> List[PIIData]:
         response_model=List[PIIData],
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"Extract personal identifiable information from the following text:\n\n{text}"}
+            {"role": "user", "content": f"{PII_EXTRACTION_PROMPT}\n\n{text}"}
         ]
     )
 
-# Identify the parties and their roles based on extracted PII data and contract type.
+async def determine_contract_type(pii_data: List[PIIData], available_templates: List[str]) -> str:
+    """Determine the contract type based on available templates."""
+    templates_text = "\n".join([f"{i+1}. {template}" for i, template in enumerate(available_templates)])
+    while True:
+        try:
+            selection = input(f"Please select the type of contract from the following available templates:\n{templates_text}\nSelect (1-{len(available_templates)}): ").strip()
+            selected_index = int(selection) - 1
+            if 0 <= selected_index < len(available_templates):
+                return available_templates[selected_index]
+            else:
+                print("Invalid choice. Please select a valid number.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
 async def identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractParties:
     """Identify the parties and their roles based on extracted PII data and contract type."""
-    pii_text = "\n".join([f"Name: {pii.name}, Address: {pii.address}" for pii in pii_data])
+    parties = []
+    role_options = {
+        "airbnb": ["Landlord", "Tenant"],
+        "buy-sell": ["Buyer", "Seller"],
+        "it": ["Consultant", "Client"]
+    }
     
-    user_prompt = f"""
-    For a {contract_type} contract, assign roles to the following parties:
-
-    {pii_text}
-
-    Your task is to determine the roles of each person in the context of a {contract_type} contract.
-    Consider the following guidelines:
-
-    1. For a buy-sell contract:
-       - Identify the buyer and the seller.
-
-    2. For an airbnb contract:
-       - Identify the landlord (property owner) and the tenant (guest).
-
-    3. For an IT contract:
-       - Identify the IT consultant and the client.
-
-    For each person, provide their name and assigned role.
-    """
+    available_roles = role_options.get(contract_type.lower(), [])
+    available_roles_text = "\n".join([f"{i+1}. {role}" for i, role in enumerate(available_roles)])
     
-    # Get roles from the AI
-    roles_response = await client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": user_prompt}
-        ],
-        response_model=ContractParties
-    )
+    for pii in pii_data:
+        while True:
+            print(f"\nPlease assign a role for the following party:")
+            print(f"Name: {pii.name}, Address: {pii.address}")
+            try:
+                role_selection = input(f"Available Roles for {contract_type} contract:\n{available_roles_text}\nSelect the role for {pii.name} (1-{len(available_roles)}): ").strip()
+                selected_index = int(role_selection) - 1
+                if 0 <= selected_index < len(available_roles):
+                    parties.append(ContractParty(name=pii.name, roles=[available_roles[selected_index]]))
+                    break
+                else:
+                    print("Invalid choice. Please select a valid number.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
 
-    # Assuming roles_response is a structured response from the AI
-    roles = []
-    for party in roles_response.parties:
-        print(f"Identified party: {party.name}, Suggested role: {', '.join(party.roles)}")
-        # Allow user confirmation or modification of roles
-        user_confirmation = input(f"Do you want to keep this role for {party.name}? (yes/no): ")
-        if user_confirmation.lower() != 'yes':
-            new_role = input(f"Please assign a new role for {party.name}: ")
-            roles.append((party.name, new_role))
-        else:
-            roles.append((party.name, party.roles[0]))  # Keep the suggested role
-
-    # Create ContractParties object
-    parties = [ContractParty(name=name, roles=[role]) for name, role in roles]
     return ContractParties(parties=parties)
 
-# Determine the contract details based on the contract type.
 async def determine_contract_details(parties: ContractParties, contract_type: str) -> ContractDetails:
     """Determine the contract details based on the contract type."""
     parties_info = ", ".join([f"{party.name} ({', '.join(party.roles)})" for party in parties.parties])
@@ -95,33 +82,21 @@ async def determine_contract_details(parties: ContractParties, contract_type: st
 async def construct_contract(parties: ContractParties, address: str, template: str, details: ContractDetails) -> Contract:
     """Construct a contract between the parties using a template."""
     parties_info = ", ".join([f"{', '.join(party.roles)}: {party.name}" for party in parties.parties])
-    user_prompt = f"""Construct a {details.contract_type} contract using the following template and information:
-
-Template:
-{template}
-
-Parties: {parties_info}
-Address: {address}
-Additional Details: {details.additional_info}
-
-Instructions:
-1. Use the provided template as a base for the contract.
-2. Insert the parties' names directly into the contract without brackets.
-3. Use the provided address for the 'Address' field in the contract.
-4. Ensure all placeholders in the template are replaced with appropriate information.
-5. If any information is missing, leave the corresponding field blank or use a placeholder like [To be determined].
-"""
-
     return await client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": user_prompt}
+            {"role": "user", "content": CONTRACT_CONSTRUCTION_PROMPT.format(
+                contract_type=details.contract_type,
+                template=template,
+                parties_info=parties_info,
+                address=address,
+                additional_info=details.additional_info
+            )}
         ],
         response_model=Contract
     )
 
-# Determine the next action for the agent to take.
 async def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) -> AgentAction:
     """Determine the next action for the agent to take."""
     state_summary = f"""
@@ -143,22 +118,3 @@ async def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) 
         tool_choice={"type": "function", "function": {"name": "agent_action"}},
         response_model=AgentAction
     )
-
-
-
-
-async def determine_contract_type(pii_data: List[PIIData], available_templates: List[str]) -> str:
-    """Determine the contract type based on PII data and available templates."""
-    pii_text = "\n".join([f"Name: {pii.name}, Address: {pii.address}" for pii in pii_data])
-    templates_text = ", ".join(available_templates)
-    
-    return await client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"Ask the user to choose the the contract  type from the following available templates:\n\nAvailable Templates: {templates_text}"}
-        ],
-        response_model=str
-    )
-
-
