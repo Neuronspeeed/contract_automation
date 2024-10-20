@@ -2,11 +2,20 @@ import json
 import os
 from openai import AsyncOpenAI
 from typing import List, Dict
-from pydantic import ValidationError
-from models import ContractParties, Contract, PIIData, AgentState, AgentAction, ContractDetails, ContractParty
+from models import (
+    ContractParties,
+    Contract,
+    PIIData,
+    AgentState,
+    AgentAction,
+    ContractDetails,
+    ContractParty,
+    get_role_options,
+    ContractRoleValidator,
+)
 from config import API_KEY, SYSTEM_PROMPT, PII_EXTRACTION_PROMPT, PARTY_IDENTIFICATION_PROMPT, CONTRACT_CONSTRUCTION_PROMPT
 import instructor
-from instructor import OpenAISchema
+from instructor import OpenAISchema, llm_validator
 import logging
 import traceback
 
@@ -32,7 +41,9 @@ async def determine_contract_type(pii_data: List[PIIData], available_templates: 
             selection = input(f"Please select the type of contract from the following available templates:\n{templates_text}\nSelect (1-{len(available_templates)}): ").strip()
             selected_index = int(selection) - 1
             if 0 <= selected_index < len(available_templates):
-                return available_templates[selected_index]
+                contract_type = available_templates[selected_index]
+                # Validate contract type using the central validator
+                return ContractRoleValidator.validate_contract_type(contract_type)
             else:
                 print("Invalid choice. Please select a valid number.")
         except ValueError:
@@ -41,15 +52,9 @@ async def determine_contract_type(pii_data: List[PIIData], available_templates: 
 async def identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractParties:
     """Identify the parties and their roles based on extracted PII data and contract type."""
     parties = []
-    role_options = {
-        "airbnb": ["Landlord", "Tenant"],
-        "buy-sell": ["Buyer", "Seller"],
-        "it": ["Consultant", "Client"]
-    }
-    
-    available_roles = role_options.get(contract_type.lower(), [])
+    available_roles = get_role_options(contract_type)
     available_roles_text = "\n".join([f"{i+1}. {role}" for i, role in enumerate(available_roles)])
-    
+
     for pii in pii_data:
         while True:
             print(f"\nPlease assign a role for the following party:")
@@ -58,7 +63,10 @@ async def identify_parties(pii_data: List[PIIData], contract_type: str) -> Contr
                 role_selection = input(f"Available Roles for {contract_type} contract:\n{available_roles_text}\nSelect the role for {pii.name} (1-{len(available_roles)}): ").strip()
                 selected_index = int(role_selection) - 1
                 if 0 <= selected_index < len(available_roles):
-                    parties.append(ContractParty(name=pii.name, roles=[available_roles[selected_index]]))
+                    selected_role = available_roles[selected_index]
+                    # Validate role using the central validator
+                    ContractRoleValidator.validate_role(selected_role)
+                    parties.append(ContractParty(name=pii.name, roles=[selected_role]))
                     break
                 else:
                     print("Invalid choice. Please select a valid number.")
@@ -79,20 +87,13 @@ async def determine_contract_details(parties: ContractParties, contract_type: st
         response_model=ContractDetails
     )
 
-async def construct_contract(parties: ContractParties, address: str, template: str, details: ContractDetails) -> Contract:
-    """Construct a contract between the parties using a template."""
-    parties_info = ", ".join([f"{', '.join(party.roles)}: {party.name}" for party in parties.parties])
+async def construct_contract(context: Dict) -> Contract:
+    """Construct a contract using a unified template and provided context."""
     return await client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": CONTRACT_CONSTRUCTION_PROMPT.format(
-                contract_type=details.contract_type,
-                template=template,
-                parties_info=parties_info,
-                address=address,
-                additional_info=details.additional_info
-            )}
+            {"role": "user", "content": CONTRACT_CONSTRUCTION_PROMPT.format(**context)}
         ],
         response_model=Contract
     )
