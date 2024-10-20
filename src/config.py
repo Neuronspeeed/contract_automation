@@ -2,8 +2,6 @@ import os
 from dotenv import load_dotenv
 import logging
 
-
-
 # Load environment variables
 load_dotenv()
 API_KEY = os.getenv('OPENAI_API_KEY')
@@ -62,8 +60,8 @@ Instructions:
 4. Ensure all placeholders in the template are replaced with appropriate information.
 5. If any information is missing, leave the corresponding field blank or use a placeholder like [To be determined].
 """
-TEMPLATES_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 
+TEMPLATES_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 
 # Set up logging
 logging.basicConfig(filename='agent_workflow.log', level=logging.DEBUG, 
