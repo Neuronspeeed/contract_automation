@@ -59,48 +59,48 @@ This project is an Agentic contract automation system that streamlines the proce
 This project uses Rye for dependency management and virtual environment setup.
 
 1. Install Rye if you haven't already:
-   ```
+   """
    curl -sSf https://rye-up.com/get | bash
-   ```
+   """
 
 2. Clone the repository:
-   ```
+   """
    git clone https://github.com/yourusername/contract-automation.git
    cd contract-automation
-   ```
+   """
 
 3. Set up the project using Rye:
-   ```
+   """
    rye sync
-   ```
+   """
 
 4. Set up your OpenAI API key in a `.env` file:
-   ```
+   """
    echo "OPENAI_API_KEY=your_api_key_here" > .env
-   ```
+   """
 
 5. Run the main script:
-   ```
+   """
    rye run python src/main.py
-   ```
+   """
 
 ## Development
 
 To add new dependencies:
 
-```
+"""
 rye add package_name
-```
+"""
 
 To update dependencies:
-```
+"""
 rye sync
-```
+"""
 
 To run tests:
-```
+"""
 rye run pytest
-```
+"""
 
 ## Contributing
 
