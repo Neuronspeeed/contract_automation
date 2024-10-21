@@ -4,56 +4,27 @@
 
 This project is an Agentic contract automation system that streamlines the process of creating contracts based on personal information and predefined templates. It uses OpenAI's GPT model to extract information, identify parties, and construct contracts.
 
-## Features
+## How to Use
 
-- Document processing and PII (Personally Identifiable Information) extraction
-- Automatic contract type determination
-- Party identification and role assignment
-- Contract construction using templates
-- Error handling and information verification
+1. Prepare your documents:
+   Place the documents you want to process (PDF, JPG, JPEG, PNG, or TXT files) in the `data` folder of the project.
 
-## Project Structure
+2. Run the main script:
+   """
+   rye run python src/main.py
+   """
 
-- `src/`
-  - `ai_functions.py`: Contains AI-powered functions for various tasks
-  - `config.py`: Configuration settings and system prompts
-  - `document_processing.py`: Functions for processing input documents
-  - `main.py`: Main script orchestrating the contract creation process
-  - `models.py`: Pydantic models for data structures
-  - `utils.py`: Utility functions
-  - `prompts.py`: Contains system prompts and instructions for AI
-  - `templates/`: Folder containing contract templates
+3. Follow the prompts:
+   - The system will extract PII (Personally Identifiable Information) from your documents.
+   - Verify the extracted information when prompted.
+   - Choose the type of contract you want to create.
+   - Assign roles to the identified parties.
+   - Review the constructed contract.
 
-## Key Functions
+4. Output:
+   The final contract will be displayed in the console. You can copy and save it as needed.
 
-### AI Functions (`ai_functions.py`)
-
-1. `extract_pii(text: str) -> List[PIIData]`:
-   Extracts personal identifiable information from input text.
-
-2. `identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractParties`:
-   Identifies parties and their roles based on extracted PII and contract type.
-
-3. `determine_contract_details(parties: ContractParties, contract_type: str) -> ContractDetails`:
-   Determines additional contract details based on parties and contract type.
-
-4. `construct_contract(contract_type: str, parties: ContractParties, address: str, additional_info: Dict[str, str]) -> Contract`:
-   Constructs a contract using provided information and a template.
-
-### Main Process (`main.py`)
-
-1. `process_pii_extraction(state: AgentState, documents: Dict[str, str]) -> None`:
-   Processes documents and extracts PII.
-
-2. `determine_contract_type(state: AgentState, templates: Dict[str, Dict]) -> None`:
-   Determines the contract type based on user input.
-
-3. `identify_contract_parties(state: AgentState) -> None`:
-   Identifies contract parties and their roles.
-
-4. `construct_final_contract(state: AgentState, template_manager: TemplateManager) -> None`:
-   Constructs the final contract using the gathered information and templates.
-
+Note: Make sure you have set up your OpenAI API key in the `.env` file before running the script.
 ## Setup and Usage
 
 This project uses Rye for dependency management and virtual environment setup.
