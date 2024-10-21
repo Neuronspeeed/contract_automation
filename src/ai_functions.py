@@ -10,10 +10,11 @@ from models import (
     AgentAction,
     ContractDetails,
     ContractParty,
-    get_role_options,
-    ContractRoleValidator,
 )
-from config import API_KEY, SYSTEM_PROMPT, PII_EXTRACTION_PROMPT, PARTY_IDENTIFICATION_PROMPT, CONTRACT_CONSTRUCTION_PROMPT
+from config import API_KEY, TEMPLATES_FOLDER
+from prompts import PII_EXTRACTION_PROMPT, PARTY_IDENTIFICATION_PROMPT, CONTRACT_CONSTRUCTION_PROMPT, SYSTEM_PROMPT
+from validators import ContractRoleValidator
+from role_options import get_role_options
 import instructor
 from instructor import OpenAISchema, llm_validator
 import logging
@@ -87,16 +88,36 @@ async def determine_contract_details(parties: ContractParties, contract_type: st
         response_model=ContractDetails
     )
 
-async def construct_contract(context: Dict) -> Contract:
-    """Construct a contract using a unified template and provided context."""
-    return await client.chat.completions.create(
+async def construct_contract(contract_type: str, parties: ContractParties, address: str, additional_info: Dict[str, str]) -> Contract:
+    """Construct a contract based on the given type, parties, and information."""
+    template_path = os.path.join(TEMPLATES_FOLDER, f"{contract_type}.txt")
+    if not os.path.exists(template_path):
+        template_path = os.path.join(TEMPLATES_FOLDER, f"{contract_type}.consulting.txt")
+    
+    try:
+        with open(template_path, 'r') as file:
+            template = file.read()
+    except FileNotFoundError:
+        print(f"Template file for {contract_type} contract not found. Using a generic template.")
+        template = "This is a generic {contract_type} contract template.\n\nParties:\n{parties_info}\n\nAddress: {address}\n\nTerms: [To be filled]"
+
+    parties_info = "\n".join([f"{party.name} ({', '.join(party.roles)})" for party in parties.parties])
+
+    response = await client.chat.completions.create(
         model="gpt-4o-mini",
+        response_model=Contract,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": CONTRACT_CONSTRUCTION_PROMPT.format(**context)}
-        ],
-        response_model=Contract
+            {"role": "user", "content": CONTRACT_CONSTRUCTION_PROMPT.format(
+                contract_type=contract_type,
+                template=template,
+                parties_info=parties_info,
+                address=address,
+                additional_info=json.dumps(additional_info)
+            )}
+        ]
     )
+    return response
 
 async def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) -> AgentAction:
     """Determine the next action for the agent to take."""

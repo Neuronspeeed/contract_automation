@@ -11,7 +11,7 @@ from config import TEMPLATES_FOLDER
 from typing import List, Dict
 from template_manager import TemplateManager
 import ai_functions
-
+from prompts import SYSTEM_PROMPT 
 
 # Apply nest_asyncio to allow nested asyncio calls
 nest_asyncio.apply()
@@ -37,8 +37,15 @@ async def process_pii_extraction(state: AgentState, documents: Dict[str, str]) -
     verified_pii_data = []
     for doc, text in documents.items():
         pii_list: List[PIIData] = await extract_pii(text)
-        verified_pii_list: List[PIIData] = verify_information(pii_list)
-        verified_pii_data.extend(verified_pii_list)
+        for pii in pii_list:
+            print("Please verify the following information:")
+            print(f"Name: {pii.name}")
+            print(f"Address: {pii.address}")
+            is_correct = input("Is this information correct? (yes/no): ").lower()
+            if is_correct == 'yes':
+                verified_pii_data.append(pii)
+            else:
+                print("Skipping this entry.")
     
     state.verified_pii_data = verified_pii_data
     print(f"Verified PII data: {len(state.verified_pii_data)} entries")
@@ -59,14 +66,14 @@ async def determine_contract_type(state: AgentState, templates: Dict[str, Dict])
         print(f"{i}. {template.split('.')[0]}")
     
     while True:
-        choice = input("\nPlease choose a contract type (1, 2, or 3): ")
-        if choice in ['1', '2', '3']:
+        choice = input(f"\nPlease choose a contract type (1-{len(available_templates)}): ")
+        if choice.isdigit() and 1 <= int(choice) <= len(available_templates):
             contract_type = available_templates[int(choice) - 1].split('.')[0]
             state.contract_details = ContractDetails(contract_type=contract_type, additional_info={})
             print(f"\nContract type selected: {state.contract_details.contract_type}")
             break
         else:
-            print("Invalid choice. Please enter 1, 2, or 3.")
+            print(f"Invalid choice. Please enter a number between 1 and {len(available_templates)}.")
 
 # Identify the parties involved in the contract using AI.
 async def identify_contract_parties(state: AgentState) -> None:
@@ -98,14 +105,20 @@ async def construct_final_contract(state: AgentState, template_manager: Template
         print("Contract details or parties not determined yet. Please complete these steps first.")
         return
     
-    selected_template = template_manager.get_template(state.contract_details.contract_type.lower())  # Ensure case consistency
-    if not selected_template:
-        print(f"No template found for {state.contract_details.contract_type}. Available templates: {', '.join(template_manager.list_available_templates())}")
-        return
-    
+    contract_type = state.contract_details.contract_type
     address = state.verified_pii_data[0].address if state.verified_pii_data else "Address not provided"
-    state.contract = await ai_functions.construct_contract(state.parties, address, selected_template, state.contract_details)
-    print("Contract constructed.")
+    additional_info = state.contract_details.additional_info
+    
+    try:
+        state.contract = await ai_functions.construct_contract(
+            contract_type=contract_type,
+            parties=state.parties,
+            address=address,
+            additional_info=additional_info
+        )
+        print("Contract constructed.")
+    except Exception as e:
+        print(f"Error constructing contract: {str(e)}")
 
 # Main agent workflow for processing documents and constructing a contract.
 async def agent_workflow() -> None:
@@ -139,18 +152,14 @@ async def agent_workflow() -> None:
             print(f"Terms: {state.contract.terms}")
         else:
             print("No contract was created.")
-        
+    except asyncio.CancelledError:
+        print("\nOperation cancelled by user.")
     except Exception as e:
         print(f"An error occurred: {str(e)}")
         logging.error(f"Error in agent_workflow: {str(e)}", exc_info=True)
     finally:
         print("\nContract automation process completed.")
+        input("Press Enter to exit...")
 
-# Run the async workflow
 if __name__ == "__main__":
-    try:
-        asyncio.run(agent_workflow())
-    except KeyboardInterrupt:
-        print("\nScript interrupted by user. Exiting...")
-    finally:
-        print("Script execution finished.")
+    asyncio.run(agent_workflow())

@@ -1,36 +1,8 @@
 from instructor import OpenAISchema, llm_validator
 from pydantic import Field, BaseModel, validator
 from typing import List, Optional, Dict, Union, Any
-
-# Centralized Role Options
-role_options = {
-    "airbnb": ["Landlord", "Tenant"],
-    "buy-sell": ["Buyer", "Seller"],
-    "it": ["Consultant", "Client"]
-}
-
-def get_role_options(contract_type: str) -> List[str]:
-    """
-    Retrieve role options for a given contract type.
-    """
-    return role_options.get(contract_type.lower(), [])
-
-# Validator class for roles and contract types
-class ContractRoleValidator:
-    valid_roles = ["Landlord", "Tenant", "Buyer", "Seller", "Consultant", "Client"]
-    valid_types = ["airbnb", "buy-sell", "it"]
-
-    @classmethod
-    def validate_role(cls, role: str):
-        if role not in cls.valid_roles:
-            raise ValueError(f"Invalid role: {role}. Must be one of {', '.join(cls.valid_roles)}")
-        return role
-
-    @classmethod
-    def validate_contract_type(cls, contract_type: str):
-        if contract_type.lower() not in cls.valid_types:
-            raise ValueError(f"Invalid contract type: {contract_type}. Must be one of {', '.join(cls.valid_types)}")
-        return contract_type.lower()
+from validators import ContractRoleValidator
+from role_options import get_role_options
 
 # Pydantic Models with llm_validator for enhanced validation
 class PIIData(OpenAISchema):
@@ -55,7 +27,7 @@ class ContractParty(OpenAISchema):
         arbitrary_types_allowed = True
         @classmethod
         def validate(cls, value):
-            return llm_validator("Ensure that the roles are valid and appropriate for this context.", value)
+            return llm_validator("Ensure that the roles are valid and appropriate for this context. For an Airbnb contract, 'Host' is equivalent to 'Landlord', and 'Guest' is equivalent to 'Tenant'.", value)
 
 class ContractParties(OpenAISchema):
     parties: List[ContractParty] = Field(..., description="List of parties involved in the contract")
