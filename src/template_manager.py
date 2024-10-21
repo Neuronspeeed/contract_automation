@@ -7,7 +7,7 @@ class TemplateManager:
 
     def get_template(self, contract_type: str) -> str:
         """Retrieve the template based on the contract type."""
-        template_key = f"{contract_type}.txt"  # Adjust this based on your naming convention
+        template_key = f"{contract_type}.txt"  
         if template_key in self.templates:
             return self.templates[template_key]["content"]
         else:
@@ -24,5 +24,5 @@ def load_templates(folder_path: str) -> Dict[str, Dict[str, str]]:
             with open(os.path.join(folder_path, filename), 'r') as file:
                 content = file.read()
                 templates[filename] = {"content": content}
-    print(f"Loaded templates: {templates.keys()}")  # Debugging output
+    print(f"Loaded templates: {templates.keys()}")  
     return templates

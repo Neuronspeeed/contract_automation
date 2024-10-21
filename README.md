@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is an Agentic contract automation system that streamlines the process of creating contracts based on personal information and predefined templates. It uses OpenAI's an agent to extract information, identify parties, and construct contracts.
+This project is an Agentic contract automation system that streamlines the process of creating contracts based on personal information and predefined templates. It uses OpenAI's GPT model to extract information, identify parties, and construct contracts.
 
 ## Features
 
@@ -21,6 +21,8 @@ This project is an Agentic contract automation system that streamlines the proce
   - `main.py`: Main script orchestrating the contract creation process
   - `models.py`: Pydantic models for data structures
   - `utils.py`: Utility functions
+  - `prompts.py`: Contains system prompts and instructions for AI
+  - `templates/`: Folder containing contract templates
 
 ## Key Functions
 
@@ -35,11 +37,8 @@ This project is an Agentic contract automation system that streamlines the proce
 3. `determine_contract_details(parties: ContractParties, contract_type: str) -> ContractDetails`:
    Determines additional contract details based on parties and contract type.
 
-4. `construct_contract(parties: ContractParties, address: str, template: str, details: ContractDetails) -> Contract`:
+4. `construct_contract(contract_type: str, parties: ContractParties, address: str, additional_info: Dict[str, str]) -> Contract`:
    Constructs a contract using provided information and a template.
-
-5. `agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) -> AgentAction`:
-   Determines the next action for the agent based on the current state.
 
 ### Main Process (`main.py`)
 
@@ -52,7 +51,7 @@ This project is an Agentic contract automation system that streamlines the proce
 3. `identify_contract_parties(state: AgentState) -> None`:
    Identifies contract parties and their roles.
 
-4. `construct_final_contract(state: AgentState, templates: Dict[str, Dict[str, str]]) -> None`:
+4. `construct_final_contract(state: AgentState, template_manager: TemplateManager) -> None`:
    Constructs the final contract using the gathered information and templates.
 
 ## Setup and Usage
@@ -88,3 +87,25 @@ This project uses Rye for dependency management and virtual environment setup.
 ## Development
 
 To add new dependencies:
+
+```
+rye add package_name
+```
+
+To update dependencies:
+```
+rye sync
+```
+
+To run tests:
+```
+rye run pytest
+```
+
+## Contributing
+
+Please read CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
