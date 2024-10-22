@@ -7,11 +7,12 @@ from document_processing import process_documents, load_templates
 from ai_functions import extract_pii, identify_parties, construct_contract, determine_contract_details, determine_contract_type
 from utils import verify_information
 from models import PIIData, ContractParties, Contract, AgentState, ContractDetails, ContractParty
-from config import TEMPLATES_FOLDER
+from config import TEMPLATES_FOLDER, OUTPUT_FOLDER
 from typing import List, Dict
 from template_manager import TemplateManager
 import ai_functions
 from prompts import SYSTEM_PROMPT 
+from datetime import datetime
 
 # Apply nest_asyncio to allow nested asyncio calls
 nest_asyncio.apply()
@@ -123,6 +124,20 @@ async def construct_final_contract(state: AgentState, template_manager: Template
             template=template
         )
         print("Contract construit.")
+        
+        # Create output folder if it doesn't exist
+        os.makedirs(OUTPUT_FOLDER, exist_ok=True)
+        
+        # Generate a unique filename
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{contract_type}_{timestamp}.txt"
+        filepath = os.path.join(OUTPUT_FOLDER, filename)
+        
+        # Save the contract to a file
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(state.contract.content)
+        
+        print(f"Contractul a fost salvat în: {filepath}")
     except Exception as e:
         print(f"Eroare la construirea contractului: {str(e)}")
 
@@ -153,9 +168,8 @@ async def agent_workflow() -> None:
         # Finalize contract output
         if state.contract:
             print("\nContract final:")
-            print(f"Părți: {', '.join([f'{', '.join(party.roles)}: {party.name}' for party in state.contract.parties])}")
-            print(f"Adresă: {state.contract.address}")
-            print(f"Termeni: {state.contract.terms}")
+            print("Contractul a fost generat și salvat cu succes.")
+            print(f"Puteți găsi contractul complet în fișierul: {filepath}")
         else:
             print("Nu a fost creat niciun contract.")
     except asyncio.CancelledError:

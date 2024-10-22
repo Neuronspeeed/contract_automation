@@ -18,3 +18,5 @@ logging.basicConfig(filename='agent_workflow.log', level=logging.DEBUG,
 
 # Add Romanian language support
 LANGUAGE = 'ro'
+
+OUTPUT_FOLDER = "output_contracts"

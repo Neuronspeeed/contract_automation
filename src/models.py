@@ -53,16 +53,13 @@ class ContractDetails(OpenAISchema):
             return llm_validator("Asigură-te că tipul contractului și detalile sunt corecte și corespund standardelor așteptate.", value)
 
 class Contract(OpenAISchema):
-    parties: List[ContractParty] = Field(..., description="Lista părților implicate în contract")
-    address: str = Field(..., description="Adresa unde contractul este aplicabil")
-    terms: str = Field(..., description="Termenii contractului")
-    additional_info: str
+    content: str = Field(..., description="Conținutul complet al contractului")
 
     class Config:
         arbitrary_types_allowed = True
         @classmethod
         def validate(cls, value):
-            return llm_validator("Asigură-te că contractul conține toate părțile necesare, detalii și adrese.", value)
+            return llm_validator("Asigură-te că contractul conține toate secțiunile necesare și urmează structura șablonului.", value)
 
 # Define AgentAction before AgentState to avoid NameError
 class AgentAction(OpenAISchema):
