@@ -1,95 +1,95 @@
-Airbnb Rental Agreement Template (Improved Version)
+Contract de Închiriere Airbnb (Versiune Îmbunătățită)
 
-Rental Agreement
+Contract de Închiriere
 
-This Rental Agreement ("Agreement") is made on {date} between:
+Acest Contract de Închiriere ("Contract") este încheiat la data de {data} între:
 
-1. Parties
+1. Părți
 
-Host: {host_name}, residing at {host_address}.
+Gazdă: {nume_gazda}, cu domiciliul în {adresa_gazda}.
 
-Guest: {guest_name}, residing at {guest_address}.
+Oaspete: {nume_oaspete}, cu domiciliul în {adresa_oaspete}.
 
-2. Property
+2. Proprietate
 
-The Host agrees to rent the property located at {property_address} to the Guest for the term specified below.
+Gazda este de acord să închirieze proprietatea situată la {adresa_proprietate} Oaspetelui pentru perioada specificată mai jos.
 
-Property Type: Apartment
-Bedrooms: 2
-Bathrooms: 1
-Other Features: Fully furnished, Wi-Fi included, access to communal pool
+Tip Proprietate: Apartament
+Dormitoare: 2
+Băi: 1
+Alte Facilități: Complet mobilat, Wi-Fi inclus, acces la piscina comună
 
-3. Rental Term
+3. Perioada de Închiriere
 
-The Guest shall have access to the property for the following period:
-From {start_date} at 3:00 PM to {end_date} at 11:00 AM.
+Oaspetele va avea acces la proprietate pentru următoarea perioadă:
+De la {data_inceput} ora 15:00 până la {data_sfarsit} ora 11:00.
 
-4. Rental Amount
+4. Suma de Închiriere
 
-Total Rent: $1,000 USD
-Payment Method: Credit card through Airbnb platform
-Payment Due Date: At the time of booking
+Chirie Totală: 5.000 RON
+Metodă de Plată: Card de credit prin platforma Airbnb
+Data Scadentă a Plății: La momentul rezervării
 
-5. Security Deposit
+5. Depozit de Garanție
 
-Amount: $500 USD
-Refundable within 7 days after the lease ends, minus any deductions for damages.
+Sumă: 2.500 RON
+Rambursabil în termen de 7 zile de la încheierea perioadei de închiriere, minus orice deduceri pentru daune.
 
-6. House Rules
+6. Reguli ale Casei
 
-Quiet Hours: Yes, from 10:00 PM to 7:00 AM.
-Smoking Policy: Prohibited in all areas of the property.
-Pets: Not allowed.
+Ore de Liniște: Da, de la 22:00 la 07:00.
+Politica de Fumat: Interzis în toate zonele proprietății.
+Animale de Companie: Nu sunt permise.
 
-7. Utilities and Services
+7. Utilități și Servicii
 
-The Host shall provide all utilities and services, including electricity, water, gas, internet, and basic cable TV.
+Gazda va furniza toate utilitățile și serviciile, inclusiv electricitate, apă, gaz, internet și cablu TV de bază.
 
-8. Occupants
+8. Ocupanți
 
-The total number of occupants allowed on the property is 4.
+Numărul total de ocupanți permiși în proprietate este de 4.
 
-9. Parking
+9. Parcare
 
-Parking Availability: One designated parking space included, free of charge.
+Disponibilitate Parcare: Un loc de parcare desemnat inclus, gratuit.
 
-10. Fees
+10. Taxe
 
-The Guest agrees to pay the following fees upon execution of this Agreement:
-Cleaning Fee: $75 USD
-Taxes: As per local regulations, collected by Airbnb
+Oaspetele este de acord să plătească următoarele taxe la executarea acestui Contract:
+Taxă de Curățenie: 375 RON
+Taxe: Conform reglementărilor locale, colectate de Airbnb
 
-11. Subletting
+11. Subînchiriere
 
-Subletting Rights: Not allowed.
+Drepturi de Subînchiriere: Nu sunt permise.
 
-12. Inspection and Maintenance
+12. Inspecție și Întreținere
 
-Move-in Inspection: A move-in inspection checklist will be completed upon arrival.
-Right to Inspect: The Host has the right to inspect the property with 24 hours notice, except in emergencies.
-Maintenance: The Guest shall maintain the property in good condition. Any damages caused will be deducted from the Security Deposit.
+Inspecție la Sosire: O listă de verificare la sosire va fi completată la momentul sosirii.
+Drept de Inspecție: Gazda are dreptul de a inspecta proprietatea cu un preaviz de 24 de ore, cu excepția urgențelor.
+Întreținere: Oaspetele va menține proprietatea în stare bună. Orice daune cauzate vor fi deduse din Depozitul de Garanție.
 
-13. Liability
+13. Răspundere
 
-The Guest shall be responsible for any damages to the property.
-The Host shall not be liable for injuries sustained by the Guest or their guests, except in cases of gross negligence.
+Oaspetele va fi responsabil pentru orice daune aduse proprietății.
+Gazda nu va fi răspunzătoare pentru vătămările suferite de Oaspete sau invitații acestuia, cu excepția cazurilor de neglijență gravă.
 
-14. Termination
+14. Reziliere
 
-Either party may terminate this Agreement upon 7 days' notice. All outstanding payments must be settled.
+Oricare dintre părți poate rezilia acest Contract cu un preaviz de 7 zile. Toate plățile restante trebuie achitate.
 
-15. Governing Law
+15. Legea Aplicabilă
 
-This Agreement shall be governed by the laws of the state where the property is located.
+Acest Contract va fi guvernat de legile statului în care se află proprietatea.
 
-16. Entire Agreement
+16. Întregul Contract
 
-This Agreement constitutes the entire understanding between the Host and the Guest regarding the rental and supersedes all prior agreements, whether written or oral.
+Acest Contract constituie înțelegerea completă între Gazdă și Oaspete cu privire la închiriere și înlocuiește toate acordurile anterioare, fie scrise, fie orale.
 
-17. Signatures
+17. Semnături
 
-Host Signature: ______________________
-Date: ______________________
+Semnătura Gazdei: ______________________
+Data: ______________________
 
-Guest Signature: ______________________
-Date: ______________________
+Semnătura Oaspetelui: ______________________
+Data: ______________________

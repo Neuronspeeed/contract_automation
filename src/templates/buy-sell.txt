@@ -1,85 +1,85 @@
-Buy-Sell Agreement Template
+Contract de Vânzare-Cumpărare
 
-Agreement of Sale
+Acord de Vânzare
 
-This Agreement of Sale ("Agreement") is made on [date] between:
+Acest Acord de Vânzare ("Acordul") este încheiat la data de [data] între:
 
-1. Parties
+1. Părți
 
-Seller: [Seller's Name], residing at [Seller's Address].
+Vânzător: [Numele Vânzătorului], cu domiciliul în [Adresa Vânzătorului].
 
-Buyer: [Buyer's Name], residing at [Buyer's Address].
+Cumpărător: [Numele Cumpărătorului], cu domiciliul în [Adresa Cumpărătorului].
 
-2. Property Description
+2. Descrierea Proprietății
 
-The Seller agrees to sell and the Buyer agrees to purchase the property located at [Property Address], which includes:
+Vânzătorul este de acord să vândă, iar Cumpărătorul este de acord să cumpere proprietatea situată la [Adresa Proprietății], care include:
 
-Property Type: [House/Land/Vehicle/Other]
+Tipul Proprietății: [Casă/Teren/Vehicul/Altele]
 
-Features: [Number of Bedrooms, Bathrooms, Lot Size, etc.]
+Caracteristici: [Număr de Dormitoare, Băi, Suprafața Terenului, etc.]
 
-Other Items Included: [List any items included in the sale, such as appliances, furniture, etc.]
+Alte Articole Incluse: [Lista oricăror articole incluse în vânzare, cum ar fi electrocasnice, mobilier, etc.]
 
-3. Purchase Price
+3. Prețul de Cumpărare
 
-Total Purchase Price: [Total Amount in USD]
+Preț Total de Cumpărare: [Suma Totală în RON]
 
-Payment Method: [e.g., bank transfer, certified check]
+Metoda de Plată: [ex. transfer bancar, cec certificat]
 
-Payment Schedule:
+Program de Plată:
 
-Deposit: [Deposit Amount in USD], due on [Deposit Due Date]
+Avans: [Suma Avansului în RON], scadent la [Data Scadentă a Avansului]
 
-Final Payment: [Final Payment Amount in USD], due on [Final Payment Due Date]
+Plata Finală: [Suma Plății Finale în RON], scadentă la [Data Scadentă a Plății Finale]
 
-4. Conditions of Sale
+4. Condiții de Vânzare
 
-Inspection: The Buyer has the right to inspect the property within [X] days of signing this Agreement. Any issues identified must be addressed before the sale is finalized.
+Inspecție: Cumpărătorul are dreptul de a inspecta proprietatea în termen de [X] zile de la semnarea acestui Acord. Orice probleme identificate trebuie abordate înainte de finalizarea vânzării.
 
-Financing: This Agreement is contingent upon the Buyer obtaining financing. If financing is not approved within [X] days, this Agreement may be terminated by either party.
+Finanțare: Acest Acord este condiționat de obținerea finanțării de către Cumpărător. Dacă finanțarea nu este aprobată în termen de [X] zile, acest Acord poate fi reziliat de oricare dintre părți.
 
-5. Closing
+5. Încheierea Tranzacției
 
-Closing Date: The closing of the sale shall take place on [Closing Date].
+Data Încheierii: Încheierea vânzării va avea loc la data de [Data Încheierii].
 
-Location: The closing shall occur at [Location of Closing, e.g., title company, notary office].
+Locația: Încheierea va avea loc la [Locația Încheierii, ex. birou notarial, oficiu de cadastru].
 
-6. Title and Ownership
+6. Titlu și Proprietate
 
-The Seller warrants that they hold clear and marketable title to the property and that there are no pending claims or encumbrances.
+Vânzătorul garantează că deține titlu clar și vandabil asupra proprietății și că nu există revendicări sau sarcini în așteptare.
 
-The Seller agrees to transfer ownership to the Buyer at the closing, free of any liens or other encumbrances.
+Vânzătorul este de acord să transfere proprietatea către Cumpărător la încheierea tranzacției, liberă de orice sarcini sau alte obligații.
 
-7. Possession
+7. Posesie
 
-The Buyer shall take possession of the property on [Possession Date], subject to the conditions stated in this Agreement.
+Cumpărătorul va intra în posesia proprietății la data de [Data Posesiei], sub rezerva condițiilor stipulate în acest Acord.
 
-8. Taxes and Fees
+8. Taxe și Comisioane
 
-Property Taxes: [Specify whether the Seller or Buyer is responsible for property taxes up to the date of sale].
+Impozite pe Proprietate: [Specificați dacă Vânzătorul sau Cumpărătorul este responsabil pentru impozitele pe proprietate până la data vânzării].
 
-Transfer Fees: Any transfer fees or closing costs shall be paid by [Seller/Buyer/Shared].
+Taxe de Transfer: Orice taxe de transfer sau costuri de închidere vor fi plătite de [Vânzător/Cumpărător/Împărțite].
 
-9. Default
+9. Neîndeplinirea Obligațiilor
 
-If the Buyer fails to fulfill their obligations under this Agreement, the Seller may retain the deposit as liquidated damages.
+Dacă Cumpărătorul nu își îndeplinește obligațiile conform acestui Acord, Vânzătorul poate reține avansul ca daune lichide.
 
-If the Seller fails to fulfill their obligations, the Buyer may seek specific performance or a refund of the deposit.
+Dacă Vânzătorul nu își îndeplinește obligațiile, Cumpărătorul poate solicita executarea specifică sau rambursarea avansului.
 
-10. Governing Law
+10. Legea Aplicabilă
 
-This Agreement shall be governed by the laws of [Jurisdiction].
+Acest Acord va fi guvernat de legile din [Jurisdicție].
 
-11. Entire Agreement
+11. Întregul Acord
 
-This Agreement constitutes the entire understanding between the Seller and the Buyer regarding the sale and supersedes all prior negotiations and understandings, whether written or oral.
+Acest Acord constituie înțelegerea completă între Vânzător și Cumpărător cu privire la vânzare și înlocuiește toate negocierile și înțelegerile anterioare, fie scrise, fie orale.
 
-12. Signatures
+12. Semnături
 
-Seller Signature: ______________________
+Semnătura Vânzătorului: ______________________
 
-Date: ______________________
+Data: ______________________
 
-Buyer Signature: ______________________
+Semnătura Cumpărătorului: ______________________
 
-Date: ______________________
+Data: ______________________

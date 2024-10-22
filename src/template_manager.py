@@ -6,22 +6,22 @@ class TemplateManager:
         self.templates = templates
 
     def get_template(self, contract_type: str) -> str:
-        """Retrieve the template based on the contract type."""
+        """Recuperează șablonul bazat pe tipul contractului."""
         for template_key in self.templates.keys():
             if contract_type.lower() in template_key.lower():
                 return self.templates[template_key]["content"]
-        raise FileNotFoundError(f"No template found for {contract_type}. Available templates: {', '.join(self.templates.keys())}")
+        raise FileNotFoundError(f"Nu s-a găsit niciun șablon pentru {contract_type}. Șabloane disponibile: {', '.join(self.templates.keys())}")
 
     def list_available_templates(self) -> List[str]:
-        """List all available template names."""
+        """Listează toate numele de șabloane disponibile."""
         return list(self.templates.keys())
 
 def load_templates(folder_path: str) -> Dict[str, Dict[str, str]]:
     templates = {}
     for filename in os.listdir(folder_path):
         if filename.endswith('.txt'):
-            with open(os.path.join(folder_path, filename), 'r') as file:
+            with open(os.path.join(folder_path, filename), 'r', encoding='utf-8') as file:
                 content = file.read()
                 templates[filename] = {"content": content}
-    print(f"Loaded templates: {templates.keys()}")  
+    print(f"Șabloane încărcate: {templates.keys()}")  
     return templates

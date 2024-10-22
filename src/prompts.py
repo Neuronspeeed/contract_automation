@@ -1,70 +1,67 @@
-PII_EXTRACTION_PROMPT = """Extract personal identifiable information (PII) from documents.
+PII_EXTRACTION_PROMPT = """Extrage informațiile personale identificabile (PII) din documente.
 
-Examples:
-1. Input: "CARTE DE IDENTITATE, Nume/Nom/Last name POPESCU, Prenume/Prénom/First name IOAN, CNP 1234567890123"
-   Output: {"name": "POPESCU IOAN", "address": "Not provided"}
+Exemple:
+1. Input: "CARTE DE IDENTITATE, Nume POPESCU, Prenume IOAN, CNP 1234567890123"
+   Output: {"nume": "POPESCU IOAN", "adresa": "Nu este furnizată"}
 
-2. Input: "IDENTITY CARD, Last name SMITH, First name JOHN, Address 123 Main St, New York, NY 10001"
-   Output: {"name": "SMITH JOHN", "address": "123 Main St, New York, NY 10001"}
+2. Input: "CARTE DE IDENTITATE, Nume IONESCU, Prenume MARIA, Adresa Str. Principală nr. 10, București"
+   Output: {"nume": "IONESCU MARIA", "adresa": "Str. Principală nr. 10, București"}
 
-3. Input: "CARTE D'IDENTITE, Nom DUPONT, Prénom MARIE, Adresse 1 Rue de la Paix, Paris 75001"
-   Output: {"name": "DUPONT MARIE", "address": "1 Rue de la Paix, Paris 75001"}
-
-Now, extract the PII from the following document:
+Acum, extrage PII din următorul document:
 
 {text}
 
-Remember:
-- Combine last name and first name into a single "name" field.
-- If an address is not provided, use "Not provided" for the address field.
-- Ignore any identification numbers or codes.
+Ține minte:
+- Combină numele și prenumele într-un singur câmp "nume".
+- Dacă nu este furnizată o adresă, folosește "Nu este furnizată" pentru câmpul adresei.
+- Ignoră orice numere de identificare sau coduri.
 """
 
 PARTY_IDENTIFICATION_PROMPT = """
-For a {contract_type} contract, assign roles to the following parties:
+Pentru un contract de tip {contract_type}, atribuie roluri următoarelor părți:
 
 {pii_text}
 
-Your task is to determine the roles of each person in the context of a {contract_type} contract.
-Consider the guidelines provided in the system prompt.
+Sarcina ta este să determini rolurile fiecărei persoane în contextul unui contract de tip {contract_type}.
+Ia în considerare instrucțiunile furnizate în promptul de sistem.
 
-For each person, provide their name and ask the human which role they should have in the contract.
+Pentru fiecare persoană, furnizează numele lor și întreabă utilizatorul ce rol ar trebui să aibă în contract.
 """
 
-CONTRACT_CONSTRUCTION_PROMPT = """Construct a {contract_type} contract using the following template and verified information:
+CONTRACT_CONSTRUCTION_PROMPT = """Construiește un contract de tip {contract_type} folosind următorul șablon și informațiile verificate:
 
-Template:
+Șablon:
 {template}
 
-Verified Parties: {parties_info}
-Verified Address: {address}
-Additional Details: {additional_info}
+Părți verificate: {parties_info}
+Adresă verificată: {address}
+Detalii suplimentare: {additional_info}
 
-Instructions:
-1. Use the provided template as a base for the contract.
-2. Insert the verified parties' names directly into the contract without brackets.
-3. Use the verified address for the 'Address' field in the contract.
-4. Ensure all placeholders in the template are replaced with appropriate verified information.
-5. Use the EXACT roles provided for each party (e.g., "Landlord" and "Tenant" for Airbnb contracts, not "Host" and "Guest").
-6. If any information is missing, leave the corresponding field blank or use a placeholder like [To be determined].
+Instrucțiuni:
+1. Folosește șablonul furnizat ca bază pentru contract.
+2. Inserează numele părților verificate direct în contract fără paranteze.
+3. Folosește adresa verificată pentru câmpul 'Adresă' din contract.
+4. Asigură-te că toate placeholder-urile din șablon sunt înlocuite cu informații verificate corespunzătoare.
+5. Folosește EXACT rolurile furnizate pentru fiecare parte (de ex., "Proprietar" și "Chiriaș" pentru contractele Airbnb, nu "Gazdă" și "Oaspete").
+6. Dacă lipsesc informații, lasă câmpul corespunzător gol sau folosește un placeholder precum [De determinat].
 """
 
 SYSTEM_PROMPT = """
-You are an AI assistant specialized in contract automation. Your task is to guide the process of extracting information, identifying parties, and constructing contracts based on the available data and templates.
+Ești un asistent AI specializat în automatizarea contractelor. Sarcina ta este să ghidezi procesul de extragere a informațiilor, identificarea părților și construirea contractelor pe baza datelor și șabloanelor disponibile.
 
-Follow these guidelines:
+Urmează aceste instrucțiuni:
 
-1. PII Extraction:
-   Extract names, addresses, and any other relevant personal details from the provided documents.
+1. Extragerea PII:
+   Extrage nume, adrese și orice alte detalii personale relevante din documentele furnizate.
 
-2. Party Identification:
-   For each contract type, ask which role each person should have in the contract:
-   - Buy-sell contract: Identify the buyer and the seller.
-   - Airbnb contract: Identify the landlord (property owner) and the tenant (guest).
-   - IT contract: Identify the IT consultant and the client.
+2. Identificarea părților:
+   Pentru fiecare tip de contract, întreabă ce rol ar trebui să aibă fiecare persoană în contract:
+   - Contract de vânzare-cumpărare: Identifică cumpărătorul și vânzătorul.
+   - Contract Airbnb: Identifică proprietarul (proprietarul imobilului) și chiriașul (oaspetele).
+   - Contract IT: Identifică consultantul IT și clientul.
 
-3. Contract Construction:
-   - Insert party names directly into the contract without brackets.
-   - Use the provided addresses accurately in the appropriate fields.
-   - Ensure all placeholders in contract templates are replaced with the correct information.
+3. Construirea contractului:
+   - Inserează numele părților direct în contract fără paranteze.
+   - Folosește adresele furnizate cu acuratețe în câmpurile corespunzătoare.
+   - Asigură-te că toate placeholder-urile din șabloanele de contract sunt înlocuite cu informațiile corecte.
 """

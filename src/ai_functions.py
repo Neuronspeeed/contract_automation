@@ -24,7 +24,7 @@ import traceback
 client = instructor.patch(AsyncOpenAI(api_key=API_KEY))
 
 async def extract_pii(text: str) -> List[PIIData]:
-    """Extract personal identifiable information from text."""
+    """Extrage informații personale identificabile din text."""
     return await client.chat.completions.create(
         model="gpt-4o-mini",
         response_model=List[PIIData],
@@ -35,55 +35,55 @@ async def extract_pii(text: str) -> List[PIIData]:
     )
 
 async def determine_contract_type(pii_data: List[PIIData], available_templates: List[str]) -> str:
-    """Determine the contract type based on available templates."""
+    """Determină tipul contractului bazat pe șabloanele disponibile."""
     templates_text = "\n".join([f"{i+1}. {template}" for i, template in enumerate(available_templates)])
     while True:
         try:
-            selection = input(f"Please select the type of contract from the following available templates:\n{templates_text}\nSelect (1-{len(available_templates)}): ").strip()
+            selection = input(f"Vă rugăm să selectați tipul de contract din următoarele șabloane disponibile:\n{templates_text}\nSelectați (1-{len(available_templates)}): ").strip()
             selected_index = int(selection) - 1
             if 0 <= selected_index < len(available_templates):
                 contract_type = available_templates[selected_index]
-                # Validate contract type using the central validator
+                # Validează tipul contractului folosind validatorul central
                 return ContractRoleValidator.validate_contract_type(contract_type)
             else:
-                print("Invalid choice. Please select a valid number.")
+                print("Alegere invalidă. Vă rugăm să selectați un număr valid.")
         except ValueError:
-            print("Invalid input. Please enter a number.")
+            print("Input invalid. Vă rugăm să introduceți un număr.")
 
 async def identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractParties:
-    """Identify the parties and their roles based on extracted PII data and contract type."""
+    """Identifică părțile și rolurile lor bazate pe datele PII extrase și tipul contractului."""
     parties = []
     available_roles = get_role_options(contract_type)
     available_roles_text = "\n".join([f"{i+1}. {role}" for i, role in enumerate(available_roles)])
 
     for pii in pii_data:
         while True:
-            print(f"\nPlease assign a role for the following party:")
-            print(f"Name: {pii.name}, Address: {pii.address}")
+            print(f"\nVă rugăm să atribuiți un rol pentru următoarea parte:")
+            print(f"Nume: {pii.name}, Adresă: {pii.address}")
             try:
-                role_selection = input(f"Available Roles for {contract_type} contract:\n{available_roles_text}\nSelect the role for {pii.name} (1-{len(available_roles)}): ").strip()
+                role_selection = input(f"Roluri disponibile pentru contractul de tip {contract_type}:\n{available_roles_text}\nSelectați rolul pentru {pii.name} (1-{len(available_roles)}): ").strip()
                 selected_index = int(role_selection) - 1
                 if 0 <= selected_index < len(available_roles):
                     selected_role = available_roles[selected_index]
-                    # Validate role using the central validator
+                    # Validează rolul folosind validatorul central
                     ContractRoleValidator.validate_role(selected_role)
                     parties.append(ContractParty(name=pii.name, roles=[selected_role]))
                     break
                 else:
-                    print("Invalid choice. Please select a valid number.")
+                    print("Alegere invalidă. Vă rugăm să selectați un număr valid.")
             except ValueError:
-                print("Invalid input. Please enter a number.")
+                print("Input invalid. Vă rugăm să introduceți un număr.")
 
     return ContractParties(parties=parties)
 
 async def determine_contract_details(parties: ContractParties, contract_type: str) -> ContractDetails:
-    """Determine the contract details based on the contract type."""
+    """Determină detaliile contractului bazate pe tipul contractului."""
     parties_info = ", ".join([f"{party.name} ({', '.join(party.roles)})" for party in parties.parties])
     return await client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"Determine the contract details for a {contract_type} contract with the following parties:\n\n{parties_info}"}
+            {"role": "user", "content": f"Determină detaliile contractului pentru un contract de tip {contract_type} cu următoarele părți:\n\n{parties_info}"}
         ],
         response_model=ContractDetails
     )
@@ -95,34 +95,34 @@ async def construct_contract(
     additional_info: Dict[str, str],
     template: str
 ) -> Contract:
-    """Construct a contract based on the given information and template."""
+    """Construiește un contract bazat pe informațiile date și șablon."""
     parties_info = ", ".join([f"{party.name} ({', '.join(party.roles)})" for party in parties.parties])
-    role_reminder = "Remember to use the exact roles provided (e.g., 'Landlord' and 'Tenant' for Airbnb contracts, not 'Host' and 'Guest')."
+    role_reminder = "Amintiți-vă să folosiți exact rolurile furnizate (de ex., 'Proprietar' și 'Chiriaș' pentru contractele Airbnb, nu 'Gazdă' și 'Oaspete')."
     return await client.chat.completions.create(
         model="gpt-4o-mini",
         response_model=Contract,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"{CONTRACT_CONSTRUCTION_PROMPT}\n\nContract Type: {contract_type}\nTemplate:\n{template}\nParties: {parties_info}\nAddress: {address}\nAdditional Info: {additional_info}\n\n{role_reminder}"}
+            {"role": "user", "content": f"{CONTRACT_CONSTRUCTION_PROMPT}\n\nTip Contract: {contract_type}\nȘablon:\n{template}\nPărți: {parties_info}\nAdresă: {address}\nInformații Adiționale: {additional_info}\n\n{role_reminder}"}
         ]
     )
 
 async def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) -> AgentAction:
-    """Determine the next action for the agent to take."""
+    """Determină următoarea acțiune pentru agent."""
     state_summary = f"""
-    Current state:
-    - Verified PII data: {len(state.verified_pii_data)} entries
-    - Contract type: {state.contract_details.contract_type if state.contract_details else 'Not determined'}
-    - Parties identified: {', '.join([f"{', '.join(party.roles)}: {party.name}" for party in state.parties.parties]) if state.parties else 'No'}
-    - Contract constructed: {'Yes' if state.contract else 'No'}
-    Available templates: {', '.join(templates.keys())}
+    Stare curentă:
+    - Date PII verificate: {len(state.verified_pii_data)} intrări
+    - Tip contract: {state.contract_details.contract_type if state.contract_details else 'Nedeterminat'}
+    - Părți identificate: {', '.join([f"{', '.join(party.roles)}: {party.name}" for party in state.parties.parties]) if state.parties else 'Nu'}
+    - Contract construit: {'Da' if state.contract else 'Nu'}
+    Șabloane disponibile: {', '.join(templates.keys())}
     """
     
     return await client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"Determine the next action based on the current state:\n\n{state_summary}"}
+            {"role": "user", "content": f"Determină următoarea acțiune bazată pe starea curentă:\n\n{state_summary}"}
         ],
         tools=[{"type": "function", "function": {"name": "agent_action", "parameters": AgentAction.model_json_schema()}}],
         tool_choice={"type": "function", "function": {"name": "agent_action"}},

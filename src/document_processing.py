@@ -8,7 +8,7 @@ import easyocr
 from config import DATA_FOLDER
 
 # Initialize EasyOCR reader
-reader = easyocr.Reader(['en', 'ro'])
+reader = easyocr.Reader(['ro', 'en'])
 
 # Get documents from the data folder
 def get_documents() -> List[str]:
@@ -29,7 +29,7 @@ async def extract_text(file_path: str) -> str:
             pages = await asyncio.to_thread(loader.load)
             return "\n".join(page.page_content for page in pages)
         except ImportError:
-            return "Error: PyPDFLoader not available. Please install langchain."
+            return "Eroare: PyPDFLoader nu este disponibil. Vă rugăm să instalați langchain."
     elif file_path.lower().endswith(('.jpg', '.jpeg', '.png')):
         try:
             def process_image():

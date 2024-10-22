@@ -23,8 +23,8 @@ MAX_RETRIES = 3
 logging.basicConfig(filename='agent_workflow.log', level=logging.DEBUG, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-print(f"Current working directory: {os.getcwd()}")
-print(f"Templates folder path: {os.path.abspath(TEMPLATES_FOLDER)}")
+print(f"Directorul de lucru curent: {os.getcwd()}")
+print(f"Calea folderului de șabloane: {os.path.abspath(TEMPLATES_FOLDER)}")
 
 async def process_pii_extraction(state: AgentState, documents: Dict[str, str]) -> None:
     """
@@ -38,19 +38,19 @@ async def process_pii_extraction(state: AgentState, documents: Dict[str, str]) -
     for doc, text in documents.items():
         pii_list: List[PIIData] = await extract_pii(text)
         for pii in pii_list:
-            print("Please verify the following information:")
-            print(f"Name: {pii.name}")
-            print(f"Address: {pii.address}")
-            is_correct = input("Is this information correct? (yes/no): ").lower()
-            if is_correct == 'yes':
+            print("Vă rugăm să verificați următoarele informații:")
+            print(f"Nume: {pii.name}")
+            print(f"Adresă: {pii.address}")
+            is_correct = input("Aceste informații sunt corecte? (da/nu): ").lower()
+            if is_correct == 'da':
                 verified_pii_data.append(pii)
             else:
-                name = input("Please provide the correct name: ")
-                address = input("Please provide the correct address: ")
+                name = input("Vă rugăm să furnizați numele corect: ")
+                address = input("Vă rugăm să furnizați adresa corectă: ")
                 verified_pii_data.append(PIIData(name=name, address=address))
     
     state.verified_pii_data = verified_pii_data
-    print(f"Verified PII data: {len(state.verified_pii_data)} entries")
+    print(f"Date PII verificate: {len(state.verified_pii_data)} intrări")
 
 
 # Determine the contract type based on PII data and available templates.
@@ -63,20 +63,20 @@ async def determine_contract_type(state: AgentState, templates: Dict[str, Dict])
         templates (Dict[str, Dict]): The loaded contract templates.
     """
     available_templates = list(templates.keys())
-    print("\nAvailable contract types:")
+    print("\nTipuri de contract disponibile:")
     for i, template in enumerate(available_templates, 1):
         print(f"{i}. {template.split('.')[0]}")
     
     while True:
-        choice = input(f"\nPlease choose a contract type (1-{len(available_templates)}): ")
+        choice = input(f"\nVă rugăm să alegeți un tip de contract (1-{len(available_templates)}): ")
         if choice.isdigit() and 1 <= int(choice) <= len(available_templates):
             selected_template = available_templates[int(choice) - 1]
             contract_type = selected_template.split('.')[0]
             state.contract_details = ContractDetails(contract_type=contract_type, additional_info={})
-            print(f"\nContract type selected: {state.contract_details.contract_type}")
+            print(f"\nTip de contract selectat: {state.contract_details.contract_type}")
             break
         else:
-            print(f"Invalid choice. Please enter a number between 1 and {len(available_templates)}.")
+            print(f"Alegere invalidă. Vă rugăm să introduceți un număr între 1 și {len(available_templates)}.")
 
 # Identify the parties involved in the contract using AI.
 async def identify_contract_parties(state: AgentState) -> None:
@@ -87,11 +87,11 @@ async def identify_contract_parties(state: AgentState) -> None:
         state (AgentState): The current state of the agent.
     """
     if not state.contract_details or not state.contract_details.contract_type:
-        print("Contract type not determined yet. Please determine contract type first.")
+        print("Tipul contractului nu a fost încă determinat. Vă rugăm să determinați mai întâi tipul contractului.")
         return
     
     state.parties = await ai_functions.identify_parties(state.verified_pii_data, state.contract_details.contract_type)
-    print("\nParties identified:")
+    print("\nPărți identificate:")
     for party in state.parties.parties:
         print(f"{', '.join(party.roles)}: {party.name}")
 
@@ -105,7 +105,7 @@ async def construct_final_contract(state: AgentState, template_manager: Template
         template_manager (TemplateManager): The template manager instance.
     """
     if not state.contract_details or not state.parties:
-        print("Contract details or parties not determined yet. Please complete these steps first.")
+        print("Detaliile contractului sau părțile nu au fost încă determinate. Vă rugăm să completați mai întâi acești pași.")
         return
     
     contract_type = state.contract_details.contract_type
@@ -122,9 +122,9 @@ async def construct_final_contract(state: AgentState, template_manager: Template
             additional_info=additional_info,
             template=template
         )
-        print("Contract constructed.")
+        print("Contract construit.")
     except Exception as e:
-        print(f"Error constructing contract: {str(e)}")
+        print(f"Eroare la construirea contractului: {str(e)}")
 
 # Main agent workflow for processing documents and constructing a contract.
 async def agent_workflow() -> None:
@@ -135,7 +135,7 @@ async def agent_workflow() -> None:
         templates = load_templates(TEMPLATES_FOLDER)
         template_manager = TemplateManager(templates)
         documents = await process_documents()
-        print("Documents processed.")
+        print("Documente procesate.")
         state = AgentState()
         
         # Stage 1: Document Processing and PII Extraction
@@ -152,20 +152,20 @@ async def agent_workflow() -> None:
         
         # Finalize contract output
         if state.contract:
-            print("\nFinal Contract:")
-            print(f"Parties: {', '.join([f'{', '.join(party.roles)}: {party.name}' for party in state.contract.parties])}")
-            print(f"Address: {state.contract.address}")
-            print(f"Terms: {state.contract.terms}")
+            print("\nContract final:")
+            print(f"Părți: {', '.join([f'{', '.join(party.roles)}: {party.name}' for party in state.contract.parties])}")
+            print(f"Adresă: {state.contract.address}")
+            print(f"Termeni: {state.contract.terms}")
         else:
-            print("No contract was created.")
+            print("Nu a fost creat niciun contract.")
     except asyncio.CancelledError:
-        print("\nOperation cancelled by user.")
+        print("\nOperațiune anulată de utilizator.")
     except Exception as e:
-        print(f"An error occurred: {str(e)}")
+        print(f"A apărut o eroare: {str(e)}")
         logging.error(f"Error in agent_workflow: {str(e)}", exc_info=True)
     finally:
-        print("\nContract automation process completed.")
-        input("Press Enter to exit...")
+        print("\nProcesul de automatizare a contractului a fost finalizat.")
+        input("Apăsați Enter pentru a ieși...")
 
 if __name__ == "__main__":
     asyncio.run(agent_workflow())

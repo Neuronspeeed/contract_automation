@@ -1,65 +1,69 @@
-Consulting Agreement
+Contract de Consultanță
 
-This Consulting Agreement ("Agreement") is made on [date] between:
+Acest Contract de Consultanță ("Contract") este încheiat la data de [data] între:
 
-1. Parties
+1. Părți
 
-Consultant: [Consultant's Name], residing at [Consultant's Address].
+Consultant: [Numele Consultantului], cu domiciliul în [Adresa Consultantului].
 
-Client: [Client's Name], with a principal office at [Client's Address].
+Client: [Numele Clientului], cu sediul principal în [Adresa Clientului].
 
-2. Scope of Services
+2. Obiectul Contractului
 
-The Consultant agrees to provide the following IT consulting services ("Services") to the Client:
+Consultantul este de acord să furnizeze următoarele servicii de consultanță IT ("Servicii") Clientului:
 
-Description of Services: [Provide a detailed description of the IT services to be provided, e.g., network setup, cybersecurity assessment, software development, etc.]
+Descrierea Serviciilor: [Furnizați o descriere detaliată a serviciilor IT care vor fi furnizate, de ex., configurare rețea, evaluare securitate cibernetică, dezvoltare software, etc.]
 
-Deliverables: [List of specific deliverables, if applicable]
+Livrabile: [Lista livrabilelor specifice, dacă este cazul]
 
-3. Term of Agreement
+3. Durata Contractului
 
-Start Date: This Agreement shall commence on [Start Date].
+Data de Început: Acest Contract va începe la data de [Data de Început].
 
-End Date: The Agreement will continue until [End Date/Project Completion] or until terminated by either party in accordance with this Agreement.
+Data de Încheiere: Contractul va continua până la [Data de Încheiere/Finalizarea Proiectului] sau până când va fi reziliat de oricare dintre părți în conformitate cu acest Contract.
 
-4. Compensation
+4. Compensație
 
-Hourly Rate: [Rate in USD per hour] or Fixed Fee: [Total Amount in USD]
+Tarif Orar: [Tarif în RON pe oră] sau Onorariu Fix: [Suma Totală în RON]
 
-Payment Terms: Invoices shall be submitted [weekly/bi-weekly/monthly] and are payable within [X] days of receipt.
+Termeni de Plată: Facturile vor fi transmise [săptămânal/bilunar/lunar] și sunt plătibile în termen de [X] zile de la primire.
 
-5. Expenses
+5. Cheltuieli
 
-Reimbursement: The Client shall reimburse the Consultant for reasonable expenses incurred in connection with the Services, provided such expenses have been pre-approved by the Client.
+Rambursare: Clientul va rambursa Consultantului cheltuielile rezonabile efectuate în legătură cu Serviciile, cu condiția ca aceste cheltuieli să fi fost aprobate în prealabil de Client.
 
-6. Confidentiality
+6. Confidențialitate
 
-Confidential Information: The Consultant agrees not to disclose any confidential or proprietary information obtained during the term of this Agreement. Confidential information includes, but is not limited to, business strategies, technical details, and client data.
+Informații Confidențiale: Consultantul este de acord să nu divulge nicio informație confidențială sau proprietară obținută pe durata acestui Contract. Informațiile confidențiale includ, dar nu se limitează la, strategii de afaceri, detalii tehnice și date ale clienților.
 
-7. Intellectual Property
+7. Proprietate Intelectuală
 
-Ownership: Any work product or deliverables created by the Consultant in the course of providing the Services shall be the sole property of the Client. The Consultant hereby assigns all rights, title, and interest in such work product to the Client.
+Proprietate: Orice produs al muncii sau livrabile create de Consultant în cursul furnizării Serviciilor vor fi proprietatea exclusivă a Clientului. Consultantul cedează prin prezenta toate drepturile, titlul și interesul asupra acestor produse ale muncii Clientului.
 
-8. Termination
+8. Reziliere
 
-Termination Notice: Either party may terminate this Agreement by giving [X] days' written notice to the other party.
+Notificare de Reziliere: Oricare dintre părți poate rezilia acest Contract prin transmiterea unei notificări scrise cu [X] zile înainte celeilalte părți.
 
-Termination for Cause: The Client may terminate this Agreement immediately if the Consultant fails to perform their obligations.
+Reziliere pentru Cauză: Clientul poate rezilia imediat acest Contract dacă Consultantul nu își îndeplinește obligațiile.
 
-9. Liability
+9. Răspundere
 
-Limitation of Liability: The Consultant shall not be liable for any indirect, incidental, or consequential damages arising from the Services provided. The Consultant's liability under this Agreement shall be limited to the total amount of fees paid by the Client.
+Limitarea Răspunderii: Consultantul nu va fi răspunzător pentru niciun fel de daune indirecte, incidentale sau consecvente care rezultă din Serviciile furnizate. Răspunderea Consultantului în baza acestui Contract va fi limitată la suma totală a onorariilor plătite de Client.
 
-10. Governing Law
+10. Legea Aplicabilă
 
-This Agreement shall be governed by the laws of [Jurisdiction].
+Acest Contract va fi guvernat de legile din [Jurisdicție].
 
-11. Entire Agreement
+11. Întregul Contract
 
-This Agreement constitutes the entire understanding between the Consultant and the Client regarding the Services and supersedes all prior negotiations and understandings, whether written or oral.
+Acest Contract constituie înțelegerea completă între Consultant și Client cu privire la Servicii și înlocuiește toate negocierile și înțelegerile anterioare, fie scrise, fie orale.
 
-12. Signatures
+12. Semnături
 
-Consultant Signature: ______________________
+Semnătura Consultantului: ______________________
 
-Date: ______________________
+Data: ______________________
+
+Semnătura Clientului: ______________________
+
+Data: ______________________

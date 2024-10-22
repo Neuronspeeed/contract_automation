@@ -6,18 +6,18 @@ from role_options import get_role_options
 
 # Pydantic Models with llm_validator for enhanced validation
 class PIIData(OpenAISchema):
-    name: str = Field(..., description="Full name of the person")
-    address: str = Field(..., description="Residential address of the person")
+    name: str = Field(..., description="Numele complet al persoanei")
+    address: str = Field(..., description="Adresa de reședință a persoanei")
 
     class Config:
         arbitrary_types_allowed = True
         @classmethod
         def validate(cls, value):
-            return llm_validator("Ensure that the PII data is complete and accurate.", value)
+            return llm_validator("Asigură-te că datele PII sunt complete și exacte.", value)
 
 class ContractParty(OpenAISchema):
-    name: str = Field(..., description="Name of the party")
-    roles: List[str] = Field(..., description="Roles of the party in the contract")
+    name: str = Field(..., description="Numele părții")
+    roles: List[str] = Field(..., description="Rolurile părții în contract")
 
     @validator('roles', each_item=True)
     def validate_party_role(cls, v):
@@ -27,20 +27,20 @@ class ContractParty(OpenAISchema):
         arbitrary_types_allowed = True
         @classmethod
         def validate(cls, value):
-            return llm_validator("Ensure that the roles are valid and appropriate for this context. For an Airbnb contract, 'Host' is equivalent to 'Landlord', and 'Guest' is equivalent to 'Tenant'.", value)
+            return llm_validator("Asigură-te că rolurile sunt valabile și potrivite pentru acest context. Pentru un contract Airbnb, 'Gazdă' este echivalent cu 'Proprietar', iar 'Oaspete' este echivalent cu 'Chiriaș'.", value)
 
 class ContractParties(OpenAISchema):
-    parties: List[ContractParty] = Field(..., description="List of parties involved in the contract")
+    parties: List[ContractParty] = Field(..., description="Lista părților implicate în contract")
 
     class Config:
         arbitrary_types_allowed = True
         @classmethod
         def validate(cls, value):
-            return llm_validator("Ensure that the parties and roles are correctly assigned in the contract.", value)
+            return llm_validator("Asigură-te că părțile și rolurile sunt atribuite corect în contract.", value)
 
 class ContractDetails(OpenAISchema):
-    contract_type: str = Field(..., description="Type of contract (e.g., airbnb, buy-sell, it-consulting)")
-    additional_info: Dict[str, str] = Field(default_factory=dict, description="Additional information specific to the contract type")
+    contract_type: str = Field(..., description="Tipul contractului (de exemplu, airbnb, cumpărare-vânzare, consultanță IT)")
+    additional_info: Dict[str, str] = Field(default_factory=dict, description="Informații suplimentare specifice tipului contractului")
 
     @validator('contract_type')
     def validate_contract_type(cls, v):
@@ -50,39 +50,39 @@ class ContractDetails(OpenAISchema):
         arbitrary_types_allowed = True
         @classmethod
         def validate(cls, value):
-            return llm_validator("Ensure that the contract type and details are correct and match the expected standards.", value)
+            return llm_validator("Asigură-te că tipul contractului și detalile sunt corecte și corespund standardelor așteptate.", value)
 
 class Contract(OpenAISchema):
-    parties: List[ContractParty] = Field(..., description="List of parties involved in the contract")
-    address: str = Field(..., description="Address where the contract is applicable")
-    terms: str = Field(..., description="Terms of the contract")
+    parties: List[ContractParty] = Field(..., description="Lista părților implicate în contract")
+    address: str = Field(..., description="Adresa unde contractul este aplicabil")
+    terms: str = Field(..., description="Termenii contractului")
     additional_info: str
 
     class Config:
         arbitrary_types_allowed = True
         @classmethod
         def validate(cls, value):
-            return llm_validator("Ensure that the contract contains all required parties, details, and addresses.", value)
+            return llm_validator("Asigură-te că contractul conține toate părțile necesare, detalii și adrese.", value)
 
 # Define AgentAction before AgentState to avoid NameError
 class AgentAction(OpenAISchema):
-    action: str = Field(..., description="Action to be performed by the agent")
-    reason: str = Field(..., description="Detailed reason for choosing this action")
-    parameters: Dict[str, str] = Field(default_factory=dict, description="Parameters for the action")
+    action: str = Field(..., description="Acțiunea care urmează a fi efectuată de agent")
+    reason: str = Field(..., description="Motivul detaliat pentru alegerea acestei acțiuni")
+    parameters: Dict[str, str] = Field(default_factory=dict, description="Parametrii acțiunii")
 
     class Config:
         arbitrary_types_allowed = True
         @classmethod
         def validate(cls, value):
-            return llm_validator("Ensure that the agent action parameters are correct and valid for the given action.", value)
+            return llm_validator("Asigură-te că parametrii acțiunii sunt corecți și valabili pentru acțiunea dată.", value)
 
 class AgentState(BaseModel):
-    verified_pii_data: List[PIIData] = Field(default_factory=list, description="Verified PII data")
+    verified_pii_data: List[PIIData] = Field(default_factory=list, description="Date PII verificate")
     contract_details: Optional[ContractDetails] = None
     parties: Optional[ContractParties] = None
     contract: Optional[Contract] = None
-    data: Dict[str, Any] = Field(default_factory=dict, description="Dynamic state data")
-    history: List['AgentAction'] = Field(default_factory=list, description="History of agent actions")  # Forward reference used here
+    data: Dict[str, Any] = Field(default_factory=dict, description="Date dinamică")
+    history: List['AgentAction'] = Field(default_factory=list, description="Istoricul acțiunilor agentului")  # Forward reference used here
 
     def update(self, key: str, value: Any) -> None:
         """Update a specific key in the state data."""
