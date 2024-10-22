@@ -97,17 +97,20 @@ async def identify_contract_parties(state: AgentState) -> None:
         print(f"{', '.join(party.roles)}: {party.name}")
 
 # Construct the final contract based on the determined details and parties.
-async def construct_final_contract(state: AgentState, template_manager: TemplateManager) -> None:
+async def construct_final_contract(state: AgentState, template_manager: TemplateManager) -> str:
     """
     Construct the final contract based on the determined details and parties.
     
     Args:
         state (AgentState): The current state of the agent.
         template_manager (TemplateManager): The template manager instance.
+    
+    Returns:
+        str: The filepath where the contract is saved, or None if an error occurred.
     """
     if not state.contract_details or not state.parties:
         print("Detaliile contractului sau părțile nu au fost încă determinate. Vă rugăm să completați mai întâi acești pași.")
-        return
+        return None
     
     contract_type = state.contract_details.contract_type
     address = state.verified_pii_data[0].address if state.verified_pii_data else "Address not provided"
@@ -140,6 +143,7 @@ async def construct_final_contract(state: AgentState, template_manager: Template
         print(f"Contractul a fost salvat în: {filepath}")
     except Exception as e:
         print(f"Eroare la construirea contractului: {str(e)}")
+    return filepath
 
 # Main agent workflow for processing documents and constructing a contract.
 async def agent_workflow() -> None:
@@ -163,7 +167,7 @@ async def agent_workflow() -> None:
         await identify_contract_parties(state)
         
         # Stage 4: Construct the contract
-        await construct_final_contract(state, template_manager)
+        filepath = await construct_final_contract(state, template_manager)
         
         # Finalize contract output
         if state.contract:

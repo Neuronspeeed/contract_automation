@@ -1,0 +1,85 @@
+Contract de Vânzare-Cumpărare
+
+Acord de Vânzare
+
+Acest Acord de Vânzare ("Acordul") este încheiat la data de [data] între:
+
+1. Părți
+
+Vânzător: VASILESCU ELENA, cu domiciliul în Sos. Giurgiului nr.1, Videle, Jud. Teleorman.
+
+Cumpărător: ISPILANTE SENTIMENT BRUSLI, cu domiciliul în Sos. Giurgiului nr.1, Videle, Jud. Teleorman.
+
+2. Descrierea Proprietății
+
+Vânzătorul este de acord să vândă, iar Cumpărătorul este de acord să cumpere proprietatea situată la [Adresa Proprietății], care include:
+
+Tipul Proprietății: [Casă/Teren/Vehicul/Altele]
+
+Caracteristici: [Număr de Dormitoare, Băi, Suprafața Terenului, etc.]
+
+Alte Articole Incluse: [Lista oricăror articole incluse în vânzare, cum ar fi electrocasnice, mobilier, etc.]
+
+3. Prețul de Cumpărare
+
+Preț Total de Cumpărare: [Suma Totală în RON]
+
+Metoda de Plată: [ex. transfer bancar, cec certificat]
+
+Program de Plată:
+
+Avans: [Suma Avansului în RON], scadent la [Data Scadenței Avansului]
+
+Plata Finală: [Suma Plății Finale în RON], scadentă la [Data Scadenței Plății Finale]
+
+4. Condiții de Vânzare
+
+Inspecție: Cumpărătorul are dreptul de a inspecta proprietatea în termen de [X] zile de la semnarea acestui Acord. Orice probleme identificate trebuie abordate înainte de finalizarea vânzării.
+
+Finanțare: Acest Acord este condiționat de obținerea finanțării de către Cumpărător. Dacă finanțarea nu este aprobată în termen de [X] zile, acest Acord poate fi reziliat de oricare dintre părți.
+
+5. Încheierea Tranzacției
+
+Data Încheierii: Încheierea vânzării va avea loc la data de [Data Încheierii].
+
+Locația: Încheierea va avea loc la [Locația Încheierii, ex. birou notarial, oficiu de cadastru].
+
+6. Titlu și Proprietate
+
+Vânzătorul garantează că deține titlu clar și vandabil asupra proprietății și că nu există revendicări sau sarcini în așteptare.
+
+Vânzătorul este de acord să transfere proprietatea către Cumpărător la încheierea tranzacției, liberă de orice sarcini sau alte obligații.
+
+7. Posesie
+
+Cumpărătorul va intra în posesia proprietății la data de [Data Posesiei], sub rezerva condițiilor stipulate în acest Acord.
+
+8. Taxe și Comisioane
+
+Impozite pe Proprietate: [Specificați dacă Vânzătorul sau Cumpărătorul este responsabil pentru impozitele pe proprietate până la data vânzării].
+
+Taxe de Transfer: Orice taxe de transfer sau costuri de închidere vor fi plătite de [Vânzător/Cumpărător/Împărțite].
+
+9. Neîndeplinirea Obligațiilor
+
+Dacă Cumpărătorul nu își îndeplinește obligațiile conform acestui Acord, Vânzătorul poate reține avansul ca daune lichide.
+
+Dacă Vânzătorul nu își îndeplinește obligațiile, Cumpărătorul poate solicita executarea specifică sau rambursarea avansului.
+
+10. Legea Aplicabilă
+
+Acest Acord va fi guvernat de legile din [Jurisdicție].
+
+11. Întregul Acord
+
+Acest Acord constituie înțelegerea completă între Vânzător și Cumpărător cu privire la vânzare și înlocuiește toate negocierile și înțelegerile anterioare, fie scrise, fie orale.
+
+12. Semnături
+
+Semnătura Vânzătorului: ______________________
+
+Data: ______________________
+
+Semnătura Cumpărătorului: ______________________
+
+Data: ______________________

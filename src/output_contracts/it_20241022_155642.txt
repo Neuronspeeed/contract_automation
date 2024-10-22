@@ -1,0 +1,69 @@
+Contract de Consultanță
+
+Acest Contract de Consultanță ("Contract") este încheiat la data de [data] între:
+
+1. Părți
+
+Consultant: ISPILANTE SENTIMENT BRUSLI, cu domiciliul în Sos. Giurgiului nr.1, Videle, Jud.Teleorman.
+
+Client: VASILESCU ELENA, cu sediul principal în Sos. Giurgiului nr.1, Videle, Jud.Teleorman.
+
+2. Obiectul Contractului
+
+Consultantul este de acord să furnizeze următoarele servicii de consultanță IT ("Servicii") Clientului:
+
+Descrierea Serviciilor: [Furnizați o descriere detaliată a serviciilor IT care vor fi furnizate, de ex., configurare rețea, evaluare securitate cibernetică, dezvoltare software, etc.]
+
+Livrabile: [Lista livrabilelor specifice, dacă este cazul]
+
+3. Durata Contractului
+
+Data de Început: Acest Contract va începe la data de [Data de Început].
+
+Data de Încheiere: Contractul va continua până la [Data de Încheiere/Finalizarea Proiectului] sau până când va fi reziliat de oricare dintre părți în conformitate cu acest Contract.
+
+4. Compensație
+
+Tarif Orar: [Tarif în RON pe oră] sau Onorariu Fix: [Suma Totală în RON]
+
+Termeni de Plată: Facturile vor fi transmise [săptămânal/bilunar/lunar] și sunt plătibile în termen de [X] zile de la primire.
+
+5. Cheltuieli
+
+Rambursare: Clientul va rambursa Consultantului cheltuielile rezonabile efectuate în legătură cu Serviciile, cu condiția ca aceste cheltuieli să fi fost aprobate în prealabil de Client.
+
+6. Confidențialitate
+
+Informații Confidențiale: Consultantul este de acord să nu divulge nicio informație confidențială sau proprie obținută pe durata acestui Contract. Informațiile confidențiale includ, dar nu se limitează la, strategii de afaceri, detalii tehnice și date ale clienților.
+
+7. Proprietate Intelectuală
+
+Proprietate: Orice produs al muncii sau livrabile create de Consultant în cursul furnizării Serviciilor vor fi proprietatea exclusivă a Clientului. Consultantul cedează prin prezenta toate drepturile, titlul și interesul asupra acestor produse ale muncii Clientului.
+
+8. Reziliere
+
+Notificare de Reziliere: Oricare dintre părți poate rezilia acest Contract prin transmiterea unei notificări scrise cu [X] zile în prealabil celeilalte părți.
+
+Reziliere pentru Cauză: Clientul poate rezilia imediat acest Contract dacă Consultantul nu își îndeplinește obligațiile.
+
+9. Răspundere
+
+Limitarea Răspunderii: Consultantul nu va fi răspunzător pentru niciun fel de daune indirecte, incidentale sau consecvente care rezultă din Serviciile furnizate. Răspunderea Consultantului în baza acestui Contract va fi limitată la suma totală a onorariilor plătite de Client.
+
+10. Legea Aplicabilă
+
+Acest Contract va fi guvernat de legile din [Jurisdicție].
+
+11. Întregul Contract
+
+Acest Contract constituie înțelegerea completă între Consultant și Client cu privire la Servicii și înlocuiește toate negocierile și înțelegerile anterioare, fie scrise, fie orale.
+
+12. Semnături
+
+Semnătura Consultantului: ______________________
+
+Data: ______________________
+
+Semnătura Clientului: ______________________
+
+Data: ______________________
