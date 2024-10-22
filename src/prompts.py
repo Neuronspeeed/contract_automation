@@ -25,7 +25,8 @@ Instructions:
 2. Insert the verified parties' names directly into the contract without brackets.
 3. Use the verified address for the 'Address' field in the contract.
 4. Ensure all placeholders in the template are replaced with appropriate verified information.
-5. If any information is missing, leave the corresponding field blank or use a placeholder like [To be determined].
+5. Use the EXACT roles provided for each party (e.g., "Landlord" and "Tenant" for Airbnb contracts, not "Host" and "Guest").
+6. If any information is missing, leave the corresponding field blank or use a placeholder like [To be determined].
 """
 
 SYSTEM_PROMPT = """

@@ -111,12 +111,15 @@ async def construct_final_contract(state: AgentState, template_manager: Template
     address = state.verified_pii_data[0].address if state.verified_pii_data else "Address not provided"
     additional_info = state.contract_details.additional_info
     
+    template = template_manager.get_template(contract_type)
+    
     try:
         state.contract = await ai_functions.construct_contract(
             contract_type=contract_type,
             parties=state.parties,
             address=address,
-            additional_info=additional_info
+            additional_info=additional_info,
+            template=template
         )
         print("Contract constructed.")
     except Exception as e:

@@ -92,15 +92,18 @@ async def construct_contract(
     contract_type: str,
     parties: ContractParties,
     address: str,
-    additional_info: Dict[str, str]
+    additional_info: Dict[str, str],
+    template: str
 ) -> Contract:
-    """Construct a contract based on the given information."""
+    """Construct a contract based on the given information and template."""
+    parties_info = ", ".join([f"{party.name} ({', '.join(party.roles)})" for party in parties.parties])
+    role_reminder = "Remember to use the exact roles provided (e.g., 'Landlord' and 'Tenant' for Airbnb contracts, not 'Host' and 'Guest')."
     return await client.chat.completions.create(
         model="gpt-4o-mini",
         response_model=Contract,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"{CONTRACT_CONSTRUCTION_PROMPT}\n\nContract Type: {contract_type}\nParties: {parties}\nAddress: {address}\nAdditional Info: {additional_info}"}
+            {"role": "user", "content": f"{CONTRACT_CONSTRUCTION_PROMPT}\n\nContract Type: {contract_type}\nTemplate:\n{template}\nParties: {parties_info}\nAddress: {address}\nAdditional Info: {additional_info}\n\n{role_reminder}"}
         ]
     )
 
