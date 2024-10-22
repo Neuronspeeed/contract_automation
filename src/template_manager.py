@@ -7,11 +7,10 @@ class TemplateManager:
 
     def get_template(self, contract_type: str) -> str:
         """Retrieve the template based on the contract type."""
-        template_key = f"{contract_type}.txt"  
-        if template_key in self.templates:
-            return self.templates[template_key]["content"]
-        else:
-            raise FileNotFoundError(f"No template found for {contract_type}. Available templates: {', '.join(self.templates.keys())}")
+        for template_key in self.templates.keys():
+            if contract_type.lower() in template_key.lower():
+                return self.templates[template_key]["content"]
+        raise FileNotFoundError(f"No template found for {contract_type}. Available templates: {', '.join(self.templates.keys())}")
 
     def list_available_templates(self) -> List[str]:
         """List all available template names."""

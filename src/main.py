@@ -70,7 +70,8 @@ async def determine_contract_type(state: AgentState, templates: Dict[str, Dict])
     while True:
         choice = input(f"\nPlease choose a contract type (1-{len(available_templates)}): ")
         if choice.isdigit() and 1 <= int(choice) <= len(available_templates):
-            contract_type = available_templates[int(choice) - 1].split('.')[0]
+            selected_template = available_templates[int(choice) - 1]
+            contract_type = selected_template.split('.')[0]
             state.contract_details = ContractDetails(contract_type=contract_type, additional_info={})
             print(f"\nContract type selected: {state.contract_details.contract_type}")
             break
