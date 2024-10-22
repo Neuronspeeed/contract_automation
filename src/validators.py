@@ -1,5 +1,5 @@
 class ContractRoleValidator:
-    valid_roles = ["Proprietar", "Chiriaș", "Cumpărător", "Vânzător", "Consultant", "Client"]
+    valid_roles = ["Proprietar", "Chiriaș", "Cumpărător", "Vânzător", "Consultant", "Client", "Consultant IT"]
     valid_types = ["airbnb", "vanzare-cumparare", "it"]
 
     @classmethod
