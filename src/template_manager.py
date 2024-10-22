@@ -7,9 +7,12 @@ class TemplateManager:
 
     def get_template(self, contract_type: str) -> str:
         """Recuperează șablonul bazat pe tipul contractului."""
+        contract_type = contract_type.lower()
         for template_key in self.templates.keys():
-            if contract_type.lower() in template_key.lower():
+            if contract_type in template_key.lower():
                 return self.templates[template_key]["content"]
+        if contract_type == "vanzare-cumparare":
+            return self.templates["buy-sell.txt"]["content"]
         raise FileNotFoundError(f"Nu s-a găsit niciun șablon pentru {contract_type}. Șabloane disponibile: {', '.join(self.templates.keys())}")
 
     def list_available_templates(self) -> List[str]:

@@ -64,19 +64,19 @@ async def determine_contract_type(state: AgentState, templates: Dict[str, Dict])
     """
     available_templates = list(templates.keys())
     print("\nTipuri de contract disponibile:")
-    for i, template in enumerate(available_templates, 1):
-        print(f"{i}. {template.split('.')[0]}")
-    
+    print("1. airbnb")
+    print("2. vanzare-cumparare")
+    print("3. it")
+
     while True:
-        choice = input(f"\nVă rugăm să alegeți un tip de contract (1-{len(available_templates)}): ")
-        if choice.isdigit() and 1 <= int(choice) <= len(available_templates):
-            selected_template = available_templates[int(choice) - 1]
-            contract_type = selected_template.split('.')[0]
+        contract_type = input("Vă rugăm să alegeți un tip de contract (1-3): ")
+        if contract_type in ["1", "2", "3"]:
+            contract_type = {"1": "airbnb", "2": "vanzare-cumparare", "3": "it"}.get(contract_type)
             state.contract_details = ContractDetails(contract_type=contract_type, additional_info={})
             print(f"\nTip de contract selectat: {state.contract_details.contract_type}")
             break
         else:
-            print(f"Alegere invalidă. Vă rugăm să introduceți un număr între 1 și {len(available_templates)}.")
+            print(f"Alegere invalidă. Vă rugăm să introduceți un număr între 1 și 3.")
 
 # Identify the parties involved in the contract using AI.
 async def identify_contract_parties(state: AgentState) -> None:
