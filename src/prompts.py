@@ -1,4 +1,24 @@
-PII_EXTRACTION_PROMPT = "Extract personal identifiable information (PII) from documents."
+PII_EXTRACTION_PROMPT = """Extract personal identifiable information (PII) from documents.
+
+Examples:
+1. Input: "CARTE DE IDENTITATE, Nume/Nom/Last name POPESCU, Prenume/Prénom/First name IOAN, CNP 1234567890123"
+   Output: {"name": "POPESCU IOAN", "address": "Not provided"}
+
+2. Input: "IDENTITY CARD, Last name SMITH, First name JOHN, Address 123 Main St, New York, NY 10001"
+   Output: {"name": "SMITH JOHN", "address": "123 Main St, New York, NY 10001"}
+
+3. Input: "CARTE D'IDENTITE, Nom DUPONT, Prénom MARIE, Adresse 1 Rue de la Paix, Paris 75001"
+   Output: {"name": "DUPONT MARIE", "address": "1 Rue de la Paix, Paris 75001"}
+
+Now, extract the PII from the following document:
+
+{text}
+
+Remember:
+- Combine last name and first name into a single "name" field.
+- If an address is not provided, use "Not provided" for the address field.
+- Ignore any identification numbers or codes.
+"""
 
 PARTY_IDENTIFICATION_PROMPT = """
 For a {contract_type} contract, assign roles to the following parties:
