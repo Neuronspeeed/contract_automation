@@ -11,20 +11,20 @@ Consider the guidelines provided in the system prompt.
 For each person, provide their name and ask the human which role they should have in the contract.
 """
 
-CONTRACT_CONSTRUCTION_PROMPT = """Construct a {contract_type} contract using the following template and information:
+CONTRACT_CONSTRUCTION_PROMPT = """Construct a {contract_type} contract using the following template and verified information:
 
 Template:
 {template}
 
-Parties: {parties_info}
-Address: {address}
+Verified Parties: {parties_info}
+Verified Address: {address}
 Additional Details: {additional_info}
 
 Instructions:
 1. Use the provided template as a base for the contract.
-2. Insert the parties' names directly into the contract without brackets.
-3. Use the provided address for the 'Address' field in the contract.
-4. Ensure all placeholders in the template are replaced with appropriate information.
+2. Insert the verified parties' names directly into the contract without brackets.
+3. Use the verified address for the 'Address' field in the contract.
+4. Ensure all placeholders in the template are replaced with appropriate verified information.
 5. If any information is missing, leave the corresponding field blank or use a placeholder like [To be determined].
 """
 

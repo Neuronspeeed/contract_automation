@@ -45,7 +45,9 @@ async def process_pii_extraction(state: AgentState, documents: Dict[str, str]) -
             if is_correct == 'yes':
                 verified_pii_data.append(pii)
             else:
-                print("Skipping this entry.")
+                name = input("Please provide the correct name: ")
+                address = input("Please provide the correct address: ")
+                verified_pii_data.append(PIIData(name=name, address=address))
     
     state.verified_pii_data = verified_pii_data
     print(f"Verified PII data: {len(state.verified_pii_data)} entries")
