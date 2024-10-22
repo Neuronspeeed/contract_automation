@@ -2,103 +2,85 @@ Airbnb Rental Agreement Template (Improved Version)
 
 Rental Agreement
 
-This Rental Agreement ("Agreement") is made on [date] between:
+This Rental Agreement ("Agreement") is made on {date} between:
 
 1. Parties
 
-Host: [Host's Name], residing at [Host's Address].
+Host: {host_name}, residing at {host_address}.
 
-Guest: [Guest's Name], residing at [Guest's Address].
+Guest: {guest_name}, residing at {guest_address}.
 
 2. Property
 
-The Host agrees to rent the property located at [Property Address] to the Guest for the term specified below.
+The Host agrees to rent the property located at {property_address} to the Guest for the term specified below.
 
-Property Type: [Apartment/House/Condo/Other]
-
-Bedrooms: [Number]
-
-Bathrooms: [Number]
-
-Other Features: [Details]
+Property Type: Apartment
+Bedrooms: 2
+Bathrooms: 1
+Other Features: Fully furnished, Wi-Fi included, access to communal pool
 
 3. Rental Term
 
 The Guest shall have access to the property for the following period:
-
-Fixed Term: From [Start Date] at [Start Time] to [End Date] at [End Time].
-
-Month-to-Month Lease: Starting on [Start Date], ending upon notice of [X] days from either party.
+From {start_date} at 3:00 PM to {end_date} at 11:00 AM.
 
 4. Rental Amount
 
-Total Rent: [Total Rent in USD]
-
-Payment Method: [e.g., bank transfer, credit card]
-
-Payment Due Date: [Due Date]
+Total Rent: $1,000 USD
+Payment Method: Credit card through Airbnb platform
+Payment Due Date: At the time of booking
 
 5. Security Deposit
 
-Amount: [Security Deposit in USD]
-
-Refundable within [State's Requirement] after the lease ends, minus any deductions for damages.
+Amount: $500 USD
+Refundable within 7 days after the lease ends, minus any deductions for damages.
 
 6. House Rules
 
-Quiet Hours: [Yes/No]. If yes, from [Start Time] to [End Time].
-
-Smoking Policy: [Prohibited/Permitted only in specific areas].
-
-Pets: [Allowed/Not Allowed]. If allowed, specify any pet fees or restrictions.
+Quiet Hours: Yes, from 10:00 PM to 7:00 AM.
+Smoking Policy: Prohibited in all areas of the property.
+Pets: Not allowed.
 
 7. Utilities and Services
 
-The Host shall provide all utilities and services, except for: [List of exceptions].
+The Host shall provide all utilities and services, including electricity, water, gas, internet, and basic cable TV.
 
 8. Occupants
 
-The total number of occupants allowed on the property is [Number of Guests].
+The total number of occupants allowed on the property is 4.
 
 9. Parking
 
-Parking Availability: [Number of Spaces, Fee (if any), and Description of Parking Space].
+Parking Availability: One designated parking space included, free of charge.
 
 10. Fees
 
 The Guest agrees to pay the following fees upon execution of this Agreement:
-
-Cleaning Fee: [Amount in USD]
-
-Taxes: [Amount in USD]
-
-Other Fees: [Specify and list amounts]
+Cleaning Fee: $75 USD
+Taxes: As per local regulations, collected by Airbnb
 
 11. Subletting
 
-Subletting Rights: [Allowed/Not Allowed]. If allowed, subtenants [must/must not] be approved by the Host prior to occupancy.
+Subletting Rights: Not allowed.
 
 12. Inspection and Maintenance
 
-Move-in Inspection: A move-in inspection checklist [will/will not] be completed.
-
-Right to Inspect: The Host has the right to inspect the property with reasonable notice as required by law.
-
+Move-in Inspection: A move-in inspection checklist will be completed upon arrival.
+Right to Inspect: The Host has the right to inspect the property with 24 hours notice, except in emergencies.
 Maintenance: The Guest shall maintain the property in good condition. Any damages caused will be deducted from the Security Deposit.
 
 13. Liability
 
 The Guest shall be responsible for any damages to the property.
-
-The Host shall not be liable for injuries sustained by the Guest or their guests.
+The Host shall not be liable for injuries sustained by the Guest or their guests, except in cases of gross negligence.
 
 14. Termination
 
-Either party may terminate this Agreement upon [X] days' notice. All outstanding payments must be settled.
+Either party may terminate this Agreement upon 7 days' notice. All outstanding payments must be settled.
 
 15. Governing Law
 
-This Agreement shall be governed by the laws of [Jurisdiction].
+This Agreement shall be governed by the laws of the state where the property is located.
 
 16. Entire Agreement
 
@@ -107,9 +89,7 @@ This Agreement constitutes the entire understanding between the Host and the Gue
 17. Signatures
 
 Host Signature: ______________________
-
 Date: ______________________
 
 Guest Signature: ______________________
-
 Date: ______________________
