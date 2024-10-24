@@ -37,12 +37,15 @@ CONTRACT_CONSTRUCTION_PROMPT = """Construiește un contract de tip {contract_typ
 Părți verificate: {parties_info}
 Adresă verificată: {address}
 Detalii suplimentare: {additional_info}
+Descriere obiect: {object_description}
 
 Instrucțiuni:
 1. Folosește șablonul furnizat ca bază pentru contract
 2. Inserează numele părților verificate direct în contract fără paranteze
 3. Folosește adresa verificată pentru câmpul 'Adresă' din contract
-4. Pentru contractele de vânzare-cumpărare, include detaliile de plată (avans și plata finală) în secțiunea corespunzătoare
+4. Pentru contractele de vânzare-cumpărare:
+   - Include detaliile de plată (avans și plata finală) în secțiunea corespunzătoare
+   - Include descrierea detaliată a obiectului în secțiunea 'Obiectul Contractului'
 5. Asigură-te că toate placeholder-urile din șablon sunt înlocuite cu informații verificate corespunzătoare
 6. Folosește EXACT rolurile furnizate pentru fiecare parte
 7. Dacă lipsesc informații, lasă câmpul corespunzător gol sau folosește un placeholder precum [De determinat]

@@ -97,13 +97,15 @@ async def construct_contract(
 ) -> Contract:
     """Construiește un contract bazat pe informațiile date și șablon."""
     parties_info = ", ".join([f"{party.name} ({', '.join(party.roles)})" for party in parties.parties])
+    object_description = additional_info.get('object_description', '[De determinat]')
     role_reminder = "Amintiți-vă să folosiți exact rolurile furnizate (de ex., 'Proprietar' și 'Chiriaș' pentru contractele Airbnb, nu 'Gazdă' și 'Oaspete')."
+    
     return await client.chat.completions.create(
         model="gpt-4o-mini",
         response_model=Contract,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"{CONTRACT_CONSTRUCTION_PROMPT}\n\nTip Contract: {contract_type}\nȘablon:\n{template}\nPărți: {parties_info}\nAdresă: {address}\nInformații Adiționale: {additional_info}\n\n{role_reminder}"}
+            {"role": "user", "content": f"{CONTRACT_CONSTRUCTION_PROMPT}\n\nTip Contract: {contract_type}\nȘablon:\n{template}\nPărți: {parties_info}\nAdresă: {address}\nInformații Adiționale: {additional_info}\nDescriere Obiect: {object_description}\n\n{role_reminder}"}
         ]
     )
 

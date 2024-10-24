@@ -175,6 +175,25 @@ async def collect_payment_details(state: AgentState) -> None:
         "data_finala": data_finala
     })
 
+async def collect_object_details(state: AgentState) -> None:
+    """
+    Collect object details for vanzare-cumparare contracts.
+    
+    Args:
+        state (AgentState): The current state of the agent.
+    """
+    if state.contract_details.contract_type != "vanzare-cumparare":
+        return
+
+    print("\nVă rugăm să introduceți detaliile obiectului contractului:")
+    print("Descrieți obiectul vânzării (ex: apartament, mașină, teren):")
+    
+    object_description = input("Descriere detaliată: ")
+    
+    # Store in contract details
+    state.contract_details.object_description = object_description
+    state.contract_details.additional_info["object_description"] = object_description
+
 # Main agent workflow for processing documents and constructing a contract.
 async def agent_workflow() -> None:
     """
@@ -196,7 +215,10 @@ async def agent_workflow() -> None:
         # Stage 3: Identify parties
         await identify_contract_parties(state)
         
-        # New Stage 3.5: Collect payment details for vanzare-cumparare
+        # Stage 3.5: Collect object details for vanzare-cumparare
+        await collect_object_details(state)
+        
+        # Stage 3.6: Collect payment details for vanzare-cumparare
         await collect_payment_details(state)
         
         # Stage 4: Construct the contract

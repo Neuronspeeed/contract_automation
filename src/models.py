@@ -41,6 +41,7 @@ class ContractParties(OpenAISchema):
 class ContractDetails(OpenAISchema):
     contract_type: str = Field(..., description="Tipul contractului (de exemplu, airbnb, cumpărare-vânzare, consultanță IT)")
     additional_info: Dict[str, str] = Field(default_factory=dict, description="Informații suplimentare specifice tipului contractului")
+    object_description: Optional[str] = Field(None, description="Descrierea detaliată a obiectului contractului (pentru contracte de vânzare-cumpărare)")
 
     @validator('contract_type')
     def validate_contract_type(cls, v):
