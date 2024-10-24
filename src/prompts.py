@@ -1,20 +1,21 @@
-PII_EXTRACTION_PROMPT = """Extrage informațiile personale identificabile (PII) din documente.
+PII_EXTRACTION_PROMPT = """Extrage doar numele complet și adresa din documente. Ignoră toate numerele de identificare, coduri, și alte informații.
 
 Exemple:
-1. Input: "CARTE DE IDENTITATE, Nume POPESCU, Prenume IOAN, CNP 1234567890123"
+1. Input: "CARTE DE IDENTITATE, Nume POPESCU, Prenume IOAN, CNP 1234567890123, Seria XX nr 123456"
    Output: {"nume": "POPESCU IOAN", "adresa": "Nu este furnizată"}
 
-2. Input: "CARTE DE IDENTITATE, Nume IONESCU, Prenume MARIA, Adresa Str. Principală nr. 10, București"
+2. Input: "CARTE DE IDENTITATE, Nume IONESCU, Prenume MARIA, Adresa Str. Principală nr. 10, București, Cod 900B"
    Output: {"nume": "IONESCU MARIA", "adresa": "Str. Principală nr. 10, București"}
 
-Acum, extrage PII din următorul document:
+Acum, extrage doar numele și adresa din următorul document:
 
 {text}
 
-Ține minte:
-- Combină numele și prenumele într-un singur câmp "nume".
-- Dacă nu este furnizată o adresă, folosește "Nu este furnizată" pentru câmpul adresei.
-- Ignoră orice numere de identificare sau coduri.
+Reguli stricte:
+- Combină numele și prenumele într-un singur câmp "nume"
+- Include doar strada, numărul, sectorul/județul și orașul în adresă
+- Ignoră TOATE numerele de identificare, coduri poștale, serii de buletin sau alte coduri
+- Dacă nu este furnizată o adresă, folosește "Nu este furnizată"
 """
 
 PARTY_IDENTIFICATION_PROMPT = """
