@@ -1,78 +1,126 @@
 from instructor import OpenAISchema, llm_validator
-from pydantic import Field, BaseModel, validator
+from pydantic import Field, BaseModel
 from typing import List, Optional, Dict, Union, Any
 from validators import ContractRoleValidator
 from role_options import get_role_options
+from openai_client import client
 
 # Pydantic Models with llm_validator for enhanced validation
 class PIIData(OpenAISchema):
     name: str = Field(..., description="Numele complet al persoanei")
     address: str = Field(..., description="Adresa de reședință a persoanei")
 
-    class Config:
-        arbitrary_types_allowed = True
-        @classmethod
-        def validate(cls, value):
-            return llm_validator("Asigură-te că datele PII sunt complete și exacte.", value)
+    async def validate_pii(self) -> bool:
+        """Validate PII data with LLM."""
+        if len(self.name) <= 3 or len(self.address) <= 5:
+            return False
+        
+        result = await client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[{
+                "role": "user",
+                "content": f"Verifică dacă următoarele date sunt valide:\nNume: {self.name}\nAdresă: {self.address}"
+            }],
+            response_model=bool
+        )
+        return result
 
 class ContractParty(OpenAISchema):
     name: str = Field(..., description="Numele părții")
     roles: List[str] = Field(..., description="Rolurile părții în contract")
 
-    @validator('roles', each_item=True)
-    def validate_party_role(cls, v):
-        return ContractRoleValidator.validate_role(v)
-
-    class Config:
-        arbitrary_types_allowed = True
-        @classmethod
-        def validate(cls, value):
-            return llm_validator("Asigură-te că rolurile sunt valabile și potrivite pentru acest context. Pentru un contract Airbnb, 'Gazdă' este echivalent cu 'Proprietar', iar 'Oaspete' este echivalent cu 'Chiriaș'.", value)
+    async def validate_roles(self) -> bool:
+        """Validate roles with LLM."""
+        if not all(role in ContractRoleValidator.valid_roles for role in self.roles):
+            return False
+            
+        result = await client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[{
+                "role": "user",
+                "content": f"Verifică dacă rolurile {self.roles} sunt potrivite pentru persoana {self.name}"
+            }],
+            response_model=bool
+        )
+        return result
 
 class ContractParties(OpenAISchema):
     parties: List[ContractParty] = Field(..., description="Lista părților implicate în contract")
 
-    class Config:
-        arbitrary_types_allowed = True
-        @classmethod
-        def validate(cls, value):
-            return llm_validator("Asigură-te că părțile și rolurile sunt atribuite corect în contract.", value)
+    async def validate_parties(self) -> bool:
+        """Validate parties with LLM."""
+        if len(self.parties) < 2:
+            return False
+            
+        parties_info = ", ".join([f"{party.name} ({', '.join(party.roles)})" for party in self.parties])
+        result = await client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[{
+                "role": "user",
+                "content": f"Verifică dacă următoarele părți și rolurile lor sunt atribuite corect:\n{parties_info}"
+            }],
+            response_model=bool
+        )
+        return result
 
 class ContractDetails(OpenAISchema):
-    contract_type: str = Field(..., description="Tipul contractului (de exemplu, airbnb, cumpărare-vânzare, consultanță IT)")
-    additional_info: Dict[str, str] = Field(default_factory=dict, description="Informații suplimentare specifice tipului contractului")
-    object_description: Optional[str] = Field(None, description="Descrierea detaliată a obiectului contractului (pentru contracte de vânzare-cumpărare)")
+    contract_type: str = Field(..., description="Tipul contractului")
+    additional_info: Dict[str, str] = Field(default_factory=dict)
+    object_description: Optional[str] = Field(None)
 
-    @validator('contract_type')
-    def validate_contract_type(cls, v):
-        return ContractRoleValidator.validate_contract_type(v)
-
-    class Config:
-        arbitrary_types_allowed = True
-        @classmethod
-        def validate(cls, value):
-            return llm_validator("Asigură-te că tipul contractului și detalile sunt corecte și corespund standardelor așteptate.", value)
+    async def validate_contract_details(self) -> bool:
+        """Validate contract details with LLM."""
+        if not (self.contract_type.lower() in ContractRoleValidator.valid_types and 
+                (self.object_description is None or len(self.object_description) > 10)):
+            return False
+            
+        result = await client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[{
+                "role": "user",
+                "content": f"Verifică dacă detaliile contractului sunt valide:\nTip: {self.contract_type}\nDescriere: {self.object_description}"
+            }],
+            response_model=bool
+        )
+        return result
 
 class Contract(OpenAISchema):
     content: str = Field(..., description="Conținutul complet al contractului")
 
-    class Config:
-        arbitrary_types_allowed = True
-        @classmethod
-        def validate(cls, value):
-            return llm_validator("Asigură-te că contractul conține toate secțiunile necesare și urmează structura șablonului.", value)
+    async def validate_content(self) -> bool:
+        """Validate contract content with LLM."""
+        if len(self.content) <= 100:
+            return False
+            
+        result = await client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[{
+                "role": "user",
+                "content": f"Verifică dacă acest contract conține toate secțiunile necesare:\n{self.content[:500]}..."
+            }],
+            response_model=bool
+        )
+        return result
 
-# Define AgentAction before AgentState to avoid NameError
 class AgentAction(OpenAISchema):
     action: str = Field(..., description="Acțiunea care urmează a fi efectuată de agent")
     reason: str = Field(..., description="Motivul detaliat pentru alegerea acestei acțiuni")
-    parameters: Dict[str, str] = Field(default_factory=dict, description="Parametrii acțiunii")
+    parameters: Dict[str, str] = Field(default_factory=dict)
 
-    class Config:
-        arbitrary_types_allowed = True
-        @classmethod
-        def validate(cls, value):
-            return llm_validator("Asigură-te că parametrii acțiunii sunt corecți și valabili pentru acțiunea dată.", value)
+    async def validate_action(self) -> bool:
+        """Validate agent action with LLM."""
+        if len(self.action) == 0 or len(self.reason) <= 10:
+            return False
+            
+        result = await client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[{
+                "role": "user",
+                "content": f"Verifică dacă această acțiune este validă:\nAcțiune: {self.action}\nMotiv: {self.reason}"
+            }],
+            response_model=bool
+        )
+        return result
 
 class AgentState(BaseModel):
     verified_pii_data: List[PIIData] = Field(default_factory=list, description="Date PII verificate")
@@ -80,7 +128,7 @@ class AgentState(BaseModel):
     parties: Optional[ContractParties] = None
     contract: Optional[Contract] = None
     data: Dict[str, Any] = Field(default_factory=dict, description="Date dinamică")
-    history: List['AgentAction'] = Field(default_factory=list, description="Istoricul acțiunilor agentului")  # Forward reference used here
+    history: List[AgentAction] = Field(default_factory=list, description="Istoricul acțiunilor agentului")
 
     def update(self, key: str, value: Any) -> None:
         """Update a specific key in the state data."""

@@ -15,13 +15,7 @@ from config import API_KEY, TEMPLATES_FOLDER
 from prompts import PII_EXTRACTION_PROMPT, PARTY_IDENTIFICATION_PROMPT, CONTRACT_CONSTRUCTION_PROMPT, SYSTEM_PROMPT
 from validators import ContractRoleValidator
 from role_options import get_role_options
-import instructor
-from instructor import OpenAISchema, llm_validator
-import logging
-import traceback
-
-# Initialize OpenAI client with Instructor
-client = instructor.patch(AsyncOpenAI(api_key=API_KEY))
+from openai_client import client
 
 async def extract_pii(text: str) -> List[PIIData]:
     """Extrage informații personale identificabile din text."""
