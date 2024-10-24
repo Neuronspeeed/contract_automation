@@ -145,6 +145,36 @@ async def construct_final_contract(state: AgentState, template_manager: Template
         print(f"Eroare la construirea contractului: {str(e)}")
     return filepath
 
+# After identify_contract_parties function
+
+async def collect_payment_details(state: AgentState) -> None:
+    """
+    Collect payment details for vanzare-cumparare contracts.
+    
+    Args:
+        state (AgentState): The current state of the agent.
+    """
+    if state.contract_details.contract_type != "vanzare-cumparare":
+        return
+
+    print("\nVă rugăm să introduceți detaliile de plată:")
+    
+    # Collect advance payment details
+    avans = input("Suma avansului (RON): ")
+    data_avans = input("Data scadentă a avansului (ZZ/LL/AAAA): ")
+    
+    # Collect final payment details
+    plata_finala = input("Suma plății finale (RON): ")
+    data_finala = input("Data scadentă a plății finale (ZZ/LL/AAAA): ")
+    
+    # Store in contract details additional_info
+    state.contract_details.additional_info.update({
+        "avans": avans,
+        "data_avans": data_avans,
+        "plata_finala": plata_finala,
+        "data_finala": data_finala
+    })
+
 # Main agent workflow for processing documents and constructing a contract.
 async def agent_workflow() -> None:
     """
@@ -165,6 +195,9 @@ async def agent_workflow() -> None:
         
         # Stage 3: Identify parties
         await identify_contract_parties(state)
+        
+        # New Stage 3.5: Collect payment details for vanzare-cumparare
+        await collect_payment_details(state)
         
         # Stage 4: Construct the contract
         filepath = await construct_final_contract(state, template_manager)

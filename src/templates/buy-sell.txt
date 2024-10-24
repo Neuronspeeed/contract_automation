@@ -1,85 +1,49 @@
 Contract de Vânzare-Cumpărare
 
-Acord de Vânzare
-
-Acest Acord de Vânzare ("Acordul") este încheiat la data de [data] între:
+Încheiat astăzi, {data}, între:
 
 1. Părți
 
-Vânzător: [Numele Vânzătorului], cu domiciliul în [Adresa Vânzătorului].
+Vânzător: {nume_vanzator}, cu domiciliul în {adresa_vanzator},
+și
+Cumpărător: {nume_cumparator}, cu domiciliul în {adresa_cumparator}.
 
-Cumpărător: [Numele Cumpărătorului], cu domiciliul în [Adresa Cumpărătorului].
+2. Obiectul Contractului
 
-2. Descrierea Proprietății
+Vânzătorul vinde, iar Cumpărătorul cumpără următorul bun:
+[Descrierea detaliată a bunului]
 
-Vânzătorul este de acord să vândă, iar Cumpărătorul este de acord să cumpere proprietatea situată la [Adresa Proprietății], care include:
+3. Prețul și Modalitatea de Plată
 
-Tipul Proprietății: [Casă/Teren/Vehicul/Altele]
+Prețul total convenit este format din:
 
-Caracteristici: [Număr de Dormitoare, Băi, Suprafața Terenului, etc.]
+Avans: {avans} RON, scadent la {data_avans}
+Plata Finală: {plata_finala} RON, scadentă la {data_finala}
 
-Alte Articole Incluse: [Lista oricăror articole incluse în vânzare, cum ar fi electrocasnice, mobilier, etc.]
+4. Predarea Bunului
 
-3. Prețul de Cumpărare
+Predarea bunului se va face după achitarea integrală a prețului.
 
-Preț Total de Cumpărare: [Suma Totală în RON]
+5. Garanții
 
-Metoda de Plată: [ex. transfer bancar, cec certificat]
+Vânzătorul garantează că bunul este proprietatea sa, nu este grevat de sarcini și nu face obiectul niciunui litigiu.
 
-Program de Plată:
+6. Răspundere
 
-Avans: [Suma Avansului în RON], scadent la [Data Scadentă a Avansului]
+Vânzătorul răspunde pentru viciile ascunse ale bunului conform legii.
 
-Plata Finală: [Suma Plății Finale în RON], scadentă la [Data Scadentă a Plății Finale]
+7. Legea Aplicabilă
 
-4. Condiții de Vânzare
+Acest contract este guvernat de legile din România.
 
-Inspecție: Cumpărătorul are dreptul de a inspecta proprietatea în termen de [X] zile de la semnarea acestui Acord. Orice probleme identificate trebuie abordate înainte de finalizarea vânzării.
+8. Dispoziții Finale
 
-Finanțare: Acest Acord este condiționat de obținerea finanțării de către Cumpărător. Dacă finanțarea nu este aprobată în termen de [X] zile, acest Acord poate fi reziliat de oricare dintre părți.
+Orice modificare a prezentului contract se face prin act adițional semnat de ambele părți.
 
-5. Încheierea Tranzacției
+9. Semnături
 
-Data Încheierii: Încheierea vânzării va avea loc la data de [Data Încheierii].
-
-Locația: Încheierea va avea loc la [Locația Încheierii, ex. birou notarial, oficiu de cadastru].
-
-6. Titlu și Proprietate
-
-Vânzătorul garantează că deține titlu clar și vandabil asupra proprietății și că nu există revendicări sau sarcini în așteptare.
-
-Vânzătorul este de acord să transfere proprietatea către Cumpărător la încheierea tranzacției, liberă de orice sarcini sau alte obligații.
-
-7. Posesie
-
-Cumpărătorul va intra în posesia proprietății la data de [Data Posesiei], sub rezerva condițiilor stipulate în acest Acord.
-
-8. Taxe și Comisioane
-
-Impozite pe Proprietate: [Specificați dacă Vânzătorul sau Cumpărătorul este responsabil pentru impozitele pe proprietate până la data vânzării].
-
-Taxe de Transfer: Orice taxe de transfer sau costuri de închidere vor fi plătite de [Vânzător/Cumpărător/Împărțite].
-
-9. Neîndeplinirea Obligațiilor
-
-Dacă Cumpărătorul nu își îndeplinește obligațiile conform acestui Acord, Vânzătorul poate reține avansul ca daune lichide.
-
-Dacă Vânzătorul nu își îndeplinește obligațiile, Cumpărătorul poate solicita executarea specifică sau rambursarea avansului.
-
-10. Legea Aplicabilă
-
-Acest Acord va fi guvernat de legile din [Jurisdicție].
-
-11. Întregul Acord
-
-Acest Acord constituie înțelegerea completă între Vânzător și Cumpărător cu privire la vânzare și înlocuiește toate negocierile și înțelegerile anterioare, fie scrise, fie orale.
-
-12. Semnături
-
-Semnătura Vânzătorului: ______________________
-
+Vânzător: ______________________
 Data: ______________________
 
-Semnătura Cumpărătorului: ______________________
-
+Cumpărător: ______________________
 Data: ______________________

@@ -1,3 +1,22 @@
+from datetime import datetime
+
+class PaymentValidator:
+    @staticmethod
+    def validate_amount(amount: str) -> bool:
+        try:
+            float(amount.replace(',', '.'))
+            return True
+        except ValueError:
+            return False
+
+    @staticmethod
+    def validate_date(date_str: str) -> bool:
+        try:
+            datetime.strptime(date_str, '%d/%m/%Y')
+            return True
+        except ValueError:
+            return False
+
 class ContractRoleValidator:
     valid_roles = ["Proprietar", "Chiriaș", "Cumpărător", "Vânzător", "Consultant", "Client", "Consultant IT"]
     valid_types = ["airbnb", "vanzare-cumparare", "it"]
@@ -13,3 +32,13 @@ class ContractRoleValidator:
         if contract_type.lower() not in cls.valid_types:
             raise ValueError(f"Tip de contract invalid: {contract_type}. Trebuie să fie unul dintre {', '.join(cls.valid_types)}")
         return contract_type.lower()
+
+    @classmethod
+    def validate_payment_details(cls, payment_details: dict) -> bool:
+        validator = PaymentValidator()
+        return all([
+            validator.validate_amount(payment_details['avans']),
+            validator.validate_date(payment_details['data_avans']),
+            validator.validate_amount(payment_details['plata_finala']),
+            validator.validate_date(payment_details['data_finala'])
+        ])
