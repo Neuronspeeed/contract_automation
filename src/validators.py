@@ -60,7 +60,7 @@ class ContractRoleValidator:
         Args:
             contract_type: The contract type to validate
             
-        Returns:da
+        Returns:
             str: The validated contract type
             
         Raises:
