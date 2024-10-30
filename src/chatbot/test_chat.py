@@ -1,7 +1,7 @@
 import asyncio
 import os
 from dotenv import load_dotenv
-from assistant2 import ContractAssistant
+from src.chatbot.assistant import ContractAssistant
 
 async def test_chat():
     load_dotenv()

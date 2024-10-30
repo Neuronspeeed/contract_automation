@@ -1,166 +1,80 @@
-from openai import OpenAI
-from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
-import asyncio
+from typing import Optional
 import logging
-from datetime import datetime, timedelta
-from functools import wraps
-from typing import Callable, Any
-import os
-from dotenv import load_dotenv
-import logging
+from pathlib import Path
+from openai_client import create_client
+from models import ContractState, ContractResponse
 
-# Load environment variables
-load_dotenv()
-API_KEY = os.getenv('OPENAI_API_KEY')
-
-# Configure logging
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-# Rate limiting constants
-ONE_MINUTE = 60
-MAX_CALLS_PER_MINUTE = 50
-
-def rate_limit(func: Callable) -> Callable:
-    """Custom rate limiter decorator."""
-    @wraps(func)
-    async def wrapper(*args, **kwargs) -> Any:
-        self = args[0]
-        current_time = datetime.now()
-        if (current_time - self.last_request_time).seconds < ONE_MINUTE:
-            if self.request_count >= MAX_CALLS_PER_MINUTE:
-                wait_time = ONE_MINUTE - (current_time - self.last_request_time).seconds
-                await asyncio.sleep(wait_time)
-                self.request_count = 0
-                self.last_request_time = current_time
-        return await func(*args, **kwargs)
-    return wrapper
 
 class ContractAssistant:
     def __init__(self, api_key: str):
-        self.client = OpenAI(api_key=api_key)
-        self.thread = self.create_thread()
-        self.assistant = self.create_assistant()
-        self.request_count = 0
-        self.last_request_time = datetime.now()
+        self.client = create_client(api_key)
+        self.state = ContractState()
+        self.upload_dir = Path("uploads/id_images")
+        self.upload_dir.mkdir(parents=True, exist_ok=True)
 
-    @retry(
-        stop=stop_after_attempt(3),
-        wait=wait_exponential(multiplier=1, min=4, max=10),
-        retry=retry_if_exception_type((TimeoutError, ConnectionError))
-    )
-    def create_thread(self):
-        """Create a new thread with retry logic."""
+    async def process_workflow(self) -> None:
+        """Main workflow for contract processing."""
         try:
-            return self.client.beta.threads.create()
-        except Exception as e:
-            logger.error(f"Failed to create thread: {e}")
-            raise
-
-    @retry(
-        stop=stop_after_attempt(3),
-        wait=wait_exponential(multiplier=1, min=4, max=10)
-    )
-    def create_assistant(self):
-        """Create an assistant with retry logic."""
-        try:
-            return self.client.beta.assistants.create(
-                name="Contract Assistant",
-                instructions="""
-                Ești un asistent specializat în colectarea informațiilor despre contracte.
-                1. Determina tipul de contract:
-                    - airbnb
-                    - vanzare-cumparare
-                    - consultanta IT
-                2. Colectează cărțile de identitate și numerele de telefon
-                3. Fii concis și direct în răspunsurile tale
-                """,
-                model="gpt-4o-mini",
-            )
-        except Exception as e:
-            logger.error(f"Failed to create assistant: {e}")
-            raise
-
-    @rate_limit
-    async def process_message(self, message: str) -> str:
-        """Process user message with rate limiting and retry logic."""
-        try:
-            # Add message to thread
-            self.client.beta.threads.messages.create(
-                thread_id=self.thread.id,
-                role="user",
-                content=message
-            )
-
-            # Create run with timeout
-            run = self.client.beta.threads.runs.create(
-                thread_id=self.thread.id,
-                assistant_id=self.assistant.id
-            )
-
-            # Wait for completion with timeout
-            timeout = 30  
-            start_time = datetime.now()
+            # Stage 1: Get contract type
+            await self.process_contract_type()
             
-            while run.status not in ["completed", "failed"]:
-                if (datetime.now() - start_time).seconds > timeout:
-                    raise TimeoutError("Request timed out")
-                
-                run = self.client.beta.threads.runs.retrieve(
-                    thread_id=self.thread.id,
-                    run_id=run.id
-                )
-                
-                if run.status == "failed":
-                    raise Exception(f"Assistant failed: {run.last_error}")
-                    
-                await asyncio.sleep(0.5)
-
-            # Get latest message
-            messages = self.client.beta.threads.messages.list(
-                thread_id=self.thread.id,
-                order="desc",
-                limit=1
-            )
-
-            # Update rate limiting counters
-            self.request_count += 1
-            self.last_request_time = datetime.now()
-
-            return messages.data[0].content[0].text.value
-
-        except TimeoutError as e:
-            logger.error(f"Timeout error: {e}")
+            # Stage 2: Attach ID images
+            await self.attach_id_images()
+            
+            # Stage 3: Get phone information
+            await self.collect_phone_info()
+            
+            print("\nProcesul a fost finalizat cu succes!")
+            
+        except Exception as e:
+            logger.error(f"Error in workflow: {e}")
             raise
+
+    async def process_message(self, message: str) -> str:
+        """Process user message through OpenAI."""
+        try:
+            response = await self.client.chat.completions.create(
+                model="gpt-4-turbo-preview",
+                response_model=ContractResponse,
+                messages=[
+                    {"role": "system", "content": self._get_system_prompt()},
+                    {"role": "user", "content": message},
+                    {"role": "assistant", "content": self._get_context()}
+                ]
+            )
+            
+            await self._handle_response(response)
+            return response.message
+            
         except Exception as e:
             logger.error(f"Error processing message: {e}")
             raise
 
-    async def cleanup(self):
-        """Cleanup resources."""
-        try:
-            await self.client.beta.assistants.delete(assistant_id=self.assistant.id)
-            await self.client.beta.threads.delete(thread_id=self.thread.id)
-        except Exception as e:
-            logger.error(f"Cleanup error: {e}")
+    async def _handle_response(self, response: ContractResponse) -> None:
+        """Handle the AI response and update state accordingly."""
+        if response.next_action == "get_contract" and response.extracted_data:
+            self.state.contract_type = response.extracted_data
+            await self.process_contract_type()
+        elif response.next_action == "attach_id":
+            await self.attach_id_images()
+        elif response.next_action == "get_phone" and response.extracted_data:
+            if await self.state.validate_phone(response.extracted_data):
+                self.state.phone_numbers.append(response.extracted_data)
 
-class ContractInquiryEventHandler:
-    def on_text_created(self, text: str) -> None:
-        print(f"\nAssistant: {text}", end="", flush=True)
+    def _get_system_prompt(self) -> str:
+        return """
+        Ești un asistent specializat în colectarea informațiilor despre contracte.
+        
+        1. Determina tipul de contract:
+            - airbnb
+            - vanzare-cumparare
+            - consultanta IT
+        2. Colectează cărțile de identitate și numerele de telefon.
+        3. Fii concis și direct în răspunsurile tale"""
 
-    def on_text_delta(self, delta: str) -> None:
-        print(delta, end="", flush=True)
-
-    def on_tool_call_created(self, tool_call: str) -> None:
-        print(f"\nAssistant is using tool: {tool_call}\n", flush=True)
-
-    def on_tool_call_delta(self, delta: dict) -> None:
-        if delta.get('type') == 'text_analyzer':
-            print(delta.get('text_analyzer', {}).get('output', ''), flush=True)
-
-class ContractState:
-    def __init__(self):
-        self.contract_type: Optional[str] = None
-        self.parties: Dict[str, str] = {}
-        self.validated: bool = False
-
+    def _get_context(self) -> str:
+        return f"""Stare curentă:
+Contract: {self.state.contract_type or 'Nedeterminat'}
+ID-uri atașate: {len(self.state.id_images)}
+Telefoane colectate: {len(self.state.phone_numbers)}"""
