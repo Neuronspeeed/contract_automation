@@ -1,5 +1,5 @@
 from typing import Optional
-from src.chatbot.assistant import ContractAssistant
+from assistant import ContractAssistant
 import asyncio
 import os
 from dotenv import load_dotenv
