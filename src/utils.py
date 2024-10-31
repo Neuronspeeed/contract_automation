@@ -13,10 +13,7 @@ def verify_information(pii_list: List[PIIData]) -> List[PIIData]:
             pii.name = input("Please provide the correct name: ")
             pii.address = input("Please provide the correct address: ")
         verified_pii_list.append(pii)
-<<<<<<< Updated upstream
-    return verified_pii_list
-=======
     return verified_pii_list
 
 
->>>>>>> Stashed changes
+

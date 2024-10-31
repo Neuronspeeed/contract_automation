@@ -1,25 +1,3 @@
-<<<<<<< Updated upstream
-PII_EXTRACTION_PROMPT = """Extract personal identifiable information (PII) from documents.
-
-Examples:
-1. Input: "CARTE DE IDENTITATE, Nume/Nom/Last name POPESCU, Prenume/Prénom/First name IOAN, CNP 1234567890123"
-   Output: {"name": "POPESCU IOAN", "address": "Not provided"}
-
-2. Input: "IDENTITY CARD, Last name SMITH, First name JOHN, Address 123 Main St, New York, NY 10001"
-   Output: {"name": "SMITH JOHN", "address": "123 Main St, New York, NY 10001"}
-
-3. Input: "CARTE D'IDENTITE, Nom DUPONT, Prénom MARIE, Adresse 1 Rue de la Paix, Paris 75001"
-   Output: {"name": "DUPONT MARIE", "address": "1 Rue de la Paix, Paris 75001"}
-
-Now, extract the PII from the following document:
-
-{text}
-
-Remember:
-- Combine last name and first name into a single "name" field.
-- If an address is not provided, use "Not provided" for the address field.
-- Ignore any identification numbers or codes.
-=======
 PII_EXTRACTION_PROMPT = """
 Extract full name and complete address from documents, including building and apartment. Ignore all identification numbers, codes, and other information.
 
@@ -40,7 +18,6 @@ Strict rules:
 - Ignore ALL identification numbers, postal codes, ID series or other codes
 - Ignore nationality and other attributes that are not name
 - If no address is provided, use "Not provided"
->>>>>>> Stashed changes
 """
 
 PARTY_IDENTIFICATION_PROMPT = """
@@ -49,58 +26,16 @@ For a {contract_type} contract, assign roles to the following parties:
 {pii_text}
 
 Your task is to determine the roles of each person in the context of a {contract_type} contract.
-<<<<<<< Updated upstream
-Consider the guidelines provided in the system prompt.
-
-For each person, provide their name and ask the human which role they should have in the contract.
-"""
-
-CONTRACT_CONSTRUCTION_PROMPT = """Construct a {contract_type} contract using the following template and verified information:
-=======
 Consider the instructions provided in the system prompt.
 
 For each person, provide their name and ask the user what role they should have in the contract.
 """
 
 CONTRACT_CONSTRUCTION_PROMPT = """Build a {contract_type} contract using the following template and verified information:
->>>>>>> Stashed changes
 
 Template:
 {template}
 
-<<<<<<< Updated upstream
-Verified Parties: {parties_info}
-Verified Address: {address}
-Additional Details: {additional_info}
-
-Instructions:
-1. Use the provided template as a base for the contract.
-2. Insert the verified parties' names directly into the contract without brackets.
-3. Use the verified address for the 'Address' field in the contract.
-4. Ensure all placeholders in the template are replaced with appropriate verified information.
-5. Use the EXACT roles provided for each party (e.g., "Landlord" and "Tenant" for Airbnb contracts, not "Host" and "Guest").
-6. If any information is missing, leave the corresponding field blank or use a placeholder like [To be determined].
-"""
-
-SYSTEM_PROMPT = """
-You are an AI assistant specialized in contract automation. Your task is to guide the process of extracting information, identifying parties, and constructing contracts based on the available data and templates.
-
-Follow these guidelines:
-
-1. PII Extraction:
-   Extract names, addresses, and any other relevant personal details from the provided documents.
-
-2. Party Identification:
-   For each contract type, ask which role each person should have in the contract:
-   - Buy-sell contract: Identify the buyer and the seller.
-   - Airbnb contract: Identify the landlord (property owner) and the tenant (guest).
-   - IT contract: Identify the IT consultant and the client.
-
-3. Contract Construction:
-   - Insert party names directly into the contract without brackets.
-   - Use the provided addresses accurately in the appropriate fields.
-   - Ensure all placeholders in contract templates are replaced with the correct information.
-=======
 Verified parties: {parties_info}
 Verified address: {address}
 Additional details: {additional_info}
@@ -136,5 +71,4 @@ Follow these instructions:
    - Insert party names directly into contract without brackets.
    - Use provided addresses accurately in corresponding fields.
    - Ensure all placeholders from contract templates are replaced with correct information.
->>>>>>> Stashed changes
 """

@@ -15,20 +15,13 @@ from config import API_KEY, TEMPLATES_FOLDER
 from prompts import PII_EXTRACTION_PROMPT, PARTY_IDENTIFICATION_PROMPT, CONTRACT_CONSTRUCTION_PROMPT, SYSTEM_PROMPT
 from validators import ContractRoleValidator
 from role_options import get_role_options
-import instructor
-from instructor import OpenAISchema, llm_validator
-import logging
-import traceback
+from openai_client import client
 
-# Initialize OpenAI client with Instructor
-client = instructor.patch(AsyncOpenAI(api_key=API_KEY))
+
+
 
 async def extract_pii(text: str) -> List[PIIData]:
-<<<<<<< Updated upstream
-    """Extract personal identifiable information from text."""
-=======
     """Extract personally identifiable information from text."""
->>>>>>> Stashed changes
     return await client.chat.completions.create(
         model="gpt-4o-mini",
         response_model=List[PIIData],
@@ -39,17 +32,6 @@ async def extract_pii(text: str) -> List[PIIData]:
     )
 
 async def determine_contract_type(pii_data: List[PIIData], available_templates: List[str]) -> str:
-<<<<<<< Updated upstream
-    """Determine the contract type based on available templates."""
-    templates_text = "\n".join([f"{i+1}. {template}" for i, template in enumerate(available_templates)])
-    while True:
-        try:
-            selection = input(f"Please select the type of contract from the following available templates:\n{templates_text}\nSelect (1-{len(available_templates)}): ").strip()
-            selected_index = int(selection) - 1
-            if 0 <= selected_index < len(available_templates):
-                contract_type = available_templates[selected_index]
-                # Validate contract type using the central validator
-=======
     """Determine contract type based on available templates."""
     templates_text = "\n".join([f"{i+1}. {template}" for i, template in enumerate(available_templates)])
     while True:
@@ -58,7 +40,6 @@ async def determine_contract_type(pii_data: List[PIIData], available_templates: 
             selected_index = int(selection) - 1
             if 0 <= selected_index < len(available_templates):
                 contract_type = available_templates[selected_index]
->>>>>>> Stashed changes
                 return ContractRoleValidator.validate_contract_type(contract_type)
             else:
                 print("Invalid choice. Please select a valid number.")
@@ -66,11 +47,7 @@ async def determine_contract_type(pii_data: List[PIIData], available_templates: 
             print("Invalid input. Please enter a number.")
 
 async def identify_parties(pii_data: List[PIIData], contract_type: str) -> ContractParties:
-<<<<<<< Updated upstream
-    """Identify the parties and their roles based on extracted PII data and contract type."""
-=======
     """Identify parties and their roles based on extracted PII data and contract type."""
->>>>>>> Stashed changes
     parties = []
     available_roles = get_role_options(contract_type)
     available_roles_text = "\n".join([f"{i+1}. {role}" for i, role in enumerate(available_roles)])
@@ -80,18 +57,10 @@ async def identify_parties(pii_data: List[PIIData], contract_type: str) -> Contr
             print(f"\nPlease assign a role for the following party:")
             print(f"Name: {pii.name}, Address: {pii.address}")
             try:
-<<<<<<< Updated upstream
-                role_selection = input(f"Available Roles for {contract_type} contract:\n{available_roles_text}\nSelect the role for {pii.name} (1-{len(available_roles)}): ").strip()
-                selected_index = int(role_selection) - 1
-                if 0 <= selected_index < len(available_roles):
-                    selected_role = available_roles[selected_index]
-                    # Validate role using the central validator
-=======
                 role_selection = input(f"Available roles for contract type {contract_type}:\n{available_roles_text}\nSelect role for {pii.name} (1-{len(available_roles)}): ").strip()
                 selected_index = int(role_selection) - 1
                 if 0 <= selected_index < len(available_roles):
                     selected_role = available_roles[selected_index]
->>>>>>> Stashed changes
                     ContractRoleValidator.validate_role(selected_role)
                     parties.append(ContractParty(name=pii.name, roles=[selected_role]))
                     break
@@ -103,21 +72,13 @@ async def identify_parties(pii_data: List[PIIData], contract_type: str) -> Contr
     return ContractParties(parties=parties)
 
 async def determine_contract_details(parties: ContractParties, contract_type: str) -> ContractDetails:
-<<<<<<< Updated upstream
-    """Determine the contract details based on the contract type."""
-=======
     """Determine contract details based on contract type."""
->>>>>>> Stashed changes
     parties_info = ", ".join([f"{party.name} ({', '.join(party.roles)})" for party in parties.parties])
     return await client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-<<<<<<< Updated upstream
-            {"role": "user", "content": f"Determine the contract details for a {contract_type} contract with the following parties:\n\n{parties_info}"}
-=======
             {"role": "user", "content": f"Determine contract details for a contract of type {contract_type} with the following parties:\n\n{parties_info}"}
->>>>>>> Stashed changes
         ],
         response_model=ContractDetails
     )
@@ -129,41 +90,21 @@ async def construct_contract(
     additional_info: Dict[str, str],
     template: str
 ) -> Contract:
-<<<<<<< Updated upstream
-    """Construct a contract based on the given information and template."""
-    parties_info = ", ".join([f"{party.name} ({', '.join(party.roles)})" for party in parties.parties])
-    role_reminder = "Remember to use the exact roles provided (e.g., 'Landlord' and 'Tenant' for Airbnb contracts, not 'Host' and 'Guest')."
-=======
     """Construct a contract based on the provided information and template."""
     parties_info = ", ".join([f"{party.name} ({', '.join(party.roles)})" for party in parties.parties])
     object_description = additional_info.get('object_description', '[To be determined]')
     role_reminder = "Remember to use the exact roles provided (e.g., 'Owner' and 'Renter' for Airbnb contracts, not 'Landlord' and 'Tenant')."
     
->>>>>>> Stashed changes
     return await client.chat.completions.create(
         model="gpt-4o-mini",
         response_model=Contract,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-<<<<<<< Updated upstream
-            {"role": "user", "content": f"{CONTRACT_CONSTRUCTION_PROMPT}\n\nContract Type: {contract_type}\nTemplate:\n{template}\nParties: {parties_info}\nAddress: {address}\nAdditional Info: {additional_info}\n\n{role_reminder}"}
-=======
             {"role": "user", "content": f"{CONTRACT_CONSTRUCTION_PROMPT}\n\nContract Type: {contract_type}\nTemplate:\n{template}\nParties: {parties_info}\nAddress: {address}\nAdditional Information: {additional_info}\nObject Description: {object_description}\n\n{role_reminder}"}
->>>>>>> Stashed changes
         ]
     )
 
 async def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) -> AgentAction:
-<<<<<<< Updated upstream
-    """Determine the next action for the agent to take."""
-    state_summary = f"""
-    Current state:
-    - Verified PII data: {len(state.verified_pii_data)} entries
-    - Contract type: {state.contract_details.contract_type if state.contract_details else 'Not determined'}
-    - Parties identified: {', '.join([f"{', '.join(party.roles)}: {party.name}" for party in state.parties.parties]) if state.parties else 'No'}
-    - Contract constructed: {'Yes' if state.contract else 'No'}
-    Available templates: {', '.join(templates.keys())}
-=======
     """Determine the next action for the agent."""
     state_summary = f"""
     Current State:
@@ -172,7 +113,6 @@ async def agent_action(state: AgentState, templates: Dict[str, Dict[str, str]]) 
     - Parties Identified: {', '.join([f"{', '.join(party.roles)}: {party.name}" for party in state.parties.parties]) if state.parties else 'None'}
     - Contract Constructed: {'Yes' if state.contract else 'No'}
     Available Templates: {', '.join(templates.keys())}
->>>>>>> Stashed changes
     """
     
     return await client.chat.completions.create(

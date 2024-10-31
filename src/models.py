@@ -1,35 +1,13 @@
 from instructor import OpenAISchema, llm_validator
-from pydantic import Field, BaseModel, validator
+from pydantic import Field, BaseModel
 from typing import List, Optional, Dict, Union, Any
 from validators import ContractRoleValidator
 from role_options import get_role_options
+from openai_client import client
+
 
 # Pydantic Models with llm_validator for enhanced validation
 class PIIData(OpenAISchema):
-<<<<<<< Updated upstream
-    name: str = Field(..., description="Full name of the person")
-    address: str = Field(..., description="Residential address of the person")
-
-    class Config:
-        arbitrary_types_allowed = True
-        @classmethod
-        def validate(cls, value):
-            return llm_validator("Ensure that the PII data is complete and accurate.", value)
-
-class ContractParty(OpenAISchema):
-    name: str = Field(..., description="Name of the party")
-    roles: List[str] = Field(..., description="Roles of the party in the contract")
-
-    @validator('roles', each_item=True)
-    def validate_party_role(cls, v):
-        return ContractRoleValidator.validate_role(v)
-
-    class Config:
-        arbitrary_types_allowed = True
-        @classmethod
-        def validate(cls, value):
-            return llm_validator("Ensure that the roles are valid and appropriate for this context. For an Airbnb contract, 'Host' is equivalent to 'Landlord', and 'Guest' is equivalent to 'Tenant'.", value)
-=======
     name: str = Field(..., description="Person's full name")
     address: str = Field(..., description="Person's residential address")
 
@@ -66,44 +44,10 @@ class ContractParty(OpenAISchema):
             response_model=bool
         )
         return result
->>>>>>> Stashed changes
 
 class ContractParties(OpenAISchema):
     parties: List[ContractParty] = Field(..., description="List of parties involved in the contract")
 
-<<<<<<< Updated upstream
-    class Config:
-        arbitrary_types_allowed = True
-        @classmethod
-        def validate(cls, value):
-            return llm_validator("Ensure that the parties and roles are correctly assigned in the contract.", value)
-
-class ContractDetails(OpenAISchema):
-    contract_type: str = Field(..., description="Type of contract (e.g., airbnb, buy-sell, it-consulting)")
-    additional_info: Dict[str, str] = Field(default_factory=dict, description="Additional information specific to the contract type")
-
-    @validator('contract_type')
-    def validate_contract_type(cls, v):
-        return ContractRoleValidator.validate_contract_type(v)
-
-    class Config:
-        arbitrary_types_allowed = True
-        @classmethod
-        def validate(cls, value):
-            return llm_validator("Ensure that the contract type and details are correct and match the expected standards.", value)
-
-class Contract(OpenAISchema):
-    parties: List[ContractParty] = Field(..., description="List of parties involved in the contract")
-    address: str = Field(..., description="Address where the contract is applicable")
-    terms: str = Field(..., description="Terms of the contract")
-    additional_info: str
-
-    class Config:
-        arbitrary_types_allowed = True
-        @classmethod
-        def validate(cls, value):
-            return llm_validator("Ensure that the contract contains all required parties, details, and addresses.", value)
-=======
     async def validate_parties(self) -> bool:
         """Validate parties with LLM."""
         if len(self.parties) < 2:
@@ -158,21 +102,11 @@ class Contract(OpenAISchema):
             response_model=bool
         )
         return result
->>>>>>> Stashed changes
 
 # Define AgentAction before AgentState to avoid NameError
 class AgentAction(OpenAISchema):
     action: str = Field(..., description="Action to be performed by the agent")
     reason: str = Field(..., description="Detailed reason for choosing this action")
-<<<<<<< Updated upstream
-    parameters: Dict[str, str] = Field(default_factory=dict, description="Parameters for the action")
-
-    class Config:
-        arbitrary_types_allowed = True
-        @classmethod
-        def validate(cls, value):
-            return llm_validator("Ensure that the agent action parameters are correct and valid for the given action.", value)
-=======
     parameters: Dict[str, str] = Field(default_factory=dict)
 
     async def validate_action(self) -> bool:
@@ -189,20 +123,14 @@ class AgentAction(OpenAISchema):
             response_model=bool
         )
         return result
->>>>>>> Stashed changes
 
 class AgentState(BaseModel):
     verified_pii_data: List[PIIData] = Field(default_factory=list, description="Verified PII data")
     contract_details: Optional[ContractDetails] = None
     parties: Optional[ContractParties] = None
     contract: Optional[Contract] = None
-<<<<<<< Updated upstream
-    data: Dict[str, Any] = Field(default_factory=dict, description="Dynamic state data")
-    history: List['AgentAction'] = Field(default_factory=list, description="History of agent actions")  # Forward reference used here
-=======
     data: Dict[str, Any] = Field(default_factory=dict, description="Dynamic data")
     history: List[AgentAction] = Field(default_factory=list, description="Agent's action history")
->>>>>>> Stashed changes
 
     def update(self, key: str, value: Any) -> None:
         """Update a specific key in the state data."""

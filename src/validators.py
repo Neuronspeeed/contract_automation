@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-class ContractRoleValidator:
-    valid_roles = ["Landlord", "Tenant", "Buyer", "Seller", "Consultant", "Client"]
-=======
 from datetime import datetime
 from typing import Dict, Any, Optional
 from pydantic import BaseModel, ValidationError, field_validator
@@ -36,7 +32,6 @@ class PaymentValidator(BaseModel):
 class ContractRoleValidator:
     """Validator for contract roles and types"""
     valid_roles = ["Owner", "Tenant", "Buyer", "Seller", "Consultant", "Client", "IT Consultant"]
->>>>>>> Stashed changes
     valid_types = ["airbnb", "buy-sell", "it"]
 
     @classmethod
@@ -50,8 +45,6 @@ class ContractRoleValidator:
         if contract_type.lower() not in cls.valid_types:
             raise ValueError(f"Invalid contract type: {contract_type}. Must be one of {', '.join(cls.valid_types)}")
         return contract_type.lower()
-<<<<<<< Updated upstream
-=======
 
     @classmethod
     def validate_payment_details(cls, payment_details: Dict[str, Any]) -> bool:
@@ -117,4 +110,3 @@ class ContractValidator(BaseModel):
     def validate_type(cls, v: str) -> str:
         """Validates contract type"""
         return ContractRoleValidator.validate_contract_type(v)
->>>>>>> Stashed changes
