@@ -52,8 +52,6 @@ async def process_pii_extraction(state: AgentState, documents: Dict[str, str]) -
     state.verified_pii_data = verified_pii_data
     print(f"Verified PII data: {len(state.verified_pii_data)} entries")
 
-
-# Determine the contract type based on PII data and available templates.
 async def determine_contract_type(state: AgentState, templates: Dict[str, Dict]) -> None:
     """
     Allow the user to choose the contract type based on available templates.
@@ -64,6 +62,7 @@ async def determine_contract_type(state: AgentState, templates: Dict[str, Dict])
     """
     available_templates = list(templates.keys())
     print("\nAvailable contract types:")
+<<<<<<< Updated upstream
     for i, template in enumerate(available_templates, 1):
         print(f"{i}. {template.split('.')[0]}")
     
@@ -77,8 +76,22 @@ async def determine_contract_type(state: AgentState, templates: Dict[str, Dict])
             break
         else:
             print(f"Invalid choice. Please enter a number between 1 and {len(available_templates)}.")
+=======
+    print("1. airbnb")
+    print("2. buy-sell")
+    print("3. it")
 
-# Identify the parties involved in the contract using AI.
+    while True:
+        contract_type = input("Please choose a contract type (1-3): ")
+        if contract_type in ["1", "2", "3"]:
+            contract_type = {"1": "airbnb", "2": "buy-sell", "3": "it"}.get(contract_type)
+            state.contract_details = ContractDetails(contract_type=contract_type, additional_info={})
+            print(f"\nSelected contract type: {state.contract_details.contract_type}")
+            break
+        else:
+            print(f"Invalid choice. Please enter a number between 1 and 3.")
+>>>>>>> Stashed changes
+
 async def identify_contract_parties(state: AgentState) -> None:
     """
     Identify the parties involved in the contract using AI.
@@ -87,6 +100,7 @@ async def identify_contract_parties(state: AgentState) -> None:
         state (AgentState): The current state of the agent.
     """
     if not state.contract_details or not state.contract_details.contract_type:
+<<<<<<< Updated upstream
         print("Contract type not determined yet. Please determine contract type first.")
         return
     
@@ -97,6 +111,17 @@ async def identify_contract_parties(state: AgentState) -> None:
 
 # Construct the final contract based on the determined details and parties.
 async def construct_final_contract(state: AgentState, template_manager: TemplateManager) -> None:
+=======
+        print("Contract type has not been determined yet. Please determine the contract type first.")
+        return
+    
+    state.parties = await ai_functions.identify_parties(state.verified_pii_data, state.contract_details.contract_type)
+    print("\nIdentified parties:")
+    for party in state.parties.parties:
+        print(f"{', '.join(party.roles)}: {party.name}")
+
+async def construct_final_contract(state: AgentState, template_manager: TemplateManager) -> str:
+>>>>>>> Stashed changes
     """
     Construct the final contract based on the determined details and parties.
     
@@ -105,8 +130,13 @@ async def construct_final_contract(state: AgentState, template_manager: Template
         template_manager (TemplateManager): The template manager instance.
     """
     if not state.contract_details or not state.parties:
+<<<<<<< Updated upstream
         print("Contract details or parties not determined yet. Please complete these steps first.")
         return
+=======
+        print("Contract details or parties have not been determined yet. Please complete these steps first.")
+        return None
+>>>>>>> Stashed changes
     
     contract_type = state.contract_details.contract_type
     address = state.verified_pii_data[0].address if state.verified_pii_data else "Address not provided"
@@ -123,10 +153,72 @@ async def construct_final_contract(state: AgentState, template_manager: Template
             template=template
         )
         print("Contract constructed.")
+<<<<<<< Updated upstream
     except Exception as e:
         print(f"Error constructing contract: {str(e)}")
+=======
+        
+        # Create output folder if it doesn't exist
+        os.makedirs(OUTPUT_FOLDER, exist_ok=True)
+        
+        # Generate a unique filename
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{contract_type}_{timestamp}.txt"
+        filepath = os.path.join(OUTPUT_FOLDER, filename)
+        
+        # Save the contract to a file
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(state.contract.content)
+        
+        print(f"Contract has been saved to: {filepath}")
+    except Exception as e:
+        print(f"Error constructing contract: {str(e)}")
+    return filepath
 
-# Main agent workflow for processing documents and constructing a contract.
+async def collect_payment_details(state: AgentState) -> None:
+    """
+    Collect payment details for buy-sell contracts.
+    
+    Args:
+        state (AgentState): The current state of the agent.
+    """
+    if state.contract_details.contract_type != "buy-sell":
+        return
+
+    print("\nPlease enter payment details:")
+    
+    advance = input("Advance payment amount (RON): ")
+    advance_date = input("Advance payment due date (DD/MM/YYYY): ")
+    
+    final_payment = input("Final payment amount (RON): ")
+    final_date = input("Final payment due date (DD/MM/YYYY): ")
+    
+    state.contract_details.additional_info.update({
+        "advance": advance,
+        "advance_date": advance_date,
+        "final_payment": final_payment,
+        "final_date": final_date
+    })
+
+async def collect_object_details(state: AgentState) -> None:
+    """
+    Collect object details for buy-sell contracts.
+    
+    Args:
+        state (AgentState): The current state of the agent.
+    """
+    if state.contract_details.contract_type != "buy-sell":
+        return
+
+    print("\nPlease enter contract object details:")
+    print("Describe the object of sale (e.g., apartment, car, land):")
+    
+    object_description = input("Detailed description: ")
+    
+    state.contract_details.object_description = object_description
+    state.contract_details.additional_info["object_description"] = object_description
+>>>>>>> Stashed changes
+
 async def agent_workflow() -> None:
     """
     Main agent workflow for processing documents and constructing a contract.
@@ -138,24 +230,30 @@ async def agent_workflow() -> None:
         print("Documents processed.")
         state = AgentState()
         
-        # Stage 1: Document Processing and PII Extraction
         await process_pii_extraction(state, documents)
-        
-        # Stage 2: Determine contract type
         await determine_contract_type(state, templates)
-        
-        # Stage 3: Identify parties
         await identify_contract_parties(state)
+<<<<<<< Updated upstream
         
         # Stage 4: Construct the contract
         await construct_final_contract(state, template_manager)
+=======
+        await collect_object_details(state)
+        await collect_payment_details(state)
+        filepath = await construct_final_contract(state, template_manager)
+>>>>>>> Stashed changes
         
-        # Finalize contract output
         if state.contract:
+<<<<<<< Updated upstream
             print("\nFinal Contract:")
             print(f"Parties: {', '.join([f'{', '.join(party.roles)}: {party.name}' for party in state.contract.parties])}")
             print(f"Address: {state.contract.address}")
             print(f"Terms: {state.contract.terms}")
+=======
+            print("\nFinal contract:")
+            print("Contract has been generated and saved successfully.")
+            print(f"You can find the complete contract in the file: {filepath}")
+>>>>>>> Stashed changes
         else:
             print("No contract was created.")
     except asyncio.CancelledError:
@@ -164,7 +262,11 @@ async def agent_workflow() -> None:
         print(f"An error occurred: {str(e)}")
         logging.error(f"Error in agent_workflow: {str(e)}", exc_info=True)
     finally:
+<<<<<<< Updated upstream
         print("\nContract automation process completed.")
+=======
+        print("\nContract automation process has been completed.")
+>>>>>>> Stashed changes
         input("Press Enter to exit...")
 
 if __name__ == "__main__":

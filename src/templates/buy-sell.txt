@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 Buy-Sell Agreement Template
 
 Agreement of Sale
@@ -82,4 +83,54 @@ Date: ______________________
 
 Buyer Signature: ______________________
 
+=======
+Sales Contract
+
+Concluded today, {date}, between:
+
+1. Parties
+
+Seller: {seller_name}, residing at {seller_address},
+and
+Buyer: {buyer_name}, residing at {buyer_address}.
+
+2. Contract Object
+
+The Seller sells, and the Buyer purchases the following good:
+[Detailed description of the good]
+
+3. Price and Payment Method
+
+The agreed total price consists of:
+
+Advance Payment: {advance} RON, due on {advance_date}
+Final Payment: {final_payment} RON, due on {final_date}
+
+4. Good Delivery
+
+The good will be delivered after full payment.
+
+5. Warranties
+
+The Seller guarantees that the good is their property, is not encumbered, and is not subject to any litigation.
+
+6. Liability
+
+The Seller is liable for hidden defects according to law.
+
+7. Applicable Law
+
+This contract is governed by Romanian law.
+
+8. Final Provisions
+
+Any modification to this contract must be made through an addendum signed by both parties.
+
+9. Signatures
+
+Seller: ______________________
+Date: ______________________
+
+Buyer: ______________________
+>>>>>>> Stashed changes
 Date: ______________________

@@ -1,14 +1,90 @@
-# python generated files
-__pycache__/
-*.py[oc]
-build/
-dist/
-wheels/
+# Environment variables
+.env
+.env.*
 *.egg-info
 
+<<<<<<< Updated upstream
 # venv
 .venv
 .env
 langgraph.json
 agent_workflow.log
 agent_workflow.log.txt
+=======
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Logs
+*.log
+agent_workflow.log
+
+# Project specific
+uploads/
+data/
+output_contracts/
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OpenAI API
+.openai.key
+*.key
+credentials.json
+
+# Contract templates with sensitive data
+templates/private/
+
+# Test coverage
+.coverage
+htmlcov/
+
+# Test and coverage
+.pytest_cache/
+.tox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Documentation
+docs/_build/
+site/
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+>>>>>>> Stashed changes

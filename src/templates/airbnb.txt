@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 Airbnb Rental Agreement Template (Improved Version)
 
 Rental Agreement
@@ -93,3 +94,98 @@ Date: ______________________
 
 Guest Signature: ______________________
 Date: ______________________
+=======
+Airbnb Rental Agreement
+
+Agreement made on {date} between:
+
+1. Parties
+
+Host: {host_name}, residing at {host_address}.
+
+Guest: {guest_name}, residing at {guest_address}.
+
+2. Property
+
+The Host agrees to rent the property located at {property_address} to the Guest for the period specified below.
+
+Property Type: Apartment
+Bedrooms: 2
+Bathrooms: 1
+Other Amenities: Fully furnished, Wi-Fi included, access to common pool
+
+3. Rental Period
+
+The Guest will have access to the property for the following period:
+From {start_date} 3:00 PM until {end_date} 11:00 AM.
+
+4. Rental Amount
+
+Total Rent: 5,000 RON
+Payment Method: Credit card through Airbnb platform
+Payment Due Date: At time of booking
+
+5. Security Deposit
+
+Amount: 2,500 RON
+Refundable within 7 days after the end of the rental period, minus any deductions for damages.
+
+6. House Rules
+
+Quiet Hours: Yes, from 10:00 PM to 7:00 AM.
+Smoking Policy: Prohibited in all areas of the property.
+Pets: Not allowed.
+
+7. Utilities and Services
+
+The Host will provide all utilities and services, including electricity, water, gas, internet, and basic cable TV.
+
+8. Occupants
+
+Total number of occupants allowed in the property is 4.
+
+9. Parking
+
+Parking Availability: One designated parking space included, free of charge.
+
+10. Fees
+
+The Guest agrees to pay the following fees upon execution of this Agreement:
+Cleaning Fee: 375 RON
+Taxes: As per local regulations, collected by Airbnb
+
+11. Subletting
+
+Subletting Rights: Not permitted.
+
+12. Inspection and Maintenance
+
+Arrival Inspection: A check-in checklist will be completed at time of arrival.
+Right of Inspection: Host has the right to inspect the property with 24 hours notice, except in emergencies.
+Maintenance: Guest will maintain the property in good condition. Any damages will be deducted from Security Deposit.
+
+13. Liability
+
+Guest will be responsible for any damages to the property.
+Host will not be liable for injuries sustained by Guest or Guest's visitors except in cases of gross negligence.
+
+14. Termination
+
+Either party may terminate this Agreement with 7 days notice. All outstanding payments must be settled.
+
+15. Governing Law
+
+This Agreement shall be governed by the laws of the state where the property is located.
+
+16. Entire Agreement
+
+This Agreement constitutes the entire understanding between Host and Guest regarding the rental and supersedes all prior agreements, whether written or oral.
+
+17. Signatures
+
+Host Signature: ______________________
+Date: ______________________
+
+Guest Signature: ______________________
+Date: ______________________
+>>>>>>> Stashed changes

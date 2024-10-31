@@ -4,6 +4,7 @@ This Consulting Agreement ("Agreement") is made on [date] between:
 
 1. Parties
 
+<<<<<<< Updated upstream
 Consultant: [Consultant's Name], residing at [Consultant's Address].
 
 Client: [Client's Name], with a principal office at [Client's Address].
@@ -19,11 +20,29 @@ Deliverables: [List of specific deliverables, if applicable]
 3. Term of Agreement
 
 Start Date: This Agreement shall commence on [Start Date].
+=======
+Consultant: [Consultant Name], residing at [Consultant Address].
+
+Client: [Client Name], with principal place of business at [Client Address].
+
+2. Agreement Object
+
+The Consultant agrees to provide the following IT consulting services ("Services") to the Client:
+
+Service Description: [Provide detailed description of IT services to be provided, e.g., network configuration, cybersecurity assessment, software development, etc.]
+
+Deliverables: [List specific deliverables, if applicable]
+
+3. Agreement Duration
+
+Start Date: This Agreement will begin on [Start Date].
+>>>>>>> Stashed changes
 
 End Date: The Agreement will continue until [End Date/Project Completion] or until terminated by either party in accordance with this Agreement.
 
 4. Compensation
 
+<<<<<<< Updated upstream
 Hourly Rate: [Rate in USD per hour] or Fixed Fee: [Total Amount in USD]
 
 Payment Terms: Invoices shall be submitted [weekly/bi-weekly/monthly] and are payable within [X] days of receipt.
@@ -45,6 +64,29 @@ Ownership: Any work product or deliverables created by the Consultant in the cou
 Termination Notice: Either party may terminate this Agreement by giving [X] days' written notice to the other party.
 
 Termination for Cause: The Client may terminate this Agreement immediately if the Consultant fails to perform their obligations.
+=======
+Hourly Rate: [Rate in RON per hour] or Fixed Fee: [Total Amount in RON]
+
+Payment Terms: Invoices will be submitted [weekly/biweekly/monthly] and are payable within [X] days of receipt.
+
+5. Expenses
+
+Reimbursement: The Client will reimburse the Consultant for reasonable expenses incurred in connection with the Services, provided such expenses have been pre-approved by the Client.
+
+6. Confidentiality
+
+Confidential Information: The Consultant agrees not to disclose any confidential or proprietary information obtained during this Agreement. Confidential information includes, but is not limited to, business strategies, technical details, and customer data.
+
+7. Intellectual Property
+
+Ownership: Any work product or deliverables created by the Consultant in the course of providing the Services shall be the exclusive property of the Client. The Consultant hereby assigns all rights, title, and interest in such work products to the Client.
+
+8. Termination
+
+Termination Notice: Either party may terminate this Agreement by providing [X] days written notice to the other party.
+
+Termination for Cause: The Client may immediately terminate this Agreement if the Consultant fails to perform.
+>>>>>>> Stashed changes
 
 9. Liability
 
@@ -56,10 +98,21 @@ This Agreement shall be governed by the laws of [Jurisdiction].
 
 11. Entire Agreement
 
+<<<<<<< Updated upstream
 This Agreement constitutes the entire understanding between the Consultant and the Client regarding the Services and supersedes all prior negotiations and understandings, whether written or oral.
+=======
+This Agreement constitutes the complete understanding between the Consultant and Client regarding the Services and supersedes all prior negotiations and understandings, whether written or oral.
+>>>>>>> Stashed changes
 
 12. Signatures
 
 Consultant Signature: ______________________
 
 Date: ______________________
+<<<<<<< Updated upstream
+=======
+
+Client Signature: ______________________
+
+Date: ______________________
+>>>>>>> Stashed changes

@@ -6,10 +6,20 @@ class TemplateManager:
         self.templates = templates
 
     def get_template(self, contract_type: str) -> str:
+<<<<<<< Updated upstream
         """Retrieve the template based on the contract type."""
+=======
+        """Get template based on contract type."""
+        contract_type = contract_type.lower()
+>>>>>>> Stashed changes
         for template_key in self.templates.keys():
             if contract_type.lower() in template_key.lower():
                 return self.templates[template_key]["content"]
+<<<<<<< Updated upstream
+=======
+        if contract_type == "buy-sell":
+            return self.templates["buy-sell.txt"]["content"]
+>>>>>>> Stashed changes
         raise FileNotFoundError(f"No template found for {contract_type}. Available templates: {', '.join(self.templates.keys())}")
 
     def list_available_templates(self) -> List[str]:
@@ -24,4 +34,8 @@ def load_templates(folder_path: str) -> Dict[str, Dict[str, str]]:
                 content = file.read()
                 templates[filename] = {"content": content}
     print(f"Loaded templates: {templates.keys()}")  
+<<<<<<< Updated upstream
     return templates
+=======
+    return templates
+>>>>>>> Stashed changes
