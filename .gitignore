@@ -3,14 +3,6 @@
 .env.*
 *.egg-info
 
-<<<<<<< Updated upstream
-# venv
-.venv
-.env
-langgraph.json
-agent_workflow.log
-agent_workflow.log.txt
-=======
 # Python
 __pycache__/
 *.py[cod]
@@ -87,4 +79,3 @@ pids/
 *.pid
 *.seed
 *.pid.lock
->>>>>>> Stashed changes
