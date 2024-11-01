@@ -108,3 +108,29 @@ Please read CONTRIBUTING.md for details on our code of conduct and the process f
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+### 3. Legal Search Agent
+Uses OpenAI's GPT-4 with Tavily API integration for legal research and GDPR compliance analysis:
+
+"""
+rye run python src/legalsearch/agent_legal_search.py
+"""
+
+Features:
+- Legal research automation with Tavily API
+- GDPR compliance analysis
+- ReAct prompting for structured reasoning
+- Automated insights generation
+- Built-in rate limiting and error handling
+
+Required Environment Variables:
+"""
+OPENAI_API_KEY=your_api_key_here
+TAVILY_API_KEY=your_tavily_key_here
+"""
+
+Example Usage:
+1. Set up API keys in .env
+2. Run the script
+3. Enter your legal research query
+4. Get research results and GDPR compliance insights

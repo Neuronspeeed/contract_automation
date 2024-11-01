@@ -8,6 +8,10 @@ API_KEY = os.getenv('OPENAI_API_KEY')
 if not API_KEY:
     raise ValueError("OpenAI API key not found in environment variables")
 
+TAVILY_API_KEY = os.getenv('TAVILY_API_KEY')
+if not TAVILY_API_KEY:
+    raise ValueError("Tavily API key not found in environment variables")
+
 DATA_FOLDER = 'data'
 
 TEMPLATES_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
